@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Al-Hashar Tourism & Travels, demo site
 
-## Getting Started
+A bilingual (English / Arabic, true RTL) marketing and booking site built as an unsolicited demo for Al-Hashar Tourism & Travels LLC, Muscat. Every price, itinerary, phone number and branch on the site was taken from the company's public pages in September 2026; sources sit next to the data in `src/data`.
 
-First, run the development server:
+## Pages
+
+| Route | What it does |
+|---|---|
+| `/en`, `/ar` | Cinematic home: layered hero with the boarding-pass request panel, pinned story stack of six real tours, Umrah band, services bento (the one cream chapter), trust chapter, logo moment |
+| `/tours` | Catalog of the 15 published Oman products with search, type and region filters, sorting |
+| `/tours/[slug]` | Tour detail: itinerary, inclusions, hotel tiers, gallery, sticky price card |
+| `/book/[slug]` | Request-to-book wizard: date, travellers and hotel tier, details, review, WhatsApp / email handoff. Items without a published price redirect to the detail page |
+| `/bookings/lookup` | Find a request by reference (stored in the browser for the demo) |
+| `/umrah`, `/services/[slug]`, `/contact` | Umrah packages, six service pages, branches and contact channels, each with an inquiry form |
+
+## Stack
+
+Next.js 16 (App Router), Tailwind CSS v4, next-intl 4 (`/en` default, `/ar`), GSAP ScrollTrigger + Lenis for the pinned and scrubbed chapters, Motion for in-view reveals, Phosphor icons, `next/image` with locally optimised WebP photography.
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev        # next dev --webpack
+npm run build      # next build --webpack
+npm run typecheck  # tsc --noEmit
+npm run lint
+npm run photos     # fetch source photos (Unsplash / Pexels) and regenerate public/images + src/data/images.generated.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`--webpack` is required on the development machine because a Windows Application Control policy blocks Next's native SWC binary; Turbopack needs it. Vercel builds are unaffected.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content and data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/data/tours.ts` holds the catalog shape, prices and images; `tours.en.ts` / `tours.ar.ts` hold the copy per language.
+- `src/data/company.ts` holds verified contact details, branches and socials with source URLs.
+- `messages/en.json` and `messages/ar.json` hold all interface copy.
+- `public/images/CREDITS.md` credits every photographer.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Linked to the Vercel project `al-hashar-travels`. Deploy with `vercel deploy` (preview) or `vercel --prod`.
