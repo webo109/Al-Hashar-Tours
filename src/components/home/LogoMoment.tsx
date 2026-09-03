@@ -5,13 +5,17 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLocale, useTranslations } from "next-intl";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { Link } from "@/i18n/navigation";
 import { LogoMark } from "@/components/brand/Logo";
+import { buttonClass } from "@/components/ui/Button";
 import { contours } from "./contours";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function LogoMoment() {
   const t = useTranslations("LogoMoment");
+  const stories = useTranslations("Stories");
   const locale = useLocale();
   const root = useRef<HTMLElement>(null);
 
@@ -68,6 +72,12 @@ export function LogoMoment() {
           >
             {t("taglineSecondary")}
           </p>
+          <div data-line className="mt-10">
+            <Link href="/tours" className={buttonClass("primary")}>
+              {stories("allTours")}
+              <ArrowRight size={16} weight="bold" className="rtl:rotate-180" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
