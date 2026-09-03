@@ -132,6 +132,7 @@
     "count": "{count, plural, =0 {No journeys match} =1 {1 journey} other {# journeys}}",
     "empty": "Nothing matches those filters. Clear them, or ask a consultant for a custom itinerary.",
     "view": "View journey",
+    "featured": "Featured",
     "kinds": {
       "all": "All",
       "package": "Multi-day package",

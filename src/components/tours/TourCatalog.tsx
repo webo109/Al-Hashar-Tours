@@ -40,7 +40,14 @@ export function TourCatalog({ items }: { items: Item[] }) {
       return hay.includes(q);
     });
     const sorted = [...list];
-    if (sort === "popular") sorted.sort((a, b) => b.tour.popularity - a.tour.popularity);
+    // Popular: featured journeys first in their featured order, then by popularity.
+    if (sort === "popular")
+      sorted.sort((a, b) => {
+        const fa = a.tour.featured ?? Infinity;
+        const fb = b.tour.featured ?? Infinity;
+        if (fa !== fb) return fa - fb;
+        return b.tour.popularity - a.tour.popularity;
+      });
     if (sort === "priceAsc")
       sorted.sort((a, b) => (a.tour.priceFrom ?? Infinity) - (b.tour.priceFrom ?? Infinity));
     if (sort === "priceDesc")
@@ -127,15 +134,13 @@ export function TourCatalog({ items }: { items: Item[] }) {
       {results.length === 0 ? (
         <p className="rounded-panel border border-cream/10 px-6 py-14 text-center text-cream/75">{t("empty")}</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
-          {results.map(({ tour, content }, i) => {
-            const wide = i < 2;
-            return (
-              <li key={tour.slug} className={wide ? "md:col-span-2 lg:col-span-3" : "lg:col-span-2"}>
-                <TourCard tour={tour} content={content} variant={wide ? "wide" : "tall"} />
-              </li>
-            );
-          })}
+        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {results.map(({ tour, content }, i) => (
+            <li key={tour.slug} className="flex">
+              {/* Only the top two cards are featured; every card shares one size. */}
+              <TourCard tour={tour} content={content} featured={i < 2 && tour.featured !== null} />
+            </li>
+          ))}
         </ul>
       )}
     </div>

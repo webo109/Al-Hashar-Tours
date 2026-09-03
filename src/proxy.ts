@@ -4,5 +4,6 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+  // Internal tools (test-report, admin-preview) live outside the locale segment.
+  matcher: "/((?!api|trpc|_next|_vercel|test-report|admin-preview|.*\\..*).*)",
 };

@@ -12,6 +12,8 @@ A bilingual (English / Arabic, true RTL) marketing and booking site built as an 
 | `/book/[slug]` | Request-to-book wizard: date, travellers and hotel tier, details, review, WhatsApp / email handoff. Items without a published price redirect to the detail page |
 | `/bookings/lookup` | Find a request by reference (stored in the browser for the demo) |
 | `/umrah`, `/services/[slug]`, `/contact` | Umrah packages, six service pages, branches and contact channels, each with an inquiry form |
+| `/test-report` | Internal QA report: smoke-test results, feature inventory, fixes, roadmap, decisions, pricing, meeting prep. English only, noindex |
+| `/admin-preview` | Operator dashboard preview with sample data: triage, week, requests, business, customer-story drawer. English only, noindex |
 
 ## Stack
 
@@ -25,6 +27,7 @@ npm run build      # next build --webpack
 npm run typecheck  # tsc --noEmit
 npm run lint
 npm run photos     # fetch source photos (Unsplash / Pexels) and regenerate public/images + src/data/images.generated.ts
+npm run smoke -- http://localhost:3001   # fetch every route and write src/data/smoke.generated.json for /test-report
 ```
 
 `--webpack` is required on the development machine because a Windows Application Control policy blocks Next's native SWC binary; Turbopack needs it. Vercel builds are unaffected.

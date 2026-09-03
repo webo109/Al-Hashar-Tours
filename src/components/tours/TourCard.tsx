@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Clock, MapPin, Users, CarSimple } from "@phosphor-icons/react/dist/ssr";
+import { Clock, MapPin, Users, CarSimple, Star } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { images } from "@/data/images.generated";
 import type { TourBase, TourContent } from "@/data/tours";
@@ -20,20 +20,29 @@ export function TourCard({
   tour,
   content,
   variant = "tall",
+  featured = false,
 }: {
   tour: TourBase;
   content: TourContent;
   variant?: "tall" | "wide";
+  featured?: boolean;
 }) {
   const t = useTranslations("Tours");
   const regions = useTranslations("Regions");
   const asset = images[tour.image];
   const wide = variant === "wide";
 
+  // Featured journeys carry a gold edge light and a soft glow so they read
+  // as the lit windows of the catalog; the rest stay in the dark.
+  const spotlight = featured;
+  const surface = spotlight
+    ? "border-gold/60 bg-[radial-gradient(120%_90%_at_0%_0%,rgba(232,158,0,0.16),transparent_58%),linear-gradient(180deg,#182338,#111a2c)] shadow-[0_0_0_1px_rgba(232,158,0,0.35),0_26px_70px_-30px_rgba(232,158,0,0.45)] hover:shadow-[0_0_0_1px_rgba(232,158,0,0.7),0_30px_80px_-28px_rgba(232,158,0,0.6)]"
+    : "border-cream/10 bg-midnight-800 hover:border-gold/45 hover:shadow-lift";
+
   return (
     <Link
       href={`/tours/${tour.slug}`}
-      className={`group relative flex overflow-hidden rounded-panel border border-cream/10 bg-midnight-800 transition-[transform,border-color,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:border-gold/45 hover:shadow-lift ${
+      className={`group relative flex w-full overflow-hidden rounded-panel border transition-[transform,border-color,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 ${surface} ${
         wide ? "flex-col md:flex-row" : "flex-col"
       }`}
     >
@@ -49,12 +58,26 @@ export function TourCard({
           sizes={wide ? "(min-width: 1024px) 600px, 100vw" : "(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"}
           placeholder="blur"
           blurDataURL={asset.blurDataURL}
-          className="object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
+          className={`object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04] ${
+            spotlight ? "brightness-[1.06]" : ""
+          }`}
         />
+        {spotlight ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(232,158,0,0.18),transparent_45%)] rtl:bg-[linear-gradient(270deg,rgba(232,158,0,0.18),transparent_45%)]"
+            aria-hidden
+          />
+        ) : null}
       </div>
 
       <div className={`flex flex-1 flex-col p-6 ${wide ? "md:p-8" : ""}`}>
         <div className="flex flex-wrap gap-1.5">
+          {featured ? (
+            <span className="inline-flex items-center gap-1 rounded-pill bg-gold px-2.5 py-1 text-[12px] font-medium text-ink">
+              <Star size={12} weight="fill" />
+              {t("featured")}
+            </span>
+          ) : null}
           <span className="rounded-pill border border-gold/40 px-2.5 py-1 text-[12px] text-gold-300">
             {t(`kinds.${tour.kind}`)}
           </span>
