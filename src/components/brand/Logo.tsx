@@ -59,7 +59,7 @@ export function Logo({ size = "nav", className = "" }: LogoProps) {
         <LogoMark className="h-8 w-8 shrink-0" />
         {isAr ? (
           <span className="font-arabic text-[17px] font-semibold leading-none text-cream">
-            الهاشر
+            الحشار
           </span>
         ) : (
           <span className="font-latin text-[15px] font-semibold uppercase leading-none tracking-[0.2em] text-cream">
@@ -85,7 +85,7 @@ export function Logo({ size = "nav", className = "" }: LogoProps) {
           lang="ar"
           dir="rtl"
         >
-          الهاشر للسياحة والسفر
+          الحشار للسياحة والسفر
         </span>
         <span
           className={`font-latin mt-2 font-semibold uppercase leading-none text-cream ${

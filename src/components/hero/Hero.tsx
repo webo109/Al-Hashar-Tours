@@ -160,7 +160,7 @@ export function Hero() {
 
       <div
         data-parallax="foreground"
-        className="pointer-events-none absolute inset-x-[-4%] bottom-[-3%] z-20 h-[40%]"
+        className="pointer-events-none absolute inset-x-[-4%] bottom-[-3%] z-20 h-[24%] lg:h-[40%]"
         aria-hidden
       >
         <div data-enter="plane" className="absolute inset-0" style={mask("transparent 0%, black 28%, black 100%")}>
