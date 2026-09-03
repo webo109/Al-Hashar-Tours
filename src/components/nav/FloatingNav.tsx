@@ -102,6 +102,7 @@ export function FloatingNav() {
               href={pathname}
               locale={otherLocale}
               lang={otherLocale}
+              scroll={false}
               aria-label={t("switchLocaleLabel")}
               className={`rounded-pill border border-cream/15 px-3.5 py-2 text-[14px] text-cream transition-colors duration-300 hover:border-gold hover:text-gold-300 ${
                 otherLocale === "ar" ? "font-arabic" : "font-latin"
