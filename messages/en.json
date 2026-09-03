@@ -1,0 +1,508 @@
+{
+  "Meta": {
+    "title": "Al-Hashar Tourism & Travels | Your Journey, Our Promise",
+    "description": "Flights, hotels, Oman tours, holidays, Umrah, visas, insurance and cargo from a Muscat travel agency trusted since 1984.",
+    "toursTitle": "Oman Tours | Al-Hashar Tourism & Travels",
+    "toursDescription": "Multi-day Oman packages, day tours and sea trips from Muscat, with published prices in Omani rials.",
+    "tourTitle": "{name} | Al-Hashar Tourism & Travels",
+    "bookTitle": "Request to book {name} | Al-Hashar",
+    "lookupTitle": "Find your request | Al-Hashar",
+    "umrahTitle": "Umrah packages from Muscat | Al-Hashar",
+    "contactTitle": "Contact and branches | Al-Hashar",
+    "serviceTitle": "{name} | Al-Hashar Tourism & Travels"
+  },
+  "Nav": {
+    "flights": "Flights",
+    "hotels": "Hotels",
+    "omanTours": "Oman Tours",
+    "holidays": "Holidays",
+    "umrah": "Umrah",
+    "contact": "Contact",
+    "switchLocale": "العربية",
+    "switchLocaleLabel": "Switch to Arabic",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "home": "Al-Hashar Tourism & Travels, home"
+  },
+  "Hero": {
+    "headline": "Your Journey, Our Promise.",
+    "subtext": "Explore Oman and the world with care, confidence and comfort.",
+    "primaryCta": "Plan Your Journey",
+    "secondaryCta": "Explore Oman",
+    "imageAlt": "Muscat coastline at dusk with the Al Hajar mountains behind"
+  },
+  "Booking": {
+    "passTitle": "Boarding pass",
+    "passSubtitle": "Tell us where. We handle the rest.",
+    "tabs": {
+      "flights": "Flights",
+      "hotels": "Hotels",
+      "omanTours": "Oman Tours",
+      "holidays": "Holidays"
+    },
+    "fields": {
+      "from": "From",
+      "to": "To",
+      "depart": "Depart",
+      "return": "Return",
+      "travellers": "Travellers",
+      "city": "City",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
+      "guests": "Guests",
+      "destination": "Destination",
+      "date": "Date",
+      "region": "Region",
+      "month": "Month",
+      "optional": "optional"
+    },
+    "placeholders": {
+      "from": "Muscat (MCT)",
+      "to": "Where to?",
+      "city": "Dubai, Istanbul, London",
+      "destination": "Jabal Akhdar, Wahiba Sands",
+      "region": "Maldives, Europe, Far East"
+    },
+    "travellersCount": "{count, plural, =1 {1 traveller} other {# travellers}}",
+    "guestsCount": "{count, plural, =1 {1 guest} other {# guests}}",
+    "submit": "Send Request",
+    "printed": {
+      "title": "Your request",
+      "reference": "Reference",
+      "route": "Route",
+      "dates": "Dates",
+      "travellers": "Travellers",
+      "stay": "Stay",
+      "journey": "Journey",
+      "whatsapp": "Open in WhatsApp",
+      "email": "Email instead",
+      "edit": "Edit request",
+      "dateRange": "{start} to {end}",
+      "note": "A consultant replies during branch hours, usually within the hour."
+    },
+    "errors": {
+      "required": "Please fill in this field.",
+      "returnBeforeDepart": "The return date must be after departure.",
+      "checkOutBeforeCheckIn": "Check-out must be after check-in."
+    },
+    "message": {
+      "intro": "Hello Al-Hashar, I would like a quote.",
+      "flights": "Flights: {from} to {to}, departing {depart}{returnPart}, {travellers}.",
+      "returnPart": ", returning {return}",
+      "hotels": "Hotel: {city}, {checkIn} to {checkOut}, {guests}.",
+      "omanTours": "Oman tour: {destination}, around {date}, {travellers}.",
+      "holidays": "Holiday: {region}, in {month}, {travellers}.",
+      "reference": "Reference {reference}"
+    }
+  },
+  "Stories": {
+    "eyebrow": "Oman tours",
+    "headline": "Six journeys, one country.",
+    "cta": "Discover This Journey",
+    "allTours": "See all Oman tours",
+    "from": "From",
+    "location": "Region",
+    "duration": "Duration"
+  },
+  "Price": {
+    "from": "From",
+    "perPerson": "per person",
+    "perAdult": "per adult",
+    "perCar": "per car, up to {count}",
+    "twinShare": "per adult, twin share",
+    "onRequest": "Price on request",
+    "approx": "about {usd} USD",
+    "approxFull": "about {usd} USD, {eur} EUR or {gbp} GBP",
+    "tiers": {
+      "3star": "3 star hotels",
+      "4star": "4 star hotels",
+      "4starPlus": "4 star plus hotels"
+    }
+  },
+  "Tours": {
+    "title": "Oman, arranged from Muscat.",
+    "intro": "Seven multi-day packages and eight day and sea trips, with prices as published by Al-Hashar.",
+    "search": "Search by name, place or activity",
+    "filters": "Filters",
+    "kind": "Type",
+    "region": "Region",
+    "sort": "Sort",
+    "clear": "Clear filters",
+    "count": "{count, plural, =0 {No journeys match} =1 {1 journey} other {# journeys}}",
+    "empty": "Nothing matches those filters. Clear them, or ask a consultant for a custom itinerary.",
+    "view": "View journey",
+    "kinds": {
+      "all": "All",
+      "package": "Multi-day package",
+      "day": "Day tour",
+      "sea": "Sea trip"
+    },
+    "sorts": {
+      "popular": "Popular",
+      "priceAsc": "Price, low to high",
+      "priceDesc": "Price, high to low",
+      "durationAsc": "Shortest first"
+    },
+    "nights": "{count, plural, =1 {1 night} other {# nights}}",
+    "days": "{count, plural, =1 {1 day} other {# days}}",
+    "hours": "{count, plural, =1 {1 hour} other {# hours}}",
+    "halfDay": "Half day",
+    "fullDay": "Full day",
+    "upTo": "Up to {count}",
+    "privateVehicle": "Private vehicle",
+    "sharing": "Shared boat"
+  },
+  "Regions": {
+    "all": "All regions",
+    "muscat": "Muscat",
+    "dakhiliyah": "Ad Dakhiliyah",
+    "sharqiyah": "Ash Sharqiyah",
+    "batinah": "Al Batinah",
+    "acrossOman": "Across Oman"
+  },
+  "TourDetail": {
+    "breadcrumbHome": "Home",
+    "breadcrumbTours": "Oman Tours",
+    "overview": "The journey",
+    "highlights": "Highlights",
+    "itinerary": "Day by day",
+    "itineraryDay": "Through the day",
+    "included": "Included",
+    "excluded": "Not included",
+    "hotels": "Hotels by category",
+    "notes": "Good to know",
+    "gallery": "Gallery",
+    "timing": "{start} to {end}",
+    "startsAt": "Starts {start}",
+    "cta": "Request to Book",
+    "quoteCta": "Ask for a Quote",
+    "reassurance": {
+      "iata": "IATA accredited agency",
+      "since": "Arranging Oman since 1984",
+      "whatsapp": "WhatsApp {number}"
+    },
+    "moreTours": "More journeys",
+    "priceNote": "Prices as published by Al-Hashar and subject to availability. A consultant confirms the final price."
+  },
+  "Wizard": {
+    "title": "Request to book",
+    "back": "Back",
+    "backToTour": "Back to {name}",
+    "continue": "Continue",
+    "submit": "Send Request",
+    "steps": {
+      "date": "Date",
+      "travellers": "Travellers",
+      "details": "Details",
+      "review": "Review"
+    },
+    "date": {
+      "title": "Choose a date",
+      "hint": "Pick a start date. Availability is confirmed by WhatsApp or email.",
+      "quick": "Quick pick",
+      "tomorrow": "Tomorrow",
+      "weekend": "This weekend",
+      "twoWeeks": "In two weeks",
+      "nextMonth": "Next month",
+      "prevMonth": "Previous month",
+      "nextMonthLabel": "Next month",
+      "selected": "Selected",
+      "none": "No date yet",
+      "noneHint": "Choose a day on the calendar or use a quick pick.",
+      "ends": "Ends {date}"
+    },
+    "travellers": {
+      "title": "Who is travelling?",
+      "adults": "Adults",
+      "children": "Children, 3 to 12",
+      "tier": "Hotel category",
+      "cars": "{count, plural, =1 {1 private vehicle} other {# private vehicles}}",
+      "carsHint": "Each vehicle takes up to {count} people."
+    },
+    "details": {
+      "title": "Your details",
+      "name": "Full name",
+      "phone": "WhatsApp number",
+      "email": "Email",
+      "pickup": "Hotel or pickup address in Muscat",
+      "notes": "Anything we should know",
+      "notesHint": "Dietary needs, mobility, special occasions."
+    },
+    "review": {
+      "title": "Review your request",
+      "journey": "Journey",
+      "date": "Date",
+      "travellers": "Travellers",
+      "tier": "Hotel category",
+      "pickup": "Pickup",
+      "estimate": "Estimated total",
+      "estimateNote": "An estimate from published prices. Your consultant confirms the final amount before anything is booked.",
+      "adultsChildren": "{adults, plural, =1 {1 adult} other {# adults}}{children, plural, =0 {} =1 {, 1 child} other {, # children}}"
+    },
+    "done": {
+      "title": "Your request is ready.",
+      "reference": "Reference",
+      "body": "Send it to Al-Hashar on WhatsApp and a consultant will reply with availability and the final price.",
+      "whatsapp": "Open in WhatsApp",
+      "email": "Email instead",
+      "saved": "Saved on this device. Find it later with the reference above.",
+      "another": "Browse more journeys"
+    },
+    "errors": {
+      "required": "Please fill in this field.",
+      "date": "Choose a date first.",
+      "phone": "Enter a phone number with the country code.",
+      "email": "Enter a valid email address."
+    },
+    "message": {
+      "intro": "Hello Al-Hashar, I would like to book {name}.",
+      "line": "Date {date}, {travellers}{tier}{pickup}.",
+      "tierPart": ", {tier}",
+      "pickupPart": ", pickup at {pickup}",
+      "estimate": "Estimated {amount} from your published prices.",
+      "contact": "Name {name}, phone {phone}, email {email}.",
+      "notes": "Notes: {notes}",
+      "reference": "Reference {reference}"
+    }
+  },
+  "Lookup": {
+    "title": "Find your request",
+    "intro": "Enter the reference from your confirmation to see the details again.",
+    "label": "Booking reference",
+    "placeholder": "AH-XXXX",
+    "submit": "Find Request",
+    "notFound": "No request with that reference on this device.",
+    "hint": "References look like AH-AB12345. Requests are stored on the device where they were made, so use the same phone or computer.",
+    "found": "Request {reference}",
+    "madeOn": "Made on {date}",
+    "resend": "Open in WhatsApp"
+  },
+  "Umrah": {
+    "headline": "Umrah, arranged with care.",
+    "body": "From the visa to a hotel a few steps from the Haram, one team handles every detail so you can give your attention to the journey itself.",
+    "inclusions": {
+      "visa": "Umrah visa processing",
+      "flights": "Flights from Muscat",
+      "hotels": "Hotels close to the Haram",
+      "guidance": "Guidance before and during your stay"
+    },
+    "cta": "Request Umrah Package",
+    "imageAlt": "The Masjid al-Haram in Makkah at night",
+    "message": "Hello Al-Hashar, I would like to request an Umrah package. Please send me the options and prices.",
+    "page": {
+      "intro": "Al-Hashar has arranged Umrah from Muscat for families and groups since 1984. Tell us your dates and how many are travelling, and a consultant prepares a package around you.",
+      "stepsTitle": "How it works",
+      "steps": {
+        "one": {
+          "title": "Tell us your dates",
+          "text": "Send the month you want to travel, the number of pilgrims and the hotel standard you prefer."
+        },
+        "two": {
+          "title": "Receive your package",
+          "text": "A consultant replies with flights, hotels near the Haram, transfers and the visa steps."
+        },
+        "three": {
+          "title": "Confirm at any branch",
+          "text": "Confirm with your consultant in person or by phone, and travel with everything arranged."
+        }
+      },
+      "formTitle": "Request an Umrah package",
+      "month": "Travel month",
+      "pilgrims": "Number of pilgrims",
+      "hotelPreference": "Hotel preference",
+      "hotelOptions": {
+        "standard": "Standard",
+        "nearHaram": "Close to the Haram",
+        "premium": "Premium"
+      }
+    }
+  },
+  "Services": {
+    "headline": "Everything a journey needs, in one place.",
+    "items": {
+      "holidayPackages": {
+        "title": "Holiday Packages",
+        "detail": "Tailored international holidays, from short city breaks to long family summers."
+      },
+      "airTickets": {
+        "title": "Air Tickets",
+        "detail": "Fares across the major airlines, with date changes handled for you."
+      },
+      "hotelBooking": {
+        "title": "Hotel Booking",
+        "detail": "Hand-picked stays in Oman and abroad at negotiated rates."
+      },
+      "omanTours": {
+        "title": "Oman Tours",
+        "detail": "Private and small-group journeys across the Sultanate."
+      },
+      "visaAssistance": {
+        "title": "Visa Assistance",
+        "detail": "Applications, documents and follow-up for most destinations."
+      },
+      "umrah": {
+        "title": "Umrah",
+        "detail": "Complete packages with visa, flights and hotels near the Haram."
+      },
+      "travelInsurance": {
+        "title": "Travel Insurance",
+        "detail": "Medical, delay and baggage cover, arranged before you fly."
+      },
+      "cargo": {
+        "title": "Cargo",
+        "detail": "Door-to-door freight and personal effects, by air and by sea."
+      }
+    },
+    "pages": {
+      "flights": {
+        "title": "Flights",
+        "headline": "Tickets on every major airline, booked by people who answer the phone.",
+        "intro": "Al-Hashar has issued tickets as an IATA accredited agency for decades. Domestic and international fares, group bookings, and changes handled by a consultant rather than a call centre.",
+        "points": {
+          "one": "Domestic and international fares on the major airlines",
+          "two": "Group and corporate travel handled by a dedicated consultant",
+          "three": "Date changes and reissues done for you"
+        }
+      },
+      "hotels": {
+        "title": "Hotels",
+        "headline": "Stays in Oman and abroad at rates negotiated for you.",
+        "intro": "From a night in Muscat to a fortnight overseas, consultants book hotels worldwide at agency rates and match the stay to how you travel.",
+        "points": {
+          "one": "Hotels in Oman and worldwide",
+          "two": "Agency rates and room categories explained plainly",
+          "three": "Transfers added when you need them"
+        }
+      },
+      "holidays": {
+        "title": "Holidays",
+        "headline": "International holidays built around your family, not a brochure.",
+        "intro": "Flights, hotels, sightseeing and attraction tickets combined into one package by a consultant who knows the destination.",
+        "points": {
+          "one": "Flights, hotels and sightseeing in one package",
+          "two": "Attraction tickets and transfers included where useful",
+          "three": "Honest advice on seasons and budgets before you commit"
+        }
+      },
+      "visa": {
+        "title": "Visa Assistance",
+        "headline": "Applications, documents and follow-up for most destinations.",
+        "intro": "Consultants prepare the application, check the documents and follow the case through, including Oman tourist visas for visiting friends and family.",
+        "points": {
+          "one": "Tourist and visit visas for most destinations",
+          "two": "Oman tourist visas for your guests",
+          "three": "Document checks before you submit"
+        }
+      },
+      "insurance": {
+        "title": "Travel Insurance",
+        "headline": "Cover arranged before you fly.",
+        "intro": "Medical, delay and baggage cover for single trips or a whole year, arranged with your ticket so nothing is forgotten.",
+        "points": {
+          "one": "Medical, delay and baggage cover",
+          "two": "Single trip or annual policies",
+          "three": "Arranged together with your booking"
+        }
+      },
+      "cargo": {
+        "title": "Cargo",
+        "headline": "Door-to-door freight and personal effects, by air and by sea.",
+        "intro": "A dedicated cargo division moves personal effects, vehicles and commercial freight in and out of Oman.",
+        "points": {
+          "one": "Air and sea freight",
+          "two": "Personal effects and household moves",
+          "three": "A dedicated division on its own phone line"
+        }
+      }
+    },
+    "requestTitle": "Send a request",
+    "requestIntro": "A consultant replies by WhatsApp or email with options and prices.",
+    "division": "Direct line for this service"
+  },
+  "Trust": {
+    "headline": "With you since 1984.",
+    "sinceLabel": "Since",
+    "branchesLabel": "{count, plural, =1 {branch in Oman} other {branches across Oman}}",
+    "iataLabel": "IATA accredited agency",
+    "promises": {
+      "care": {
+        "title": "Personalised customer care",
+        "detail": "A consultant who knows your name and your preferences."
+      },
+      "counselling": {
+        "title": "Professional travel counselling",
+        "detail": "Honest advice on routes, seasons and budgets before you commit."
+      },
+      "pricing": {
+        "title": "Competitive pricing",
+        "detail": "Negotiated rates passed on to you, with no surprises at checkout."
+      },
+      "assistance": {
+        "title": "24/7 assistance",
+        "detail": "A real person on the phone when a flight changes at two in the morning."
+      }
+    }
+  },
+  "Reviews": {
+    "headline": "What travellers say.",
+    "readOn": "Read on {platform}",
+    "rating": "{rating} out of 5"
+  },
+  "LogoMoment": {
+    "tagline": "Go Further. Feel at Home.",
+    "taglineSecondary": "انطلق أبعد. واشعر أنك في بيتك."
+  },
+  "Contact": {
+    "headline": "Talk to a travel consultant.",
+    "body": "Call, message or visit one of our branches across Oman.",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "branches": "Branches",
+    "headOffice": "Head office",
+    "holidaysDivision": "Holiday division",
+    "cargoDivision": "Cargo division",
+    "form": {
+      "name": "Name",
+      "phone": "Phone number",
+      "message": "How can we help?",
+      "submit": "Send Request",
+      "ready": "Your request is ready to send.",
+      "whatsapp": "Open in WhatsApp",
+      "email": "Email instead"
+    },
+    "message": "Hello Al-Hashar, my name is {name} ({phone}). {message}"
+  },
+  "Footer": {
+    "companyName": "Al-Hashar Tourism & Travels LLC",
+    "companyNameArabic": "الهاشر للسياحة والسفر ش.م.م",
+    "established": "Established in Muscat, 1984",
+    "explore": "Explore",
+    "services": "Services",
+    "company": "Company",
+    "rights": "All rights reserved.",
+    "credits": "Photography credits",
+    "backToTop": "Back to top",
+    "findRequest": "Find your request"
+  },
+  "Branches": {
+    "shattiAlQurum": "Shatti Al Qurum",
+    "ruwi": "Ruwi",
+    "muttrah": "Muttrah",
+    "ghobra": "Ghobra",
+    "seeb": "Seeb",
+    "alKhoud": "Al Khoud",
+    "mabela": "Mabela",
+    "barka": "Barka",
+    "jalanBaniBuAli": "Jalan Bani Bu Ali",
+    "sohar": "Sohar",
+    "nizwa": "Nizwa",
+    "salalah": "Salalah"
+  },
+  "Common": {
+    "currency": "OMR",
+    "notFound": "This page does not exist.",
+    "goHome": "Back to the home page"
+  }
+}

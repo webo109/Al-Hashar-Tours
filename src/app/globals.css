@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-midnight: #0b1220;
+  --color-midnight-800: #111a2c;
+  --color-midnight-700: #182338;
+  --color-midnight-600: #22304a;
+  --color-gold: #e89e00;
+  --color-gold-300: #f7c65a;
+  --color-gold-700: #b57a00;
+  --color-sunset: #fe7c1a;
+  --color-sand: #d9c3a3;
+  --color-sand-300: #e8d9c1;
+  --color-cream: #f7f2e8;
+  --color-ink: #0b1220;
+  --color-ink-soft: #4a5368;
+
+  --font-display: var(--font-outfit), "Segoe UI", system-ui, sans-serif;
+  --font-arabic: var(--font-plex-arabic), "Segoe UI", Tahoma, system-ui, sans-serif;
+
+  --radius-pill: 999px;
+  --radius-panel: 20px;
+  --radius-input: 10px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --shadow-panel: 0 30px 80px -30px rgb(11 18 32 / 0.75);
+  --shadow-lift: 0 18px 40px -20px rgb(11 18 32 / 0.55);
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --z-scene: 0;
+  --z-content: 10;
+  --z-nav: 50;
+  --z-sheet: 60;
+  --z-grain: 70;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: var(--color-midnight);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-midnight);
+    color: var(--color-cream);
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  html[dir="rtl"] body {
+    font-family: var(--font-arabic);
+    font-feature-settings: normal;
+  }
+
+  ::selection {
+    background: rgb(232 158 0 / 0.35);
+    color: var(--color-cream);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .font-latin {
+    font-family: var(--font-display);
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Film grain: fixed, pointer-events none, never on scrolling containers */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-grain);
+    pointer-events: none;
+    opacity: 0.055;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+
+  /* Photo grade: one look for every photograph on the page. The element must
+     already be positioned (absolute/relative) by its own utilities. */
+  .grade {
+    isolation: isolate;
+  }
+  .grade > img {
+    filter: saturate(0.88) contrast(1.04);
+  }
+  .grade::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgb(11 18 32 / 0.18), transparent 45%, rgb(11 18 32 / 0.35)),
+      radial-gradient(120% 80% at 70% 20%, rgb(254 124 26 / 0.14), transparent 60%);
+    mix-blend-mode: multiply;
+  }
+
+  /* Hero atmosphere */
+  .star {
+    opacity: var(--o, 0.5);
+    animation: twinkle 9s ease-in-out infinite;
+  }
+
+  .mist {
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgb(247 198 122 / 0.22) 50%,
+      transparent
+    );
+    filter: blur(28px);
+    animation: drift 42s ease-in-out infinite alternate;
+  }
+
+  /* Boarding pass stub prints top to bottom once a request is composed */
+  .stub-print {
+    animation: print 0.9s var(--ease-out-expo) both;
+  }
+
+  .pass input::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+  }
+
+  .story-mark.is-active {
+    color: var(--color-gold-300);
+  }
+
+  /* Soft light passing behind the mark in the logo moment */
+  .light-sweep {
+    background: radial-gradient(
+      50% 40% at 50% 50%,
+      rgb(232 158 0 / 0.16),
+      transparent 70%
+    );
+    filter: blur(30px);
+    animation: sweep 16s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: var(--o, 0.5);
+  }
+  50% {
+    opacity: calc(var(--o, 0.5) * 0.25);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-2.5%);
+  }
+  to {
+    transform: translateX(2.5%);
+  }
+}
+
+@keyframes print {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-6px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
