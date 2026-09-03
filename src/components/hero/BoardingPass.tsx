@@ -135,7 +135,7 @@ export function BoardingPass() {
   }
 
   function compose(reference: string): Printed {
-    const arrow = <ArrowRight size={14} weight="light" className="mx-1 inline rtl:rotate-180" />;
+    const arrow = <ArrowRight size={14} weight="fill" className="mx-1 inline rtl:rotate-180" />;
     if (tab === "flights") {
       const travellers = count("travellersCount", v.travellers);
       const returnPart = v.return ? t("message.returnPart", { return: day(v.return) }) : "";
@@ -358,14 +358,14 @@ export function BoardingPass() {
                 rel="noopener noreferrer"
                 className={buttonClass("primary", "h-11 px-5 text-[14px]")}
               >
-                <WhatsappLogo size={18} weight="light" />
+                <WhatsappLogo size={18} weight="fill" />
                 {t("printed.whatsapp")}
               </a>
               <a
                 href={mailtoUrl(company.email, `${t("printed.title")} ${printed.reference}`, fullText)}
                 className={buttonClass("onCream", "h-11 px-5 text-[14px]")}
               >
-                <EnvelopeSimple size={18} weight="light" />
+                <EnvelopeSimple size={18} weight="fill" />
                 {t("printed.email")}
               </a>
               <button

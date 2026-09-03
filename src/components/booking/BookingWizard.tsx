@@ -162,7 +162,7 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
               }`}
               aria-current={state === "current" ? "step" : undefined}
             >
-              <Icon size={18} weight="light" />
+              <Icon size={18} weight="fill" />
             </span>
             <span className={`text-[13px] ${state === "future" ? "text-cream/50" : "text-cream"}`}>
               {t(`steps.${key}`)}
@@ -229,11 +229,11 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
           <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">{t("done.body")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={whatsappUrl(company.whatsapp.digits, done.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary")}>
-              <WhatsappLogo size={18} weight="light" />
+              <WhatsappLogo size={18} weight="fill" />
               {t("done.whatsapp")}
             </a>
             <a href={mailtoUrl(company.email, `${t("title")} ${done.reference}`, done.text)} className={buttonClass("onCream")}>
-              <EnvelopeSimple size={18} weight="light" />
+              <EnvelopeSimple size={18} weight="fill" />
               {t("done.email")}
             </a>
           </div>

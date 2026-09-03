@@ -91,11 +91,11 @@ export function InquiryForm({ context, title, intro, fields = [], email, message
           </pre>
           <div className="mt-4 flex flex-wrap gap-2">
             <a href={whatsappUrl(company.whatsapp.digits, ready.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary", "h-11 px-5 text-[14px]")}>
-              <WhatsappLogo size={18} weight="light" />
+              <WhatsappLogo size={18} weight="fill" />
               {t("form.whatsapp")}
             </a>
             <a href={mailtoUrl(email ?? company.email, `${context} ${ready.reference}`, ready.text)} className={buttonClass("onCream", "h-11 px-5 text-[14px]")}>
-              <EnvelopeSimple size={18} weight="light" />
+              <EnvelopeSimple size={18} weight="fill" />
               {t("form.email")}
             </a>
             <button type="button" onClick={() => setReady(null)} className="ms-auto text-[13px] text-ink-soft underline-offset-4 hover:underline">

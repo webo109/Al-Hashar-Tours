@@ -98,14 +98,14 @@ export function TourCard({
 
         <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-cream/75">
           <li className="inline-flex items-center gap-1.5">
-            <Clock size={16} weight="light" className="text-gold" />
+            <Clock size={16} weight="fill" className="text-gold" />
             {durationLabel(t, tour)}
           </li>
           <li className="inline-flex items-center gap-1.5">
             {tour.priceBasis === "car" ? (
-              <CarSimple size={16} weight="light" className="text-gold" />
+              <CarSimple size={16} weight="fill" className="text-gold" />
             ) : (
-              <Users size={16} weight="light" className="text-gold" />
+              <Users size={16} weight="fill" className="text-gold" />
             )}
             {tour.priceBasis === "car"
               ? t("upTo", { count: tour.maxPersons ?? 4 })
@@ -114,7 +114,7 @@ export function TourCard({
                 : t("privateVehicle")}
           </li>
           <li className="inline-flex items-center gap-1.5">
-            <MapPin size={16} weight="light" className="text-gold" />
+            <MapPin size={16} weight="fill" className="text-gold" />
             {regions(tour.regions[0])}
           </li>
         </ul>

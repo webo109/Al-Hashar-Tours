@@ -46,7 +46,7 @@ export function Footer() {
                     aria-label={s.label}
                     className="flex h-11 w-11 items-center justify-center rounded-pill border border-cream/15 text-cream/80 transition-colors hover:border-gold hover:text-gold-300"
                   >
-                    <Icon size={20} weight="light" />
+                    <Icon size={20} weight="fill" />
                   </a>
                 </li>
               );
@@ -59,7 +59,7 @@ export function Footer() {
                 aria-label={contact("whatsapp")}
                 className="flex h-11 w-11 items-center justify-center rounded-pill border border-cream/15 text-cream/80 transition-colors hover:border-gold hover:text-gold-300"
               >
-                <WhatsappLogo size={20} weight="light" />
+                <WhatsappLogo size={20} weight="fill" />
               </a>
             </li>
           </ul>

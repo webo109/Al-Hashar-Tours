@@ -33,7 +33,7 @@ export default async function ContactPage({ params }: Props) {
           <ul className="grid gap-3 sm:grid-cols-2">
             <li>
               <a href={`tel:${company.phone.tel}`} className={channel}>
-                <Phone size={22} weight="light" className="shrink-0 text-gold" />
+                <Phone size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
                   <span className="text-[12px] text-cream/55">{t("phone")}</span>
                   <span dir="ltr" className="text-[16px]">{company.phone.display}</span>
@@ -42,7 +42,7 @@ export default async function ContactPage({ params }: Props) {
             </li>
             <li>
               <a href={whatsappUrl(company.whatsapp.digits, "")} target="_blank" rel="noopener noreferrer" className={channel}>
-                <WhatsappLogo size={22} weight="light" className="shrink-0 text-gold" />
+                <WhatsappLogo size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
                   <span className="text-[12px] text-cream/55">{t("whatsapp")}</span>
                   <span dir="ltr" className="text-[16px]">{company.whatsapp.display}</span>
@@ -51,7 +51,7 @@ export default async function ContactPage({ params }: Props) {
             </li>
             <li>
               <a href={`mailto:${company.email}`} className={channel}>
-                <EnvelopeSimple size={22} weight="light" className="shrink-0 text-gold" />
+                <EnvelopeSimple size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
                   <span className="text-[12px] text-cream/55">{t("email")}</span>
                   <span className="text-[16px]">{company.email}</span>
@@ -60,7 +60,7 @@ export default async function ContactPage({ params }: Props) {
             </li>
             <li>
               <div className={channel}>
-                <MapPin size={22} weight="light" className="shrink-0 text-gold" />
+                <MapPin size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
                   <span className="text-[12px] text-cream/55">{t("headOffice")}</span>
                   <span className="text-[15px]">

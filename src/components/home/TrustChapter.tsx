@@ -73,7 +73,7 @@ export function TrustChapter() {
             {promises.map(({ key, Icon }, i) => (
               <li key={key}>
                 <Reveal delay={0.08 + i * 0.07}>
-                  <Icon size={30} weight="light" className="text-gold-300" />
+                  <Icon size={30} weight="fill" className="text-gold-300" />
                   <h3 className="mt-4 text-xl font-medium tracking-tight text-cream">{t(`promises.${key}.title`)}</h3>
                   <p className="mt-2 max-w-[34ch] text-[15px] leading-relaxed text-cream/75">{t(`promises.${key}.detail`)}</p>
                 </Reveal>

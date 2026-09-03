@@ -72,7 +72,7 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
             rel="noopener noreferrer"
             className={buttonClass("primary", "w-full")}
           >
-            <WhatsappLogo size={18} weight="light" />
+            <WhatsappLogo size={18} weight="fill" />
             {t("quoteCta")}
           </a>
         )}
@@ -80,15 +80,15 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
 
       <ul className="mt-6 flex flex-col gap-2.5 text-[13px] text-ink-soft">
         <li className="flex items-center gap-2">
-          <SealCheck size={18} weight="light" className="text-gold-700" />
+          <SealCheck size={18} weight="fill" className="text-gold-700" />
           {t("reassurance.iata")}
         </li>
         <li className="flex items-center gap-2">
-          <Compass size={18} weight="light" className="text-gold-700" />
+          <Compass size={18} weight="fill" className="text-gold-700" />
           {t("reassurance.since")}
         </li>
         <li className="flex items-center gap-2">
-          <WhatsappLogo size={18} weight="light" className="text-gold-700" />
+          <WhatsappLogo size={18} weight="fill" className="text-gold-700" />
           <span dir="ltr">{t("reassurance.whatsapp", { number: company.whatsapp.display })}</span>
         </li>
       </ul>

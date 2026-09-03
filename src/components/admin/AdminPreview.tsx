@@ -111,7 +111,7 @@ export function AdminPreview() {
                 tab === key ? "bg-gold text-ink" : "text-cream/75 hover:bg-cream/10 hover:text-cream"
               }`}
             >
-              <Icon size={18} weight={tab === key ? "fill" : "light"} />
+              <Icon size={18} weight="fill" />
               <span className="hidden sm:inline">{label}</span>
             </button>
           ))}
@@ -138,7 +138,7 @@ export function AdminPreview() {
           </div>
           <div className="flex items-center gap-2">
             <button type="button" className="relative flex h-10 w-10 items-center justify-center rounded-pill border border-ink/10 bg-white/70" aria-label="3 notifications">
-              <Bell size={18} weight="light" />
+              <Bell size={18} weight="fill" />
               <span className="absolute -top-1 -right-1 flex h-4 min-w-4 items-center justify-center rounded-pill bg-[#b0361f] px-1 font-latin text-[10px] text-cream">3</span>
             </button>
             <span className="rounded-pill border border-ink/10 bg-white/70 px-3 py-2 text-[13px]">All branches</span>
@@ -351,7 +351,7 @@ function TodayView({
               return (
                 <li key={key} className="rounded-input border border-ink/10 bg-white p-4">
                   <div className="flex items-center gap-2 text-[13px] text-ink-soft">
-                    <Icon size={16} weight="light" />
+                    <Icon size={16} weight="fill" />
                     <span className="font-medium text-ink">{m.from}</span>
                     <span className="font-latin rounded-pill border border-ink/15 px-1.5 text-[11px]">{m.lang}</span>
                     <span className="ml-auto">{m.ago}</span>
@@ -528,7 +528,7 @@ function RequestsView({
                   <td className="px-4 py-3 font-latin">{r.amount}</td>
                   <td className="px-4 py-3">
                     <span className="inline-flex items-center gap-1.5 text-ink-soft">
-                      <Icon size={14} weight="light" /> {r.channel}
+                      <Icon size={14} weight="fill" /> {r.channel}
                     </span>
                   </td>
                 </tr>
@@ -722,7 +722,7 @@ function Drawer({
                     <span className="absolute -left-[21px] top-1 flex h-3 w-3 items-center justify-center rounded-full bg-gold ring-4 ring-cream" aria-hidden />
                     <div className="flex items-center gap-2 text-[12px] text-ink-soft">
                       <span className="font-latin">{e.at}</span>
-                      <Icon size={13} weight="light" />
+                      <Icon size={13} weight="fill" />
                       <span>{e.channel}</span>
                     </div>
                     <p className="mt-0.5 text-[14px] leading-relaxed" dir="auto">{e.text}</p>

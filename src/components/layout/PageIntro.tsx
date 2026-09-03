@@ -2,9 +2,11 @@ import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import { images, type ImageKey } from "@/data/images.generated";
 
+// The photo band fades out before the section edge so the boundary with the
+// next section is pure midnight and never reads as a line.
 const mask: CSSProperties = {
-  WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
-  maskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
+  WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 40%, transparent 82%)",
+  maskImage: "linear-gradient(to bottom, black 0%, black 40%, transparent 82%)",
 };
 
 type Props = {
@@ -46,7 +48,7 @@ export function PageIntro({
               style={{ objectPosition: position }}
             />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.62),rgba(11,18,32,0.3)_45%,#0b1220_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.62),rgba(11,18,32,0.3)_40%,#0b1220_84%)]" />
         </div>
       ) : null}
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">

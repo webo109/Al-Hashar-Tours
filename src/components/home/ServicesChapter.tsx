@@ -89,7 +89,7 @@ export function ServicesChapter() {
                       <div className="relative mt-auto flex flex-col p-6">
                         <Icon
                           size={28}
-                          weight="light"
+                          weight="fill"
                           className={s.tone === "photo" ? "text-gold-300" : "text-gold-700"}
                         />
                         <span className="mt-4 flex items-center justify-between gap-3">

@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
+import { CaretDown, Check, MagnifyingGlass, SlidersHorizontal } from "@phosphor-icons/react/dist/ssr";
 import type { RegionKey, TourBase, TourContent, TourKind } from "@/data/tours";
 import { TourCard } from "./TourCard";
 
@@ -27,6 +27,23 @@ export function TourCatalog({ items }: { items: Item[] }) {
   const [kind, setKind] = useState<Kind>("all");
   const [region, setRegion] = useState<Region>("all");
   const [sort, setSort] = useState<Sort>("popular");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sortOpen) return;
+    const onPointer = (e: PointerEvent) => {
+      if (!sortRef.current?.contains(e.target as Node)) setSortOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSortOpen(false);
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [sortOpen]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -57,7 +74,8 @@ export function TourCatalog({ items }: { items: Item[] }) {
     return sorted;
   }, [items, query, kind, region, sort]);
 
-  const dirty = query !== "" || kind !== "all" || region !== "all" || sort !== "popular";
+  const activeFilters = (kind !== "all" ? 1 : 0) + (region !== "all" ? 1 : 0);
+  const dirty = query !== "" || activeFilters > 0 || sort !== "popular";
 
   const pill = (active: boolean) =>
     `shrink-0 rounded-pill border px-3.5 py-2 text-[13px] transition-colors duration-300 ${
@@ -66,14 +84,17 @@ export function TourCatalog({ items }: { items: Item[] }) {
         : "border-cream/15 text-cream/80 hover:border-cream/40 hover:text-cream"
     }`;
 
+  const toolButton =
+    "inline-flex h-12 items-center gap-2 rounded-pill border px-4 text-[14px] transition-colors duration-300";
+
   return (
     <div>
-      <div className="flex flex-col gap-5 border-b border-cream/10 pb-6">
-        <label className="relative block">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center">
+        <label className="relative block flex-1">
           <span className="sr-only">{t("search")}</span>
           <MagnifyingGlass
             size={18}
-            weight="light"
+            weight="fill"
             className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-cream/50"
           />
           <input
@@ -85,35 +106,95 @@ export function TourCatalog({ items }: { items: Item[] }) {
           />
         </label>
 
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-3 overflow-x-auto pb-1" role="group" aria-label={t("kind")}>
-            <span className="shrink-0 text-[13px] text-cream/55">{t("kind")}</span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((v) => !v)}
+            aria-expanded={filtersOpen}
+            aria-controls="catalog-filters"
+            className={`${toolButton} ${
+              filtersOpen || activeFilters > 0
+                ? "border-gold/60 bg-midnight-800 text-cream"
+                : "border-cream/15 bg-midnight-800 text-cream/85 hover:border-cream/40"
+            }`}
+          >
+            <SlidersHorizontal size={18} weight="fill" className="text-gold" />
+            {t("filters")}
+            {activeFilters > 0 ? (
+              <span className="font-latin flex h-5 min-w-5 items-center justify-center rounded-pill bg-gold px-1.5 text-[11px] font-semibold text-ink">
+                {activeFilters}
+              </span>
+            ) : null}
+          </button>
+
+          <div ref={sortRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setSortOpen((v) => !v)}
+              aria-haspopup="listbox"
+              aria-expanded={sortOpen}
+              className={`${toolButton} border-cream/15 bg-midnight-800 text-cream hover:border-cream/40`}
+            >
+              <span className="text-[12px] uppercase tracking-[0.12em] text-cream/55">{t("sort")}</span>
+              <span>{t(`sorts.${sort}`)}</span>
+              <CaretDown size={14} className={`transition-transform duration-300 ${sortOpen ? "rotate-180" : ""}`} />
+            </button>
+            {sortOpen ? (
+              <ul
+                role="listbox"
+                aria-label={t("sort")}
+                className="absolute end-0 top-[calc(100%+8px)] z-20 min-w-[240px] overflow-hidden rounded-panel border border-cream/15 bg-midnight-800 p-1.5 shadow-lift"
+              >
+                {SORTS.map((s) => (
+                  <li key={s}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={sort === s}
+                      onClick={() => {
+                        setSort(s);
+                        setSortOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between gap-3 rounded-input px-3 py-2.5 text-start text-[14px] transition-colors ${
+                        sort === s ? "bg-gold/15 text-gold-300" : "text-cream/85 hover:bg-cream/8 hover:text-cream"
+                      }`}
+                    >
+                      {t(`sorts.${s}`)}
+                      {sort === s ? <Check size={14} weight="bold" /> : null}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </div>
+      </div>
+
+      {filtersOpen ? (
+        <div
+          id="catalog-filters"
+          className="mt-3 flex flex-col gap-4 rounded-panel border border-cream/10 bg-midnight-800/70 px-5 py-4"
+        >
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("kind")}>
+            <span className="me-1 w-16 shrink-0 text-[13px] text-cream/55">{t("kind")}</span>
             {KINDS.map((k) => (
               <button key={k} type="button" onClick={() => setKind(k)} aria-pressed={kind === k} className={pill(kind === k)}>
                 {t(`kinds.${k}`)}
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-3 overflow-x-auto pb-1" role="group" aria-label={t("region")}>
-            <span className="shrink-0 text-[13px] text-cream/55">{t("region")}</span>
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("region")}>
+            <span className="me-1 w-16 shrink-0 text-[13px] text-cream/55">{t("region")}</span>
             {REGIONS.map((r) => (
               <button key={r} type="button" onClick={() => setRegion(r)} aria-pressed={region === r} className={pill(region === r)}>
                 {regions(r)}
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-3 overflow-x-auto pb-1" role="group" aria-label={t("sort")}>
-            <span className="shrink-0 text-[13px] text-cream/55">{t("sort")}</span>
-            {SORTS.map((s) => (
-              <button key={s} type="button" onClick={() => setSort(s)} aria-pressed={sort === s} className={pill(sort === s)}>
-                {t(`sorts.${s}`)}
-              </button>
-            ))}
-          </div>
         </div>
-      </div>
+      ) : null}
 
-      <div className="flex items-center justify-between py-5 text-[14px] text-cream/70">
+      <div className="flex items-center justify-between pt-7 pb-5 text-[14px] text-cream/70">
         <span aria-live="polite">{t("count", { count: results.length })}</span>
         {dirty ? (
           <button

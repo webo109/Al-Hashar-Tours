@@ -118,7 +118,7 @@ export function FloatingNav() {
               aria-label={open ? t("closeMenu") : t("openMenu")}
               className="flex h-11 w-11 items-center justify-center rounded-pill text-cream transition-colors hover:bg-cream/8 lg:hidden"
             >
-              {open ? <X size={22} weight="light" /> : <List size={24} weight="light" />}
+              {open ? <X size={22} weight="fill" /> : <List size={24} weight="fill" />}
             </button>
           </div>
         </div>

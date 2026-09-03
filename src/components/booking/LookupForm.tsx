@@ -70,7 +70,7 @@ export function LookupForm() {
             rel="noopener noreferrer"
             className={buttonClass("primary", "mt-6")}
           >
-            <WhatsappLogo size={18} weight="light" />
+            <WhatsappLogo size={18} weight="fill" />
             {t("resend")}
           </a>
         </article>
