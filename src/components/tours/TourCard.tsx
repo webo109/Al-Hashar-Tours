@@ -36,14 +36,12 @@ export function TourCard({
   const asset = images[tour.image];
   const wide = variant === "wide";
 
-  // Featured journeys use their own cream-on-navy text tokens so their
-  // contrast stays strong even though the rest of the site is light.
+  // Featured journeys keep the same surface as the rest of the grid. A gold
+  // rim and ambient glow signal priority without changing the card's palette.
   const spotlight = featured;
   const surface = spotlight
-    ? "border-gold/60 bg-[radial-gradient(120%_90%_at_0%_0%,rgba(232,158,0,0.16),transparent_58%),linear-gradient(180deg,#182338,#111a2c)] shadow-[0_0_0_1px_rgba(232,158,0,0.35),0_26px_70px_-30px_rgba(232,158,0,0.45)] hover:shadow-[0_0_0_1px_rgba(232,158,0,0.7),0_30px_80px_-28px_rgba(232,158,0,0.6)]"
+    ? "border-gold/70 bg-surface-2 shadow-[0_0_0_1px_rgba(232,158,0,0.28),0_0_42px_-12px_rgba(232,158,0,0.48),0_22px_52px_-30px_rgba(120,76,0,0.3)] hover:border-gold hover:shadow-[0_0_0_1px_rgba(232,158,0,0.52),0_0_56px_-10px_rgba(232,158,0,0.62),0_28px_60px_-28px_rgba(120,76,0,0.36)]"
     : "border-fg/10 bg-surface-2 hover:border-gold/45 hover:shadow-lift";
-  const mainText = spotlight ? "text-cream" : "text-fg";
-  const supportingText = spotlight ? "text-cream/72" : "text-fg/70";
   // Featured journeys come alive on hover with a short muted clip.
   const clip = featured ? getVideo(tourClips[tour.slug]) : null;
 
@@ -67,17 +65,9 @@ export function TourCard({
           sizes={wide ? "(min-width: 1024px) 600px, 100vw" : "(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"}
           placeholder="blur"
           blurDataURL={asset.blurDataURL}
-          className={`object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04] ${
-            spotlight ? "brightness-[1.06]" : ""
-          }`}
+          className="object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
         />
         <AmbientVideo video={clip} mode="hover" />
-        {spotlight ? (
-          <div
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(232,158,0,0.18),transparent_45%)] rtl:bg-[linear-gradient(270deg,rgba(232,158,0,0.18),transparent_45%)]"
-            aria-hidden
-          />
-        ) : null}
       </div>
 
       <div className={`flex flex-1 flex-col p-6 ${wide ? "md:p-8" : ""}`}>
@@ -88,25 +78,25 @@ export function TourCard({
               {t("featured")}
             </span>
           ) : null}
-          <span className={`rounded-pill border px-2.5 py-1 text-[12px] ${spotlight ? "border-gold/60 text-gold-300" : "border-gold/40 text-accent-text"}`}>
+          <span className="rounded-pill border border-gold/40 px-2.5 py-1 text-[12px] text-accent-text">
             {t(`kinds.${tour.kind}`)}
           </span>
           {tour.regions.slice(0, 2).map((r) => (
-            <span key={r} className={`rounded-pill border px-2.5 py-1 text-[12px] ${spotlight ? "border-cream/25 text-cream/75" : "border-fg/15 text-fg/75"}`}>
+            <span key={r} className="rounded-pill border border-fg/15 px-2.5 py-1 text-[12px] text-fg/75">
               {regions(r)}
             </span>
           ))}
         </div>
 
-        <h3 className={`mt-4 font-medium tracking-tight ${mainText} ${wide ? "text-3xl" : "text-2xl"}`}>
+        <h3 className={`mt-4 font-medium tracking-tight text-fg ${wide ? "text-3xl" : "text-2xl"}`}>
           {content.name}
         </h3>
-        <p className={`mt-1 text-[15px] ${supportingText}`}>{content.tagline}</p>
+        <p className="mt-1 text-[15px] text-fg/70">{content.tagline}</p>
         {wide ? (
-          <p className={`mt-4 max-w-[52ch] text-[15px] leading-relaxed ${spotlight ? "text-cream/80" : "text-fg/80"}`}>{content.summary}</p>
+          <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-fg/80">{content.summary}</p>
         ) : null}
 
-        <ul className={`mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] ${spotlight ? "text-cream/75" : "text-fg/75"}`}>
+        <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-fg/75">
           <li className="inline-flex items-center gap-1.5">
             <Clock size={16} weight="fill" className="text-gold" />
             {durationLabel(t, tour)}
@@ -130,8 +120,8 @@ export function TourCard({
         </ul>
 
         <div className="mt-auto flex items-end justify-between gap-4 pt-6">
-          <PriceFrom tour={tour} tone={spotlight ? "inverse" : "dark"} />
-          <span className={`text-[14px] font-medium underline-offset-4 group-hover:underline ${spotlight ? "text-gold-300" : "text-accent-text"}`}>
+          <PriceFrom tour={tour} tone="dark" />
+          <span className="text-[14px] font-medium text-accent-text underline-offset-4 group-hover:underline">
             {t("view")}
           </span>
         </div>

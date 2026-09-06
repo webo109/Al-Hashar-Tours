@@ -250,6 +250,39 @@
   .tilt:hover .grade::before {
     opacity: 1;
   }
+
+  /* Frosted glass over a photograph: dark and cream in both themes, because
+     it is a panel over imagery rather than a page surface. */
+  .glass {
+    --fg: #f7f2e8;
+    --fg-muted: #c9c3b6;
+    --accent-text: #f7c65a;
+    --surface-rgb: 11 18 32;
+    position: relative;
+    isolation: isolate;
+    border-radius: 28px;
+    border: 1px solid rgb(255 255 255 / 0.28);
+    background: rgb(11 18 32 / 0.46);
+    color: var(--fg);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.35),
+      0 40px 90px -40px rgb(0 0 0 / 0.7);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+    backdrop-filter: blur(18px) saturate(1.25);
+  }
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(60% 45% at 88% 0%, rgb(232 158 0 / 0.2), transparent 70%);
+  }
+  .glass-chip {
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.18);
+  }
   .grade::after {
     content: "";
     position: absolute;

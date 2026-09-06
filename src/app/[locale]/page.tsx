@@ -2,9 +2,9 @@ import { setRequestLocale } from "next-intl/server";
 import { use } from "react";
 import { resolveLocale } from "@/i18n/locale";
 import { Hero } from "@/components/hero/Hero";
+import { BookingBand } from "@/components/hero/BookingBand";
 import { StoryStack } from "@/components/home/StoryStack";
 import { WorldRail } from "@/components/home/WorldRail";
-import { AdventurePicker } from "@/components/home/AdventurePicker";
 import { UmrahBand } from "@/components/home/UmrahBand";
 import { ServicesChapter } from "@/components/home/ServicesChapter";
 import { TrustChapter } from "@/components/home/TrustChapter";
@@ -28,9 +28,9 @@ export default function HomePage({ params }: Props) {
   return (
     <main id="content" className="relative isolate overflow-clip">
       <PaperPlane />
-      <Hero />
+      <Hero content={content} />
+      <BookingBand />
       <StoryStack items={stories} />
-      <AdventurePicker content={content} />
       <WorldRail />
       <UmrahBand />
       <ServicesChapter />

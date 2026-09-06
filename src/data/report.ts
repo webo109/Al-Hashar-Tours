@@ -55,7 +55,7 @@ export const report = {
     { name: "Light and dark themes", detail: "Follows the device by default, toggle in the nav remembers the choice, every chapter has a daylight and a night grade", status: "working" },
     { name: "Ambient hero video", detail: "A muted drone loop over the hero photograph, loaded after the page, with a pause control; the photo is the poster and fallback", status: "needsSwap" },
     { name: "Hover-to-play clips", detail: "Featured tour cards and the active story pane play a short clip, at most two at once, none under reduced motion or Save-Data", status: "needsSwap" },
-    { name: "Pick your adventure", detail: "Three taps (place, time, pace; mood for abroad) suggest three journeys, keyboard operable, with a confetti burst", status: "working" },
+    { name: "Glass hero with the picker", detail: "A frosted card over one full-bleed clip is the first screen; three taps (place, time, pace; mood for abroad) suggest three journeys inside it, keyboard operable, with a confetti burst", status: "working" },
     { name: "World destinations", detail: "All 21 published international packages with prices, a scroll-snap rail of 19 with photos, each preselecting the holidays request", status: "working" },
     { name: "People imagery", detail: "Family-and-friends moments as polaroid insets in the story stack and on the holidays and hotel tiles", status: "needsSwap" },
     { name: "Micro-interactions", detail: "Paper plane along a scroll route, pointer tilt and cursor glow on photo cards, confetti on every sent request", status: "working" },
@@ -127,6 +127,7 @@ export const report = {
     { phase: "Verification and deploy", detail: "Type check, lint, production build, booking flow, both languages, mobile overflow, then Vercel." },
     { phase: "Internal tools", detail: "This report with a smoke-test battery, and the operator dashboard preview." },
     { phase: "Alive", detail: "Light and dark themes, ambient and hover video with an ffmpeg pipeline, the adventure picker, the world rail of real packages, people imagery, plane, tilt and confetti." },
+    { phase: "Glass hero", detail: "One crisp full-bleed clip with a frosted card holding the picker as the first screen; the boarding pass moves to its own band." },
   ],
 
   swaps: [
