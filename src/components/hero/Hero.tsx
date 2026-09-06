@@ -94,7 +94,9 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
           />
         )}
         <AmbientVideo video={heroClip} mode="ambient" />
-        <div className="absolute inset-x-0 bottom-0 h-[14%] bg-[linear-gradient(180deg,transparent,var(--color-surface))]" />
+        {/* A dark scrim buffers the video before it meets the page surface, so the
+            cut into a light theme never reads as a bright band across the footage. */}
+        <div className="absolute inset-x-0 bottom-0 h-[22%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.7)_55%,var(--color-surface)_100%)]" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10">

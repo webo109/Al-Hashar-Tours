@@ -1,7 +1,8 @@
 // Ambient video clips. Files already present in assets/videos-src/{key}.mp4
 // (for example clips supplied by Al-Hashar) are used as they are; only missing
-// ones are fetched from `url`. Presets: hero = 1280x720, 10 to 12 s, 4 MB;
-// card = 960x540, 6 to 8 s, 1.5 MB. `trim.start` is in seconds.
+// ones are fetched from `url`. Presets: hero = 1920x1080, up to 12 s, best
+// quality (crf 18) under a 12 MB ceiling; card = 960x540, 6 to 8 s, 1.5 MB.
+// `trim.start` is in seconds.
 export const videos = [
   {
     key: "hero-oman-drone",
@@ -37,6 +38,7 @@ export const videos = [
 ];
 
 export const presets = {
-  hero: { width: 1280, height: 720, fps: 24, maxDuration: 12, budgetBytes: 4 * 1024 * 1024, crf: 28 },
+  // High quality background loop: native 1080p, low CRF, generous budget.
+  hero: { width: 1920, height: 1080, fps: 25, maxDuration: 12, budgetBytes: 12 * 1024 * 1024, crf: 18 },
   card: { width: 960, height: 540, fps: 24, maxDuration: 8, budgetBytes: 1.5 * 1024 * 1024, crf: 29 },
 };

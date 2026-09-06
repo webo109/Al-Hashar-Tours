@@ -29,7 +29,7 @@ async function encodeMp4(input, output, preset, clip, crf) {
     "-t", String(Math.min(clip.trim?.duration ?? preset.maxDuration, preset.maxDuration)),
     "-i", input, "-an",
     "-vf", vf,
-    "-c:v", "libx264", "-profile:v", "main", "-pix_fmt", "yuv420p", "-preset", "slow", "-crf", String(crf),
+    "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p", "-preset", "slower", "-crf", String(crf),
     "-movflags", "+faststart", output,
   ]);
 }
