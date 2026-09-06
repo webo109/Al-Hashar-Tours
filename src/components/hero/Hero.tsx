@@ -97,21 +97,21 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
         <div className="absolute inset-x-0 bottom-0 h-[14%] bg-[linear-gradient(180deg,transparent,var(--color-surface))]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:items-start md:px-10 md:pt-24 md:pb-8">
-        <div data-glass className="glass hero-glass-copy w-full max-w-[860px] p-6 md:p-8">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10">
+        <div data-glass className="glass hero-glass-copy w-full max-w-[860px] overflow-y-auto p-6 md:max-h-[calc(100dvh-11rem)] md:p-7">
           <p data-glass-item className="text-[14px] font-medium text-white/75">{t("headline")}</p>
-          <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-6xl">
+          <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-5xl lg:text-[3.25rem]">
             {picker("headline")}
           </h1>
-          <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75 md:text-lg">
+          <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75">
             {picker("intro")}
           </p>
 
-          <div data-glass-item className="mt-7 md:mt-5">
+          <div data-glass-item className="mt-7 md:mt-4">
             <PickerFlow content={content} variant="glass" />
           </div>
 
-          <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5 md:mt-5 md:pt-4">
+          <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5 md:mt-4 md:pt-3">
             <span className="inline-flex items-center gap-2 rounded-pill border border-white/25 px-3.5 py-1.5 text-[13px] text-white/85">
               <MapPin size={14} weight="fill" className="text-gold" />
               {t("location")}

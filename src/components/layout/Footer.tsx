@@ -68,6 +68,7 @@ export function Footer() {
         <div>
           <h2 className="text-[13px] font-medium text-fg/55">{t("explore")}</h2>
           <ul className="mt-4 flex flex-col gap-2.5 text-[15px]">
+            <li><Link className="hover:text-accent-text" href="/about">{nav("about")}</Link></li>
             <li><Link className="hover:text-accent-text" href="/tours">{nav("omanTours")}</Link></li>
             <li><Link className="hover:text-accent-text" href="/umrah">{nav("umrah")}</Link></li>
             <li><Link className="hover:text-accent-text" href="/contact">{nav("contact")}</Link></li>

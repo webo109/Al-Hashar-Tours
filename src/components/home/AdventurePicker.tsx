@@ -233,14 +233,14 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
                 <h3 ref={legendRef} tabIndex={-1} className={`text-2xl font-medium tracking-tight outline-none ${glass ? "text-white" : "text-fg"}`}>
                   {place === "abroad" ? t("resultsAbroad") : t("resultsTitle")}
                 </h3>
-                <ul className="mt-5 grid gap-4 md:grid-cols-3">
+                <ul className="mt-5 grid gap-4 md:mt-3 md:grid-cols-3 md:gap-3">
                   {results.map((r) => (
                     <li key={r.key} className="flex">
                       <ResultCard result={r} variant={variant} />
                     </li>
                   ))}
                 </ul>
-                <div className="mt-7 flex flex-wrap items-center gap-3">
+                <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-4">
                   {place === "abroad" ? (
                     <Link href={{ pathname: "/services/holidays", query: results[0] ? { region: results[0].key } : undefined }} className={buttonClass("primary")}>
                       {t("holidayCta")}
@@ -375,7 +375,7 @@ function ResultCard({ result, variant }: { result: Result; variant: Variant }) {
       className={`group flex w-full flex-col overflow-hidden rounded-[16px] border transition-[transform,border-color] duration-500 ease-out-expo hover:-translate-y-1 hover:border-gold ${surface}`}
     >
       {asset ? (
-        <div className="grade relative aspect-[16/10] overflow-hidden">
+        <div className={`grade relative aspect-[16/10] overflow-hidden ${glass ? "md:aspect-[16/7]" : ""}`}>
           <Image
             src={asset.src}
             alt={result.title}
@@ -387,10 +387,10 @@ function ResultCard({ result, variant }: { result: Result; variant: Variant }) {
           />
         </div>
       ) : null}
-      <div className="flex flex-1 flex-col p-4">
+      <div className={`flex flex-1 flex-col ${glass ? "p-3" : "p-4"}`}>
         <h4 className={`text-lg font-medium leading-tight tracking-tight ${glass ? "text-white" : "text-fg"}`}>{result.title}</h4>
-        <p className={`mt-1 line-clamp-2 text-[13px] ${glass ? "text-white/70" : "text-fg/70"}`}>{result.line}</p>
-        <div className="mt-auto flex items-end justify-between gap-3 pt-4">
+        <p className={`mt-1 line-clamp-2 text-[13px] ${glass ? "text-white/70 md:line-clamp-1" : "text-fg/70"}`}>{result.line}</p>
+        <div className={`mt-auto flex items-end justify-between gap-3 ${glass ? "pt-3" : "pt-4"}`}>
           <div>
             <span className={`block text-[12px] ${glass ? "text-white/60" : "text-fg/60"}`}>{result.meta}</span>
             <span className={`block text-xl font-medium tracking-tight ${glass ? "text-white" : "text-fg"}`}>{result.price}</span>

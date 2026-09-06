@@ -21,9 +21,10 @@ const moreItems = [
   { key: "hotels", href: "/services/hotels" },
   { key: "holidays", href: "/services/holidays" },
   { key: "umrah", href: "/umrah" },
+  { key: "about", href: "/about" },
 ] as const;
 
-const mobileItems = [primaryItems[0], moreItems[0], primaryItems[1], moreItems[1], moreItems[2], primaryItems[2]] as const;
+const mobileItems = [primaryItems[0], moreItems[0], primaryItems[1], moreItems[1], moreItems[2], primaryItems[2], moreItems[3]] as const;
 
 export function requestBookingTab(tab: BookingTab) {
   window.dispatchEvent(new CustomEvent("booking:tab", { detail: tab }));

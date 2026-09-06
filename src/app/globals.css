@@ -274,6 +274,22 @@
   .hero-glass-copy [class*="text-white"] {
     color: #fff !important;
   }
+  /* A thin, unobtrusive scrollbar for the glass card when its content
+     outgrows the space between the floating nav and the viewport edge. */
+  .hero-glass-copy {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.35) transparent;
+  }
+  .hero-glass-copy::-webkit-scrollbar {
+    width: 6px;
+  }
+  .hero-glass-copy::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .hero-glass-copy::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 0.3);
+    border-radius: 999px;
+  }
   .glass::before {
     content: "";
     position: absolute;

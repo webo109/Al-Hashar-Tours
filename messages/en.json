@@ -9,6 +9,7 @@
     "lookupTitle": "Find your request | Al-Hashar",
     "umrahTitle": "Umrah packages from Muscat | Al-Hashar",
     "contactTitle": "Contact and branches | Al-Hashar",
+    "aboutTitle": "About Al-Hashar | Travel from Oman since 1984",
     "serviceTitle": "{name} | Al-Hashar Tourism & Travels"
   },
   "Nav": {
@@ -18,6 +19,7 @@
     "holidays": "Holidays",
     "umrah": "Umrah",
     "contact": "Contact",
+    "about": "About",
     "more": "More",
     "switchLocale": "العربية",
     "switchLocaleLabel": "Switch to Arabic",
@@ -137,6 +139,52 @@
     "from": "From",
     "location": "Region",
     "duration": "Duration"
+  },
+  "About": {
+    "headline": "Four decades of making travel feel easier.",
+    "intro": "Al-Hashar Tourism & Travels has served travellers from Muscat since 1984, combining nationwide reach with personal guidance for journeys in Oman and around the world.",
+    "eyebrow": "About Al-Hashar",
+    "storyHeadline": "Built in Oman. Ready for the world.",
+    "storyIntro": "Four chapters explain what sits behind every ticket, tour and holiday we arrange.",
+    "chaptersLabel": "Our story",
+    "chapters": {
+      "roots": {
+        "label": "1984",
+        "kicker": "Our beginning",
+        "title": "A trusted name since 1984.",
+        "body": "Headquartered in Shatti Al Qurum, Al-Hashar grew from its Muscat beginnings into one of Oman's established travel companies.",
+        "stat": "1984",
+        "statLabel": "founded in Muscat",
+        "imageAlt": "The Muscat coastline and city beneath the Al Hajar mountains"
+      },
+      "reach": {
+        "label": "Across Oman",
+        "kicker": "National reach",
+        "title": "Close to travellers across the Sultanate.",
+        "body": "Twelve branches connect customers with local teams who understand their plans, preferences and the details that make a journey work.",
+        "stat": "12",
+        "statLabel": "branches across Oman",
+        "imageAlt": "Muscat and its waterfront architecture"
+      },
+      "service": {
+        "label": "One team",
+        "kicker": "Complete travel service",
+        "title": "From the first idea to the journey home.",
+        "body": "Flights, corporate travel, Oman tours, holidays, hotels, Umrah, visas and insurance are handled by experienced consultants rather than passed between disconnected providers.",
+        "stat": "IATA",
+        "statLabel": "accredited travel company",
+        "imageAlt": "An aircraft crossing the Al Hajar mountains at sunset"
+      },
+      "vision": {
+        "label": "Tomorrow",
+        "kicker": "Our vision",
+        "title": "Make every journey easier.",
+        "body": "The aim remains simple: serve the community with dependable advice, clear value and real assistance before, during and after travel.",
+        "stat": "24/7",
+        "statLabel": "assistance when plans change",
+        "imageAlt": "A traditional Omani dhow sailing through clear coastal water"
+      }
+    }
   },
   "Picker": {
     "headline": "Pick your adventure.",
