@@ -97,22 +97,22 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
         <div className="absolute inset-x-0 bottom-0 h-[14%] bg-[linear-gradient(180deg,transparent,var(--color-surface))]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10 md:pt-32 md:pb-20">
-        <div data-glass className="glass w-full max-w-[860px] p-6 md:p-10">
-          <p data-glass-item className="text-[14px] font-medium text-fg/75">{t("headline")}</p>
-          <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-fg md:text-6xl">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:items-start md:px-10 md:pt-24 md:pb-8">
+        <div data-glass className="glass hero-glass-copy w-full max-w-[860px] p-6 md:p-8">
+          <p data-glass-item className="text-[14px] font-medium text-white/75">{t("headline")}</p>
+          <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-6xl">
             {picker("headline")}
           </h1>
-          <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-fg/75 md:text-lg">
+          <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75 md:text-lg">
             {picker("intro")}
           </p>
 
-          <div data-glass-item className="mt-7">
+          <div data-glass-item className="mt-7 md:mt-5">
             <PickerFlow content={content} variant="glass" />
           </div>
 
-          <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5">
-            <span className="inline-flex items-center gap-2 rounded-pill border border-white/25 px-3.5 py-1.5 text-[13px] text-fg/85">
+          <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5 md:mt-5 md:pt-4">
+            <span className="inline-flex items-center gap-2 rounded-pill border border-white/25 px-3.5 py-1.5 text-[13px] text-white/85">
               <MapPin size={14} weight="fill" className="text-gold" />
               {t("location")}
             </span>
@@ -126,7 +126,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-pill text-fg/75 transition-colors hover:text-accent-text"
+                    className="flex h-9 w-9 items-center justify-center rounded-pill text-white/75 transition-colors hover:text-accent-text"
                   >
                     <Icon size={18} weight="fill" />
                   </a>
@@ -137,7 +137,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="flex h-9 w-9 items-center justify-center rounded-pill text-fg/75 transition-colors hover:text-accent-text"
+                className="flex h-9 w-9 items-center justify-center rounded-pill text-white/75 transition-colors hover:text-accent-text"
               >
                 <WhatsappLogo size={18} weight="fill" />
               </a>

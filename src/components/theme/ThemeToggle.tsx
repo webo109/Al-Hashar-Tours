@@ -8,12 +8,9 @@ type Theme = "light" | "dark";
 const EVENT = "al-hashar:theme";
 
 function subscribe(onChange: () => void) {
-  const media = window.matchMedia("(prefers-color-scheme: light)");
-  media.addEventListener("change", onChange);
   window.addEventListener(EVENT, onChange);
   window.addEventListener("storage", onChange);
   return () => {
-    media.removeEventListener("change", onChange);
     window.removeEventListener(EVENT, onChange);
     window.removeEventListener("storage", onChange);
   };
@@ -22,15 +19,15 @@ function subscribe(onChange: () => void) {
 function getSnapshot(): Theme {
   const explicit = document.documentElement.getAttribute("data-theme");
   if (explicit === "light" || explicit === "dark") return explicit;
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return "light";
 }
 
 function getServerSnapshot(): Theme {
-  return "dark";
+  return "light";
 }
 
-// Follows the device preference until the visitor chooses; the choice is
-// remembered and applied before paint by the inline script in the layout.
+// Light is the default experience. A deliberate visitor choice is remembered
+// and applied before paint by the inline script in the layout.
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const t = useTranslations("Nav");
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);

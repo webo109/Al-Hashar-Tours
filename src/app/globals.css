@@ -270,6 +270,10 @@
     -webkit-backdrop-filter: blur(18px) saturate(1.25);
     backdrop-filter: blur(18px) saturate(1.25);
   }
+  /* Preserve white hero copy over every video frame in the light theme. */
+  .hero-glass-copy [class*="text-white"] {
+    color: #fff !important;
+  }
   .glass::before {
     content: "";
     position: absolute;

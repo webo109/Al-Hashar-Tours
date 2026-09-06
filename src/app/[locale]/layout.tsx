@@ -66,11 +66,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={isRtl(locale) ? "rtl" : "ltr"}
+      data-theme="light"
       className={`${outfit.variable} ${plexArabic.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="relative min-h-[100dvh]">
-        {/* A remembered theme is applied before anything paints; otherwise the device preference applies through CSS. */}
+        {/* Light is the default; an explicit visitor choice is restored before the page paints. */}
         <script
           dangerouslySetInnerHTML={{
             __html:

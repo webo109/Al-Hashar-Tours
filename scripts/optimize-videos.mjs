@@ -2,7 +2,7 @@
 // budget, writes a poster frame, the typed manifest and the credits file.
 // Requires ffmpeg and ffprobe on PATH (ffmpeg 9 verified).
 import { execFile } from "node:child_process";
-import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -77,7 +77,13 @@ for (const clip of videos) {
   if (!noWebm) {
     try {
       await encodeWebm(input, webmOut, preset, clip);
-      webm = `/videos/${clip.key}.webm`;
+      // WebM only earns its place when it is smaller than the MP4 it would replace.
+      const webmBytes = (await stat(webmOut)).size;
+      if (webmBytes < bytes) webm = `/videos/${clip.key}.webm`;
+      else {
+        await rm(webmOut, { force: true });
+        console.log(`webm  ${clip.key}: dropped (${(webmBytes / 1e6).toFixed(2)} MB, larger than mp4)`);
+      }
     } catch (err) {
       console.log(`webm  ${clip.key}: skipped (${err.message.split("\n")[0]})`);
     }

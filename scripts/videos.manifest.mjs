@@ -5,13 +5,14 @@
 export const videos = [
   {
     key: "hero-oman-drone",
-    url: "https://videos.pexels.com/video-files/19573139/19573139-hd_1920_1080_30fps.mp4",
-    page: "https://www.pexels.com/video/musandam-19573139/",
-    author: "Muzammil Muhammed",
+    // Source supplied by the user (assets/videos-src/hero-oman-drone.mp4); Pexels video 4055997.
+    url: null,
+    page: "https://www.pexels.com/video/4055997/",
+    author: "Pexels contributor, video 4055997",
     platform: "Pexels",
     preset: "hero",
     trim: { start: 0, duration: 12 },
-    position: "50% 60%",
+    position: "50% 50%",
   },
   {
     key: "clip-muscat",

@@ -150,10 +150,11 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
 
   const glass = variant === "glass";
   const tick = glass ? "bg-white/20" : "bg-fg/15";
+  const quietText = glass ? "text-white/65" : "text-fg/60";
 
   return (
     <div>
-      <div className="flex items-center justify-between gap-4 text-[13px] text-fg/60">
+      <div className={`flex items-center justify-between gap-4 text-[13px] ${quietText}`}>
         <span id={liveId} aria-live="polite">
           {step === "results" ? t("resultsLabel") : t("stepLabel", { step: stepIndex + 1, total })}
         </span>
@@ -229,7 +230,7 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
             ) : null}
             {step === "results" ? (
               <div ref={resultsRef}>
-                <h3 ref={legendRef} tabIndex={-1} className="text-2xl font-medium tracking-tight text-fg outline-none">
+                <h3 ref={legendRef} tabIndex={-1} className={`text-2xl font-medium tracking-tight outline-none ${glass ? "text-white" : "text-fg"}`}>
                   {place === "abroad" ? t("resultsAbroad") : t("resultsTitle")}
                 </h3>
                 <ul className="mt-5 grid gap-4 md:grid-cols-3">
@@ -251,7 +252,7 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
                       <ArrowRight size={16} weight="bold" className="rtl:rotate-180" />
                     </Link>
                   )}
-                  <button type="button" onClick={reset} className="inline-flex items-center gap-2 text-[14px] font-medium text-fg/70 hover:text-fg">
+                  <button type="button" onClick={reset} className={`inline-flex items-center gap-2 text-[14px] font-medium ${glass ? "text-white/75 hover:text-white" : "text-fg/70 hover:text-fg"}`}>
                     <ArrowCounterClockwise size={16} weight="bold" />
                     {t("startOver")}
                   </button>
@@ -263,7 +264,7 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
       </div>
 
       {step !== "place" && step !== "results" ? (
-        <button type="button" onClick={back} className="mt-5 inline-flex items-center gap-2 text-[14px] font-medium text-fg/70 hover:text-fg">
+        <button type="button" onClick={back} className={`mt-5 inline-flex items-center gap-2 text-[14px] font-medium ${glass ? "text-white/75 hover:text-white" : "text-fg/70 hover:text-fg"}`}>
           <ArrowLeft size={16} weight="bold" className="rtl:rotate-180" />
           {t("back")}
         </button>
@@ -325,13 +326,13 @@ function Choice({
 
   const idle =
     variant === "glass"
-      ? "glass-chip text-fg/92 hover:border-gold"
+      ? "glass-chip text-white/95 hover:border-gold"
       : "border-fg/12 bg-surface text-fg/90 hover:border-gold";
 
   return (
     <fieldset className="border-0 p-0">
       <legend className="sr-only">{title}</legend>
-      <h3 ref={legendRef} tabIndex={-1} className="text-2xl font-medium tracking-tight text-fg outline-none md:text-3xl">
+      <h3 ref={legendRef} tabIndex={-1} className={`text-2xl font-medium tracking-tight outline-none md:text-3xl ${variant === "glass" ? "text-white" : "text-fg"}`}>
         {title}
       </h3>
       <div role="radiogroup" aria-label={title} className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -367,6 +368,7 @@ function Choice({
 function ResultCard({ result, variant }: { result: Result; variant: Variant }) {
   const asset = result.image ? images[result.image] : null;
   const surface = variant === "glass" ? "glass-chip" : "border-fg/10 bg-surface";
+  const glass = variant === "glass";
   return (
     <Link
       href={result.href}
@@ -386,13 +388,13 @@ function ResultCard({ result, variant }: { result: Result; variant: Variant }) {
         </div>
       ) : null}
       <div className="flex flex-1 flex-col p-4">
-        <h4 className="text-lg font-medium leading-tight tracking-tight text-fg">{result.title}</h4>
-        <p className="mt-1 line-clamp-2 text-[13px] text-fg/70">{result.line}</p>
+        <h4 className={`text-lg font-medium leading-tight tracking-tight ${glass ? "text-white" : "text-fg"}`}>{result.title}</h4>
+        <p className={`mt-1 line-clamp-2 text-[13px] ${glass ? "text-white/70" : "text-fg/70"}`}>{result.line}</p>
         <div className="mt-auto flex items-end justify-between gap-3 pt-4">
           <div>
-            <span className="block text-[12px] text-fg/60">{result.meta}</span>
-            <span className="block text-xl font-medium tracking-tight text-fg">{result.price}</span>
-            {result.basis ? <span className="block text-[12px] text-fg/60">{result.basis}</span> : null}
+            <span className={`block text-[12px] ${glass ? "text-white/60" : "text-fg/60"}`}>{result.meta}</span>
+            <span className={`block text-xl font-medium tracking-tight ${glass ? "text-white" : "text-fg"}`}>{result.price}</span>
+            {result.basis ? <span className={`block text-[12px] ${glass ? "text-white/60" : "text-fg/60"}`}>{result.basis}</span> : null}
           </div>
           <span className="inline-flex items-center gap-1 text-[13px] font-medium text-accent-text underline-offset-4 group-hover:underline">
             {result.cta}
