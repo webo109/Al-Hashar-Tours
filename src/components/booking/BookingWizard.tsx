@@ -22,6 +22,7 @@ import type { TourBase, TourContent } from "@/data/tours";
 import { addDays, formatDate, formatOmr, toISODate } from "@/lib/format";
 import { saveRequest } from "@/lib/bookings";
 import { mailtoUrl, requestReference, whatsappUrl } from "@/lib/whatsapp";
+import { burstFrom } from "@/lib/confetti";
 import { Calendar } from "./Calendar";
 
 type Step = 0 | 1 | 2 | 3;
@@ -138,12 +139,13 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
       createdAt: new Date().toISOString(),
     });
     setDone({ reference, text });
+    burstFrom(document.activeElement);
   }
 
   const hero = images[tour.image];
   const field =
-    "h-12 w-full rounded-input border border-ink/15 bg-white/70 px-3 text-[15px] text-ink placeholder:text-ink-soft/60 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/45";
-  const label = "text-[12px] font-medium text-ink-soft";
+    "h-12 w-full rounded-input border border-panel-fg/15 bg-white/70 px-3 text-[15px] text-panel-fg placeholder:text-panel-muted/60 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/45";
+  const label = "text-[12px] font-medium text-panel-muted";
 
   const Stepper = (
     <ol className="flex items-center gap-2 overflow-x-auto pb-1">
@@ -155,19 +157,19 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
             <span
               className={`flex h-9 w-9 items-center justify-center rounded-pill border ${
                 state === "current"
-                  ? "border-gold bg-gold text-ink"
+                  ? "border-gold bg-gold text-panel-fg"
                   : state === "past"
-                    ? "border-gold/50 text-gold-300"
-                    : "border-cream/15 text-cream/50"
+                    ? "border-gold/50 text-accent-text"
+                    : "border-fg/15 text-fg/50"
               }`}
               aria-current={state === "current" ? "step" : undefined}
             >
               <Icon size={18} weight="fill" />
             </span>
-            <span className={`text-[13px] ${state === "future" ? "text-cream/50" : "text-cream"}`}>
+            <span className={`text-[13px] ${state === "future" ? "text-fg/50" : "text-fg"}`}>
               {t(`steps.${key}`)}
             </span>
-            {i < 3 ? <span className="mx-1 h-px w-6 bg-cream/15" aria-hidden /> : null}
+            {i < 3 ? <span className="mx-1 h-px w-6 bg-fg/15" aria-hidden /> : null}
           </li>
         );
       })}
@@ -175,43 +177,43 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
   );
 
   const Summary = (
-    <aside className="rounded-panel border border-cream/10 bg-midnight-800 p-5">
+    <aside className="rounded-panel border border-fg/10 bg-surface-2 p-5">
       <div className="grade relative aspect-[16/9] overflow-hidden rounded-input">
         <Image src={hero.src} alt="" fill sizes="400px" placeholder="blur" blurDataURL={hero.blurDataURL} className="object-cover" />
       </div>
-      <h2 className="mt-4 text-xl font-medium tracking-tight text-cream">{content.name}</h2>
-      <p className="text-[14px] text-cream/65">{content.tagline}</p>
+      <h2 className="mt-4 text-xl font-medium tracking-tight text-fg">{content.name}</h2>
+      <p className="text-[14px] text-fg/65">{content.tagline}</p>
       <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[14px]">
-        <dt className="text-cream/55">{t("review.date")}</dt>
-        <dd className="text-cream">{date ? formatDate(locale, date) : t("date.none")}</dd>
+        <dt className="text-fg/55">{t("review.date")}</dt>
+        <dd className="text-fg">{date ? formatDate(locale, date) : t("date.none")}</dd>
         {endDate ? (
           <>
-            <dt className="text-cream/55" />
-            <dd className="text-cream/75">{t("date.ends", { date: formatDate(locale, endDate) })}</dd>
+            <dt className="text-fg/55" />
+            <dd className="text-fg/75">{t("date.ends", { date: formatDate(locale, endDate) })}</dd>
           </>
         ) : null}
-        <dt className="text-cream/55">{t("review.travellers")}</dt>
-        <dd className="text-cream">{travellersText}</dd>
+        <dt className="text-fg/55">{t("review.travellers")}</dt>
+        <dd className="text-fg">{travellersText}</dd>
         {tour.priceTiers ? (
           <>
-            <dt className="text-cream/55">{t("review.tier")}</dt>
-            <dd className="text-cream">{tierText}</dd>
+            <dt className="text-fg/55">{t("review.tier")}</dt>
+            <dd className="text-fg">{tierText}</dd>
           </>
         ) : null}
         {vehicles ? (
           <>
-            <dt className="text-cream/55" />
-            <dd className="text-cream/75">{t("travellers.cars", { count: vehicles })}</dd>
+            <dt className="text-fg/55" />
+            <dd className="text-fg/75">{t("travellers.cars", { count: vehicles })}</dd>
           </>
         ) : null}
       </dl>
       {estimate !== null ? (
-        <div className="mt-5 border-t border-cream/10 pt-4">
-          <span className="block text-[12px] text-cream/55">{t("review.estimate")}</span>
-          <span className="block text-3xl font-medium tracking-tight text-cream">
+        <div className="mt-5 border-t border-fg/10 pt-4">
+          <span className="block text-[12px] text-fg/55">{t("review.estimate")}</span>
+          <span className="block text-3xl font-medium tracking-tight text-fg">
             {formatOmr(locale, estimate, common("currency"))}
           </span>
-          <p className="mt-2 text-[12px] leading-relaxed text-cream/55">{t("review.estimateNote")}</p>
+          <p className="mt-2 text-[12px] leading-relaxed text-fg/55">{t("review.estimateNote")}</p>
         </div>
       ) : null}
     </aside>
@@ -220,13 +222,13 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
   if (done) {
     return (
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="rounded-panel bg-cream p-7 text-ink shadow-panel md:p-10" style={{ colorScheme: "light" }}>
-          <span className="text-[12px] font-medium text-ink-soft">{t("done.reference")}</span>
+        <div className="rounded-panel bg-panel p-7 text-panel-fg shadow-panel md:p-10" style={{ colorScheme: "light" }}>
+          <span className="text-[12px] font-medium text-panel-muted">{t("done.reference")}</span>
           <p className="font-latin text-3xl font-semibold tracking-[0.08em]" dir="ltr">
             {done.reference}
           </p>
           <h2 className="mt-6 text-3xl font-medium tracking-tight">{t("done.title")}</h2>
-          <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">{t("done.body")}</p>
+          <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-panel-muted">{t("done.body")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={whatsappUrl(company.whatsapp.digits, done.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary")}>
               <WhatsappLogo size={18} weight="fill" />
@@ -237,10 +239,10 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
               {t("done.email")}
             </a>
           </div>
-          <pre className="mt-6 whitespace-pre-wrap rounded-input border border-ink/10 bg-white/60 p-4 font-display text-[14px] leading-relaxed text-ink-soft">
+          <pre className="mt-6 whitespace-pre-wrap rounded-input border border-panel-fg/10 bg-white/60 p-4 font-display text-[14px] leading-relaxed text-panel-muted">
             {done.text}
           </pre>
-          <p className="mt-4 text-[13px] text-ink-soft">{t("done.saved")}</p>
+          <p className="mt-4 text-[13px] text-panel-muted">{t("done.saved")}</p>
           <Link href="/tours" className="mt-6 inline-block text-[14px] font-medium text-gold-700 underline-offset-4 hover:underline">
             {t("done.another")}
           </Link>
@@ -254,20 +256,20 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
     <div>
       {Stepper}
       <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="rounded-panel bg-cream p-6 text-ink shadow-panel md:p-8" style={{ colorScheme: "light" }}>
+        <div className="rounded-panel bg-panel p-6 text-panel-fg shadow-panel md:p-8" style={{ colorScheme: "light" }}>
           {step === 0 ? (
             <div>
               <h2 className="text-2xl font-medium tracking-tight">{t("date.title")}</h2>
-              <p className="mt-2 text-[14px] text-ink-soft">{t("date.hint")}</p>
+              <p className="mt-2 text-[14px] text-panel-muted">{t("date.hint")}</p>
               <div className="mt-5 flex flex-wrap items-center gap-2">
-                <span className="text-[12px] text-ink-soft">{t("date.quick")}</span>
+                <span className="text-[12px] text-panel-muted">{t("date.quick")}</span>
                 {quick.map((q) => (
                   <button
                     key={q.key}
                     type="button"
                     onClick={() => setDate(q.iso)}
                     className={`rounded-pill border px-3.5 py-1.5 text-[13px] transition-colors ${
-                      date === q.iso ? "border-gold bg-gold text-ink" : "border-ink/15 text-ink hover:border-gold-700"
+                      date === q.iso ? "border-gold bg-gold text-panel-fg" : "border-panel-fg/15 text-panel-fg hover:border-gold-700"
                     }`}
                   >
                     {t(`date.${q.key}`)}
@@ -289,7 +291,7 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
                 <Counter label={t("travellers.children")} value={children} min={0} max={10} onChange={setChildren} />
               </div>
               {vehicles ? (
-                <p className="mt-4 text-[14px] text-ink-soft">
+                <p className="mt-4 text-[14px] text-panel-muted">
                   {t("travellers.cars", { count: vehicles })}. {t("travellers.carsHint", { count: tour.maxPersons ?? 4 })}
                 </p>
               ) : null}
@@ -301,12 +303,12 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
                       <label
                         key={p.tier}
                         className={`flex cursor-pointer flex-col rounded-input border px-4 py-3 transition-colors ${
-                          tier === p.tier ? "border-gold bg-gold/10" : "border-ink/15 hover:border-gold-700/60"
+                          tier === p.tier ? "border-gold bg-gold/10" : "border-panel-fg/15 hover:border-gold-700/60"
                         }`}
                       >
                         <input type="radio" name="tier" value={p.tier} checked={tier === p.tier} onChange={() => setTier(p.tier)} className="sr-only" />
                         <span className="text-[14px] font-medium">{price(`tiers.${p.tier}`)}</span>
-                        <span className="text-[13px] text-ink-soft">
+                        <span className="text-[13px] text-panel-muted">
                           {formatOmr(locale, p.price, common("currency"))} {price("twinShare")}
                         </span>
                       </label>
@@ -346,45 +348,45 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
             <div>
               <h2 className="text-2xl font-medium tracking-tight">{t("review.title")}</h2>
               <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-[15px]">
-                <dt className="text-ink-soft">{t("review.journey")}</dt>
+                <dt className="text-panel-muted">{t("review.journey")}</dt>
                 <dd className="font-medium">{content.name}</dd>
-                <dt className="text-ink-soft">{t("review.date")}</dt>
+                <dt className="text-panel-muted">{t("review.date")}</dt>
                 <dd className="font-medium">
                   {date ? formatDate(locale, date) : ""}
                   {endDate ? ` (${t("date.ends", { date: formatDate(locale, endDate) })})` : ""}
                 </dd>
-                <dt className="text-ink-soft">{t("review.travellers")}</dt>
+                <dt className="text-panel-muted">{t("review.travellers")}</dt>
                 <dd className="font-medium">{travellersText}</dd>
                 {tour.priceTiers ? (
                   <>
-                    <dt className="text-ink-soft">{t("review.tier")}</dt>
+                    <dt className="text-panel-muted">{t("review.tier")}</dt>
                     <dd className="font-medium">{tierText}</dd>
                   </>
                 ) : null}
                 {pickup.trim() ? (
                   <>
-                    <dt className="text-ink-soft">{t("review.pickup")}</dt>
+                    <dt className="text-panel-muted">{t("review.pickup")}</dt>
                     <dd className="font-medium">{pickup}</dd>
                   </>
                 ) : null}
-                <dt className="text-ink-soft">{t("details.name")}</dt>
+                <dt className="text-panel-muted">{t("details.name")}</dt>
                 <dd className="font-medium">
                   {name}, <span dir="ltr">{phone}</span>, <span dir="ltr">{email}</span>
                 </dd>
               </dl>
               {estimate !== null ? (
                 <div className="mt-6 rounded-input border border-gold/40 bg-gold/10 px-4 py-3">
-                  <span className="block text-[12px] text-ink-soft">{t("review.estimate")}</span>
+                  <span className="block text-[12px] text-panel-muted">{t("review.estimate")}</span>
                   <span className="block text-2xl font-medium">{formatOmr(locale, estimate, common("currency"))}</span>
-                  <p className="mt-1 text-[12px] text-ink-soft">{t("review.estimateNote")}</p>
+                  <p className="mt-1 text-[12px] text-panel-muted">{t("review.estimateNote")}</p>
                 </div>
               ) : null}
             </div>
           ) : null}
 
-          <div className="mt-8 flex items-center justify-between gap-3 border-t border-ink/10 pt-6">
+          <div className="mt-8 flex items-center justify-between gap-3 border-t border-panel-fg/10 pt-6">
             {step > 0 ? (
-              <button type="button" onClick={() => setStep((s) => Math.max(0, s - 1) as Step)} className="inline-flex items-center gap-2 text-[14px] font-medium text-ink-soft hover:text-ink">
+              <button type="button" onClick={() => setStep((s) => Math.max(0, s - 1) as Step)} className="inline-flex items-center gap-2 text-[14px] font-medium text-panel-muted hover:text-panel-fg">
                 <ArrowLeft size={16} className="rtl:rotate-180" />
                 {t("back")}
               </button>
@@ -406,14 +408,14 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
 
 function Counter({ label, value, min, max, onChange }: { label: string; value: number; min: number; max: number; onChange: (v: number) => void }) {
   return (
-    <div className="flex items-center justify-between rounded-input border border-ink/15 px-4 py-3">
+    <div className="flex items-center justify-between rounded-input border border-panel-fg/15 px-4 py-3">
       <span className="text-[14px] font-medium">{label}</span>
       <span className="inline-flex items-center gap-3">
-        <button type="button" onClick={() => onChange(Math.max(min, value - 1))} disabled={value <= min} aria-label="-" className="flex h-9 w-9 items-center justify-center rounded-pill border border-ink/15 disabled:opacity-40 hover:border-gold-700">
+        <button type="button" onClick={() => onChange(Math.max(min, value - 1))} disabled={value <= min} aria-label="-" className="flex h-9 w-9 items-center justify-center rounded-pill border border-panel-fg/15 disabled:opacity-40 hover:border-gold-700">
           <Minus size={14} />
         </button>
         <span className="w-6 text-center text-[16px] font-medium tabular-nums">{value}</span>
-        <button type="button" onClick={() => onChange(Math.min(max, value + 1))} disabled={value >= max} aria-label="+" className="flex h-9 w-9 items-center justify-center rounded-pill border border-ink/15 disabled:opacity-40 hover:border-gold-700">
+        <button type="button" onClick={() => onChange(Math.min(max, value + 1))} disabled={value >= max} aria-label="+" className="flex h-9 w-9 items-center justify-center rounded-pill border border-panel-fg/15 disabled:opacity-40 hover:border-gold-700">
           <Plus size={14} />
         </button>
       </span>
@@ -424,9 +426,9 @@ function Counter({ label, value, min, max, onChange }: { label: string; value: n
 function Field({ id, label, error, hint, children }: { id: string; label: string; error?: string; hint?: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-[12px] font-medium text-ink-soft">{label}</label>
+      <label htmlFor={id} className="text-[12px] font-medium text-panel-muted">{label}</label>
       {children}
-      {hint && !error ? <p className="text-[12px] text-ink-soft/80">{hint}</p> : null}
+      {hint && !error ? <p className="text-[12px] text-panel-muted/80">{hint}</p> : null}
       {error ? <p className="text-[12px] text-[#b0361f]">{error}</p> : null}
     </div>
   );

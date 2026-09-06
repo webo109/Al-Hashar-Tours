@@ -4,9 +4,13 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { ArrowRight, WhatsappLogo, EnvelopeSimple } from "@phosphor-icons/react";
 import { LogoMark } from "@/components/brand/Logo";
+import { AirportCombobox } from "@/components/booking/AirportCombobox";
+import { DatePicker } from "@/components/ui/DatePicker";
+import { shiftCalendarDate } from "@/lib/calendar";
 import { Button, buttonClass } from "@/components/ui/Button";
 import { company } from "@/data/company";
 import { mailtoUrl, requestReference, whatsappUrl } from "@/lib/whatsapp";
+import { burstFrom } from "@/lib/confetti";
 import type { BookingTab } from "@/components/nav/FloatingNav";
 
 const TABS: BookingTab[] = ["flights", "hotels", "omanTours", "holidays"];
@@ -80,8 +84,41 @@ const initialValues: Record<BookingTab, Values> = {
   holidays: { travellers: "2" },
 };
 
+// A passport-style stamp: the quiet place for "since 1984" on the pass.
+function HeritageStamp({ label }: { label: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      className="h-16 w-16 shrink-0 -rotate-12 text-gold-700 opacity-75"
+      aria-hidden
+    >
+      <defs>
+        <path id="heritage-ring" d="M60 60 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0" />
+      </defs>
+      <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" strokeWidth="2.5" />
+      <circle cx="60" cy="60" r="29" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <text
+        className="font-latin"
+        fontSize="10.5"
+        fontWeight="600"
+        letterSpacing="2.2"
+        fill="currentColor"
+      >
+        <textPath href="#heritage-ring">AL-HASHAR · MUSCAT · TOURISM &amp; TRAVELS ·</textPath>
+      </text>
+      <text x="60" y="56" textAnchor="middle" fontSize="9" letterSpacing="1" fill="currentColor">
+        {label}
+      </text>
+      <text className="font-latin" x="60" y="74" textAnchor="middle" fontSize="17" fontWeight="700" fill="currentColor">
+        1984
+      </text>
+    </svg>
+  );
+}
+
 export function BoardingPass() {
   const t = useTranslations("Booking");
+  const trust = useTranslations("Trust");
   const fmt = useFormatter();
   const locale = useLocale();
   const [tab, setTab] = useState<BookingTab>("flights");
@@ -227,6 +264,7 @@ export function BoardingPass() {
     setErrors(errs);
     if (Object.values(errs).some(Boolean)) return;
     setPrinted(compose(requestReference()));
+    burstFrom((e.currentTarget as HTMLFormElement).querySelector('button[type="submit"]'));
   }
 
   const fullText = printed
@@ -238,18 +276,18 @@ export function BoardingPass() {
       id="booking"
       onSubmit={onSubmit}
       noValidate
-      className="pass relative w-full rounded-panel bg-cream text-ink shadow-panel"
+      className="pass relative w-full rounded-panel bg-panel text-panel-fg shadow-panel"
       style={{ colorScheme: "light" }}
       aria-labelledby="booking-title"
     >
-      <div className="flex items-center justify-between border-b border-ink/10 px-6 pt-5 pb-4">
+      <div className="flex items-center justify-between border-b border-panel-fg/10 px-6 pt-5 pb-4">
         <span className="inline-flex items-center gap-2">
           <LogoMark className="h-7 w-7" />
           <span className="font-latin text-[12px] font-semibold uppercase tracking-[0.2em]">
             Al-Hashar
           </span>
         </span>
-        <span id="booking-title" className="text-[12px] font-medium text-ink-soft">
+        <span id="booking-title" className="text-[12px] font-medium text-panel-muted">
           {t("passTitle")}
         </span>
       </div>
@@ -271,7 +309,7 @@ export function BoardingPass() {
                 setErrors({});
               }}
               className={`rounded-pill px-3.5 py-2 text-[13px] font-medium transition-colors duration-300 ${
-                active ? "bg-ink text-cream" : "text-ink-soft hover:bg-ink/5 hover:text-ink"
+                active ? "bg-panel-fg text-panel" : "text-panel-muted hover:bg-panel-fg/5 hover:text-panel-fg"
               }`}
             >
               {t(`tabs.${key}`)}
@@ -289,15 +327,25 @@ export function BoardingPass() {
         {FIELDS[tab].map((f) => {
           const id = `booking-${tab}-${f.name}`;
           const error = errors[f.name];
+          const airportField = tab === "flights" && (f.name === "from" || f.name === "to");
           return (
-            <div key={f.name} className={`flex flex-col gap-1.5 ${f.wide ? "col-span-2" : ""}`}>
-              <label htmlFor={id} className="text-[12px] font-medium text-ink-soft">
+            <div key={`${tab}-${f.name}`} className={`flex min-w-0 flex-col gap-1.5 ${f.wide ? "col-span-2" : airportField ? "col-span-2 sm:col-span-1" : ""}`}>
+              <label htmlFor={id} className="text-[12px] font-medium text-panel-muted">
                 {t(`fields.${f.name}`)}
                 {!f.required ? (
                   <span className="ms-1 font-normal opacity-70">({t("fields.optional")})</span>
                 ) : null}
               </label>
-              <input
+              {airportField ? (
+                <AirportCombobox id={id} name={f.name} label={t(`fields.${f.name}`)}
+                  value={v[f.name] ?? ""} onChange={(value) => update(f.name, value)}
+                  placeholder={f.placeholder ? t(`placeholders.${f.placeholder}`) : undefined} error={error} />
+              ) : f.type === "date" || f.type === "month" ? (
+                <DatePicker id={id} name={f.name} label={t(`fields.${f.name}`)}
+                  mode={f.type} value={v[f.name] ?? ""} onChange={(value) => update(f.name, value)}
+                  min={f.name === "return" ? v.depart : f.name === "checkOut" && v.checkIn ? shiftCalendarDate(v.checkIn, 1) : undefined}
+                  error={error} required={f.required} />
+              ) : <input
                 id={id}
                 name={f.name}
                 type={f.type}
@@ -309,10 +357,10 @@ export function BoardingPass() {
                 placeholder={f.placeholder ? t(`placeholders.${f.placeholder}`) : undefined}
                 aria-invalid={error ? true : undefined}
                 aria-describedby={error ? `${id}-error` : undefined}
-                className={`h-11 w-full rounded-input border bg-white/70 px-3 text-[15px] text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-gold/45 ${
-                  error ? "border-[#b0361f]" : "border-ink/15 focus:border-gold"
+                className={`h-11 w-full rounded-input border bg-white/70 px-3 text-[15px] text-panel-fg placeholder:text-panel-muted/60 focus:outline-none focus:ring-2 focus:ring-gold/45 ${
+                  error ? "border-[#b0361f]" : "border-panel-fg/15 focus:border-gold"
                 }`}
-              />
+              />}
               {error ? (
                 <p id={`${id}-error`} className="text-[12px] text-[#b0361f]">
                   {error}
@@ -329,25 +377,25 @@ export function BoardingPass() {
         </Button>
       </div>
 
-      <div className="relative h-0 border-t border-dashed border-ink/25" aria-hidden>
-        <span className="absolute -start-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-midnight" />
-        <span className="absolute -end-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-midnight" />
+      <div className="relative h-0 border-t border-dashed border-panel-fg/25" aria-hidden>
+        <span className="absolute -start-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-surface" />
+        <span className="absolute -end-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-surface" />
       </div>
 
       <div className="rounded-b-panel bg-sand-300/70 px-6 pt-5 pb-6" aria-live="polite">
         {printed ? (
           <div className="stub-print">
             <div className="flex items-baseline justify-between">
-              <span className="text-[12px] font-medium text-ink-soft">{t("printed.title")}</span>
-              <span className="font-latin text-[12px] tracking-[0.12em] text-ink-soft">
+              <span className="text-[12px] font-medium text-panel-muted">{t("printed.title")}</span>
+              <span className="font-latin text-[12px] tracking-[0.12em] text-panel-muted">
                 {t("printed.reference")} {printed.reference}
               </span>
             </div>
             <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[14px]">
               {printed.lines.map((l) => (
                 <div key={l.label} className="contents">
-                  <dt className="text-ink-soft">{l.label}</dt>
-                  <dd className="font-medium text-ink">{l.value}</dd>
+                  <dt className="text-panel-muted">{l.label}</dt>
+                  <dd className="font-medium text-panel-fg">{l.value}</dd>
                 </div>
               ))}
             </dl>
@@ -371,28 +419,32 @@ export function BoardingPass() {
               <button
                 type="button"
                 onClick={() => setPrinted(null)}
-                className="ms-auto text-[13px] text-ink-soft underline-offset-4 hover:underline"
+                className="ms-auto text-[13px] text-panel-muted underline-offset-4 hover:underline"
               >
                 {t("printed.edit")}
               </button>
             </div>
-            <p className="mt-3 text-[12px] leading-relaxed text-ink-soft">{t("printed.note")}</p>
+            <p className="mt-3 text-[12px] leading-relaxed text-panel-muted">{t("printed.note")}</p>
           </div>
         ) : (
           <div className="flex items-center justify-between gap-4">
-            <p className="text-[13px] text-ink-soft">{t("passSubtitle")}</p>
-            <svg
-              className="h-7 w-24 shrink-0 text-ink/70"
-              viewBox="0 0 96 28"
-              aria-hidden
-              lang={locale}
-            >
-              {[2, 6, 9, 14, 17, 22, 27, 30, 36, 40, 43, 48, 52, 57, 62, 65, 70, 74, 79, 84, 88, 92].map(
-                (x, i) => (
-                  <rect key={x} x={x} y="2" width={i % 3 === 0 ? 2.5 : 1.2} height="24" fill="currentColor" />
-                ),
-              )}
-            </svg>
+            <p className="text-[13px] text-panel-muted">{t("passSubtitle")}</p>
+            <div className="flex shrink-0 items-center gap-3">
+              <span className="sr-only">{trust("headline")}</span>
+              <HeritageStamp label={trust("sinceLabel")} />
+              <svg
+                className="hidden h-7 w-20 shrink-0 text-panel-fg/70 sm:block"
+                viewBox="0 0 96 28"
+                aria-hidden
+                lang={locale}
+              >
+                {[2, 6, 9, 14, 17, 22, 27, 30, 36, 40, 43, 48, 52, 57, 62, 65, 70, 74, 79, 84, 88, 92].map(
+                  (x, i) => (
+                    <rect key={x} x={x} y="2" width={i % 3 === 0 ? 2.5 : 1.2} height="24" fill="currentColor" />
+                  ),
+                )}
+              </svg>
+            </div>
           </div>
         )}
       </div>

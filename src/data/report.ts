@@ -22,8 +22,8 @@ export type SmokeReport = {
 export type DecisionStatus = "open" | "confirmedYes" | "confirmedNo" | "shipped" | "deferred";
 
 export const report = {
-  version: "0.3",
-  generated: "3 September 2026",
+  version: "0.4",
+  generated: "6 September 2026",
   client: "Al-Hashar Tourism & Travels LLC",
   liveUrl: "https://al-hashar-travels.vercel.app",
 
@@ -52,6 +52,13 @@ export const report = {
     { name: "Photography pipeline", detail: "25 licensed photos fetched, resized and converted to WebP with blur placeholders and a credits file", status: "needsSwap" },
     { name: "Reduced motion", detail: "Every pinned or scrubbed chapter collapses to a static layout under prefers-reduced-motion", status: "working" },
     { name: "Static output", detail: "All public pages prerendered at build time; locale proxy in front", status: "working" },
+    { name: "Light and dark themes", detail: "Follows the device by default, toggle in the nav remembers the choice, every chapter has a daylight and a night grade", status: "working" },
+    { name: "Ambient hero video", detail: "A muted drone loop over the hero photograph, loaded after the page, with a pause control; the photo is the poster and fallback", status: "needsSwap" },
+    { name: "Hover-to-play clips", detail: "Featured tour cards and the active story pane play a short clip, at most two at once, none under reduced motion or Save-Data", status: "needsSwap" },
+    { name: "Pick your adventure", detail: "Three taps (place, time, pace; mood for abroad) suggest three journeys, keyboard operable, with a confetti burst", status: "working" },
+    { name: "World destinations", detail: "All 21 published international packages with prices, a scroll-snap rail of 19 with photos, each preselecting the holidays request", status: "working" },
+    { name: "People imagery", detail: "Family-and-friends moments as polaroid insets in the story stack and on the holidays and hotel tiles", status: "needsSwap" },
+    { name: "Micro-interactions", detail: "Paper plane along a scroll route, pointer tilt and cursor glow on photo cards, confetti on every sent request", status: "working" },
     { name: "Reviews chapter", detail: "Built, hidden until verifiable third-party reviews exist", status: "postSale" },
     { name: "Payments", detail: "Not in the demo by design; part of activation", status: "postSale" },
   ] as { name: string; detail: string; status: FeatureStatus }[],
@@ -97,6 +104,16 @@ export const report = {
       before: "Switching language always returned to the home page.",
       after: "The toggle links to the current pathname in the other locale.",
     },
+    {
+      title: "Video optimiser could not find its sources on Windows",
+      before: "Paths were derived from URL pathnames, so the space in the project folder arrived percent-encoded and every clip was skipped.",
+      after: "Paths go through fileURLToPath; the three provisional clips encode to 1.7 MB, 0.6 MB and 0.3 MB with posters.",
+    },
+    {
+      title: "Pinned chapters broke behind the paper plane",
+      before: "The plane's overflow-hidden wrapper on the page made main a scroll container, which disables position: sticky for the story stack and logo moment.",
+      after: "overflow-clip clips the route without creating a scroll container; the stack pins again at desktop sizes.",
+    },
   ],
 
   session: [
@@ -109,10 +126,13 @@ export const report = {
     { phase: "Secondary pages", detail: "Umrah, six service pages, contact, footer, inquiry forms." },
     { phase: "Verification and deploy", detail: "Type check, lint, production build, booking flow, both languages, mobile overflow, then Vercel." },
     { phase: "Internal tools", detail: "This report with a smoke-test battery, and the operator dashboard preview." },
+    { phase: "Alive", detail: "Light and dark themes, ambient and hover video with an ffmpeg pipeline, the adventure picker, the world rail of real packages, people imagery, plane, tilt and confetti." },
   ],
 
   swaps: [
     { what: "Client photography in place of stock", where: "scripts/photos.manifest.mjs, then npm run photos", effort: "30 min" },
+    { what: "Real video clips (hero, six tours, three world cards)", where: "assets/videos-src/{key}.mp4, then npm run videos", effort: "40 min" },
+    { what: "Family and friends photos of real guests", where: "assets/photos-src/people-*.jpg, then npm run photos", effort: "20 min" },
     { what: "Arabic copy review by a native reader", where: "messages/ar.json, src/data/tours.ar.ts", effort: "40 min" },
     { what: "Confirm 12 branches (contact page names 11 plus head office)", where: "src/data/company.ts", effort: "5 min" },
     { what: "World Travel Awards: winner or nominee for 2025", where: "Trust chapter, About copy", effort: "5 min" },
@@ -178,6 +198,9 @@ export const report = {
     { q: "World Travel Awards claim", status: "open", resolution: "Nomination verified, win not; left off until confirmed." },
     { q: "Child pricing on packages", status: "open", resolution: "Estimate counts adults only and says so." },
     { q: "Custom domain", status: "open", resolution: "Live on al-hashar-travels.vercel.app for the pitch." },
+    { q: "Light theme", status: "shipped", resolution: "Both themes with a toggle; the device preference decides first." },
+    { q: "Video footage", status: "open", resolution: "Provisional Pexels clips prove the pipeline; the client's or hand-picked clips replace them by filename." },
+    { q: "International destinations", status: "shipped", resolution: "The 21 packages and prices published on their Holidays page, not a generic list." },
   ] as { q: string; status: DecisionStatus; resolution: string }[],
 
   pricing: {

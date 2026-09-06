@@ -5,6 +5,7 @@ import { Check } from "@phosphor-icons/react/dist/ssr";
 import { resolveLocale } from "@/i18n/locale";
 import { PageIntro } from "@/components/layout/PageIntro";
 import { InquiryForm } from "@/components/forms/InquiryForm";
+import { HolidayRequestForm } from "@/components/forms/HolidayRequestForm";
 import { company } from "@/data/company";
 import type { ImageKey } from "@/data/images.generated";
 
@@ -54,7 +55,7 @@ export default async function ServicePage({ params }: Props) {
         <div>
           <ul className="flex flex-col gap-3">
             {(["one", "two", "three"] as const).map((p) => (
-              <li key={p} className="flex items-start gap-3 rounded-panel border border-cream/10 bg-midnight-800 px-5 py-4 text-[16px] text-cream/90">
+              <li key={p} className="flex items-start gap-3 rounded-panel border border-fg/10 bg-surface-2 px-5 py-4 text-[16px] text-fg/90">
                 <Check size={20} weight="bold" className="mt-0.5 shrink-0 text-gold" />
                 {t(`pages.${key}.points.${p}`)}
               </li>
@@ -62,25 +63,34 @@ export default async function ServicePage({ params }: Props) {
           </ul>
 
           <div className="mt-10 rounded-panel border border-gold/25 p-6">
-            <h2 className="text-[13px] font-medium text-cream/60">{t("division")}</h2>
-            <div className="mt-3 flex flex-col gap-2 text-[16px] text-cream">
-              <a href={`tel:${(division ?? company).phone.tel}`} dir="ltr" className="hover:text-gold-300">
+            <h2 className="text-[13px] font-medium text-fg/60">{t("division")}</h2>
+            <div className="mt-3 flex flex-col gap-2 text-[16px] text-fg">
+              <a href={`tel:${(division ?? company).phone.tel}`} dir="ltr" className="hover:text-accent-text">
                 {(division ?? company).phone.display}
               </a>
-              <a href={`mailto:${division?.email ?? company.email}`} className="hover:text-gold-300">
+              <a href={`mailto:${division?.email ?? company.email}`} className="hover:text-accent-text">
                 {division?.email ?? company.email}
               </a>
-              <span className="text-[14px] text-cream/60">{contact("whatsapp")}: <span dir="ltr">{company.whatsapp.display}</span></span>
+              <span className="text-[14px] text-fg/60">{contact("whatsapp")}: <span dir="ltr">{company.whatsapp.display}</span></span>
             </div>
           </div>
         </div>
 
-        <InquiryForm
-          context={t(`pages.${key}.title`)}
-          title={t("requestTitle")}
-          intro={t("requestIntro")}
-          email={division?.email}
-        />
+        {key === "holidays" ? (
+          <HolidayRequestForm
+            context={t(`pages.${key}.title`)}
+            title={t("requestTitle")}
+            intro={t("requestIntro")}
+            email={division?.email}
+          />
+        ) : (
+          <InquiryForm
+            context={t(`pages.${key}.title`)}
+            title={t("requestTitle")}
+            intro={t("requestIntro")}
+            email={division?.email}
+          />
+        )}
       </section>
     </main>
   );

@@ -151,6 +151,180 @@ export const images = {
     "height": 1600,
     "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoYABAAPu1kqU2ppaQiMAgBMB2JQBOgBDv1d+cepLrYAP5QUN6UoNS3uIw50qYL4wCZDEOfIKSAIGG0BsL6WQTQHNCol4AL0E+2DJ+zIv+9gDfnjgQBpsuCtpoAAA=="
   },
+  "world-dubai": {
+    "src": "/images/world-dubai.webp",
+    "width": 2400,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwBACdASoYABIAPu1crE2ppKSiMBgMATAdiWMAsOwQ61+jMs6fHXDi2zFPgAD+rwYkRjc2LqQx34gGn2gUQBsgZfkri65XcikXu5/oFJegh6F/UBEc3nx4U39ojghwYtJZBp+YX/DnFsjT8jZoAA=="
+  },
+  "world-istanbul": {
+    "src": "/images/world-istanbul.webp",
+    "width": 2400,
+    "height": 3600,
+    "blurDataURL": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAQBgCdASoYACQAPu1orVCppaQipWzJMB2JYwDE2DnhsFbC0HphUl0NqwHEC0OR1ge8ALYWW7NQnGAA/sOaIVLUAu7H37eh5/SrJ4MthivlX+rtAgVxhJUiFKBkmnkG6c4tF9UzPsL3ZoqmLxzn13NGbag6XQi6yIbvDgyiKUjcu8rq7gXlJIYfvo1jqHM4Em9DV87B1D8qpEt5XcltgH52752i9uuahMvKNda1OkN+SxcQEZ5pw9lwLuMHdAgA"
+  },
+  "world-thailand": {
+    "src": "/images/world-thailand.webp",
+    "width": 2400,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADwBQCdASoYABIAPu1gq1AppKOisBgIATAdiWgAnTKEdWgYvVgGBkrsLx51ZfnJRDVCvJo68bwhAADxkhVDJft+LdQx7ojD+3c9oI1V28MjWcLt8k9nlAro/BMkBuvh+wuVl9D7IC6e45LdroQ42kOc0eqAsXjehAGF23mBBbwlswo/hZi8nVrS+yAk8vPZbsEWtQFqTdp0WyxTIxGrIov3qQAAAA=="
+  },
+  "world-malaysia": {
+    "src": "/images/world-malaysia.webp",
+    "width": 2400,
+    "height": 3600,
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABQBQCdASoYACQAPu1qrVEppaQipWzJMB2JQAXf+Bgs14gYu4pHVykVNMhzjilg+1UBEPAA/ueTTVR5dV6MGw+J/zCTf7o7d2uPZhKyut2nc0heBuCkXt7vjaVaome5yWqNN5VQR3IbrIGCZoio/sbHH2uWXg6odyTTSy/f4VIPMHa7GD3FxdkTc7rOuyOwNnONoGmJC7mX87inSZWKO58DhPwAAA=="
+  },
+  "world-georgia": {
+    "src": "/images/world-georgia.webp",
+    "width": 2400,
+    "height": 3200,
+    "blurDataURL": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADwBACdASoYACAAPu1qqlEppaOiqAqpMB2JagCdAGii2IDyoNyNUn3rG4DRmWlVGyAA/IDSfhJEswiS5/9dHIvgnxvuN3sfrLj8mnu2nfcNfVIt9uUGgjTBiATnRDdYxPHaUdTRtMWozoVm7dpnuHflbhrrhD1h1oDoFMWkOToW5EBK9t0waPIHFIG/GvcdK8EYBmR6koE3HhMWPHBfLck1V5oz/t5iAHqYAA=="
+  },
+  "world-azerbaijan": {
+    "src": "/images/world-azerbaijan.webp",
+    "width": 2400,
+    "height": 3600,
+    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADwBQCdASoYACQAPulgpk2pJaOpNVgIASAdCWMAyFxFbR3BoCzyHYBUH0pFmPFF2J99iIVtFO5wyAD+uPWBmURGDnUEcc5njdCkwkicqUYk8RpYNqPGfxCoighU1iIvG1LPtCHLeOkiypdYp/JEnCJdXiFNR72iyA0PJC9Bv6BvlgL8Gqq3BxYokhgFXJ4YascMI8JkYyuXveoTugAAAA=="
+  },
+  "world-switzerland": {
+    "src": "/images/world-switzerland.webp",
+    "width": 2400,
+    "height": 1350,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoYAA0APu1kqk4ppaQiMAgBMB2JZQCdACHiHcPxtKXmNNtgAP6QZi7VlOkTx8/fgQ2DmYkE7HWqBbviQiy6ns4lUF9PUr9Ha2mjnjqAAAA="
+  },
+  "world-bosnia": {
+    "src": "/images/world-bosnia.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdEf/gN4y8yXGmgCoaBAAA/j2l/bgBeIL66VCBxx1DPq6Ha28IaMSn2ePUAfK0WV0HR2utx3bpVzv9z9a0erYtgANHNK9BssoJ601sfvmcQem99P8G/8xlT3Q/n3fu+Qfxow5esx47emXX3wNfpEtPu87E8k9hoUjFs01hd5qoLmerPtFx+f2HiFLJ7cvSoU8bZk5m1XZRYAA="
+  },
+  "world-india": {
+    "src": "/images/world-india.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoR3ACrO4fpHYONbOCmlYAD8dwh6nlRHzNJZkhGZ04MdKFUkOvbN0kmmh4CLAYEWsZrVinrel655phAG5i5e+OwEE9xVzdKq4hnd84nRLCNrntMsnzB/mX6jb+CpVE0qMhlsxMNgPq1PwCbhlFPYOlf4NKRhxQYbIMysT8maCygAAA=="
+  },
+  "world-greece": {
+    "src": "/images/world-greece.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoYABAAPu1kq04ppaQiMAgBMB2JQBOkGQBOXcX9FFu1NZKtCAAA/tp1oICxktHCs44mtpXgtKWMdKaB4f7WHtAOZ789Ynt2vLVEezfCMypZOQSEHjJlKQgTzOFDkNASLeNjWp3yAAA="
+  },
+  "world-kenya": {
+    "src": "/images/world-kenya.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoRwFf/gMOn9pLouf/nGAAD5tjnv4WwnHDiXifwImjG2DIVyF66rMtkMv+VV31nAwj8L9HmjFx4XT6FEScA/qutXu3ZC8wGa+idygHxT8Rw4kDsJ2cf+9a0jE5LbRlBQ1U1+673IqG3HoAAA"
+  },
+  "world-france": {
+    "src": "/images/world-france.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdABjSxXU1NHfKolGdgAD9HgonPb+te6Krhr48eqKnH/Hrali867YE0ShfBRFNINByprbF2qp7XCliP2gs3lhr1VbDc8bt6tkQr4AAAA=="
+  },
+  "world-sri-lanka": {
+    "src": "/images/world-sri-lanka.webp",
+    "width": 2400,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABwBACdASoYABIAPu1mqU2ppaQiMAgBMB2JYwDA3A6er/ScSpsC08YN7RDjAAD+E4AEQ/Becw3+AWsr+qm6H/Zq7rlEgZpjCzqUZDdQmTWZVNUz1V1Goacmr30i4o3Yh19QG1Uxm7+sD0YMhl8WKAkCQAA="
+  },
+  "world-trabzon": {
+    "src": "/images/world-trabzon.webp",
+    "width": 2400,
+    "height": 2008,
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBQCdASoYABQAPu1kq06ppaOiKA1RMB2JZwDG9A3T5CU9V1ttC34jdc8ZKUA2oMR7kAD+zEDyDX95V/MBgIk1UldXmpBn3cy6LVcTYK5AL+fpIE7ogcAIm/MSvz7uHi6GG1PwlAkXlnx21GKHWIYvEtAAAA=="
+  },
+  "world-kerala": {
+    "src": "/images/world-kerala.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoYABAAPu1orU6ppiSiMAgBMB2JZgCdAGjNjUx4hyiDacoA/vqP/JWn+reN5h+TPlfcEZ7lEL+VI+evZwrfhLwsYvvuhk0wT10PG+OX0WN5NZ6uE3ANP19OcuEMLwgAAAA="
+  },
+  "world-czech-austria": {
+    "src": "/images/world-czech-austria.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwBACdASoYABAAPu1iqk2ppaQiMAgBMB2JQBOmUGPhz/gPI/l4nyztz8FjgAD+WNubjkCIh1kFAPedgY0yXXho7AsZW4MO1Mv0SyrAEu6X2AaTpW0uIoc0RBFxRLaoFMRiMsuAAAA="
+  },
+  "world-scandinavia": {
+    "src": "/images/world-scandinavia.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQAwCdASoYABAAPu1mqk2ppaQiMAgBMB2JQBadBFitJmGB1WjkQsgA+yLwRtPRPmd6L+MqhABhnBN6g9KxMhSyPTwhqWUr5Yz/KZNAIaxJqTZcg2tf9jIznMFETdDXmLMGqmk8e/sQAdN8rEmjYAAA"
+  },
+  "world-qatar": {
+    "src": "/images/world-qatar.webp",
+    "width": 2400,
+    "height": 1356,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBACdASoYAA4APu1iqU2ppaQiMAgBMB2JZgCdMoADUw8DHTKlvXrP43FAAP3h2TDYP6PlF3UIOBpX3qQm/zEntktmUSLIM58ugYr21vjAfY8H5kDAZ5zOU1ctC3dztITfvcWecxg00dLG/GMTAAAA"
+  },
+  "world-armenia": {
+    "src": "/images/world-armenia.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQAwCdASoYABAAPu1iqU2ppaQiMAgBMB2JQBOgAzjE7+p7ngfwAMrzYgLbSN4gaNhYlyPx2wPQFNk1d7lmmphvIGlscwx4EnacOt1z712ZoPzr+M8r2LpTn71gAA=="
+  },
+  "people-desert-family": {
+    "src": "/images/people-desert-family.webp",
+    "width": 2400,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBQCdASoYABIAPu1ip04ppaMiMBgMATAdiWQAsR8y7KnAAGBVmF3S1myuRsJpzuaYhJsgAP7ec3RJK5woUWttYJ6+MJddb2XR+Y4S3bsynZuYUfKToj9st6ggUzOsadbm0FE5+IR4ZWzu2eAXyxVGWq1DxR2vr2ZNTR977xXouKFR44IsQgZLRdhje0AuAqNrPS3GxyVyfPVcsZoAAA=="
+  },
+  "people-dhow-friends": {
+    "src": "/images/people-dhow-friends.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JZwDE2B4lYS9HF1R4bQCAAP7ghbYp156NyJ/n93LerLrEyj6g1+Ay5npgz/PbKiKOtfmJbrjAPVPzIvK9bz3PUVXB1g6dBSnJsHw07alNJeT8d2WbvIYxiP0AuyEyFZXuU/V36//BqznUAAA="
+  },
+  "people-mountain-couple": {
+    "src": "/images/people-mountain-couple.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZQC/OBkwWWPYpRxjB/UeQAD8soFER3EMCby1BvHasWjwjn+lBoxuTW4RHuE711bmLMv8TDDG9fXZcTYhDo5DDoxXtnADXbgCDPb9GP3gH0IytCgYcBRwbbH9rZqJmwEIUb5KYtLA3w1paeyPPBFUAAA="
+  },
+  "people-wadi-kids": {
+    "src": "/images/people-wadi-kids.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZgCdIDZCdw5g1Kil0AjdEFXLegD+jxkF2v81lX4npNRJ3pSvFnHe8FvSzJC0ZAYvX/dhD47TI/TszM//Wa8sdiltieQprdF58Jv3yrc9JOBBnOovG3vgkmyd5pIkR0dZd5AhW0jlEY7n9VyGWl0NxrrcoAAA"
+  },
+  "people-fort-family": {
+    "src": "/images/people-fort-family.webp",
+    "width": 2400,
+    "height": 3601,
+    "blurDataURL": "data:image/webp;base64,UklGRiABAABXRUJQVlA4IBQBAABwBgCdASoYACQAPu1wrlCppqQiqrgKATAdiWIAnTNyQ20gPz8VfXcShbolpLbWqE77QZug7immO1sO8gAA/unKAeujnv9cP6hZkqs15hJOAq74kic/ZizSZUWjSSm06hDvdgAnr1ndcPaIW1xvMsJQGQXAmzkpX7N1y5uKSphcDvVz/Ze1dr81WgIXyIzWA7FfFfhgKYUlr1JDrQJBPijWXo6kDAjfmOI6CWg8mKFQUQPTeDAhCa1sxmPphunMqEo525A9eiAKyl9ZHbzt2tIFeKwZECeG8wLJEVTZxeRV4BDFP0y9I9L+ZFFdhuS/Z5SdHBZ3Z38alVrdAzsEP9HD4T1v+Gfo8LM+89q0BldgAeK+4AA="
+  },
+  "people-mosque-visit": {
+    "src": "/images/people-mosque-visit.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQAwCdASoYABAAPu1iqU2ppaQiMAgBMB2JQBUegQix9U1EEADN+EWTg0qyGSvhqop0oVXbPhUntVHQjmq0FO8bQFzTqyKSgT73KCV9zkcQIsRMwKr6EpWNWDsdEklNVc2I7XkqhVBfrr0fELlGkZOWu/URzc/zTWdpujWPIj1XByl6gAA="
+  },
+  "people-airport-family": {
+    "src": "/images/people-airport-family.webp",
+    "width": 2400,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBQCdASoYABIAPu1sqlEppaOiqAqpMB2JYwCuHA3L0GWbir5GizefKnRUJ9bP4OFsgADOOiEXfetkPFaUjMWc4D2BG5SNvrTCF9ZRj/8kGHo1HAQyXscUYWaGzmRcamS0+3Xjj7KPKnDJblC1LYWLsM6E/9G9DzHa9iVqvUtTKWswmWTjfnXTUZC/pR19aqUxST7x5JvscEzlExj8sVMGFuLsa+n4zAA="
+  },
+  "people-hotel-arrival": {
+    "src": "/images/people-hotel-arrival.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAADwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoLUDquh6GT/Nmu8M1YqVBFeEMAA/pcc0CJ+A2WYEbeNeT8PnvTOpL0kStpUwL7M6YRjsaP5twRXvepQeQM5C0wy9x8XF4ily/8MCfG9PqyaM3f/UdnOBzxlZQO42z0ap4UfruCLA9ntIHTbLX9rb8PiBvCNCCZVERoehJq3aiaFH3VwN20RbQgcZlNmMMie1pjfrEYAuDkca5/N8vYEnX+xYRDz3ox+yk7rD6AU6VwAAA=="
+  },
+  "people-holiday-abroad": {
+    "src": "/images/people-holiday-abroad.webp",
+    "width": 2400,
+    "height": 1602,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JYwC+SBrMrLtDQCjsAP7x4FbFV/7l/Q83AsJpAPeS8eNCuFrtyb0VSslRzyU3+khu5T+eVNXx4jaufOsopIrrcL9+gcEE9jTZpeqlCFYBNkIkU6oWAAAA"
+  },
+  "people-umrah": {
+    "src": "/images/people-umrah.webp",
+    "width": 2400,
+    "height": 3515,
+    "blurDataURL": "data:image/webp;base64,UklGRggBAABXRUJQVlA4IPwAAABwBgCdASoYACMAPu1kqlCppSOiqrgMATAdiWMAxn3dI4gQ38UE+NtuZpowOhV7rHoa8PW/KNMiKIBaMyAA8IwC/8KnEoSk6oleRIBO3mbGEErYuledFuNkWA2abQSDvE3lE1hJGzy0Yu0uC/Ep7U19xWVWPfdJk6Ww1UMbOjG59dVDaWBkJVjAbqmTad8iYMmMBiZwaFogBfksDtp+mGyxxuZ0lR/HcPKAnn86C4lrpONDgLjDNAJepFaSBWbv+J0SLgFEk08ogBPmDQss7b8xMafx+CXr2EVo8xF6P6r1Wz/uoIIS9bSFVnpVSyxE7Zo0LBLcKyIGJPNUAAA="
+  },
   "extra-al-alam-palace": {
     "src": "/images/extra-al-alam-palace.webp",
     "width": 2400,

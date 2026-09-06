@@ -44,3 +44,6 @@ next-env.d.ts
 /assets/photos-src
 .vercel
 .env*
+
+# Source video clips (large originals)
+/assets/videos-src

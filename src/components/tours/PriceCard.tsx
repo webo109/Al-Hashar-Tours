@@ -23,29 +23,29 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
 
   return (
     <aside
-      className="rounded-panel bg-cream p-6 text-ink shadow-panel md:p-7"
+      className="rounded-panel bg-panel p-6 text-panel-fg shadow-panel md:p-7"
       style={{ colorScheme: "light" }}
     >
       <PriceFrom tour={tour} size="detail" tone="cream" />
 
       {tour.priceTiers ? (
-        <dl className="mt-5 grid grid-cols-[1fr_auto] gap-y-2 border-t border-ink/10 pt-4 text-[14px]">
+        <dl className="mt-5 grid grid-cols-[1fr_auto] gap-y-2 border-t border-panel-fg/10 pt-4 text-[14px]">
           {tour.priceTiers.map((tier) => (
             <div key={tier.tier} className="contents">
-              <dt className="text-ink-soft">{price(`tiers.${tier.tier}`)}</dt>
+              <dt className="text-panel-muted">{price(`tiers.${tier.tier}`)}</dt>
               <dd className="font-medium">{formatOmr(locale, tier.price, common("currency"))}</dd>
             </div>
           ))}
         </dl>
       ) : null}
 
-      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-ink/10 pt-4 text-[14px]">
+      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-panel-fg/10 pt-4 text-[14px]">
         <div>
-          <dt className="text-[12px] text-ink-soft">{stories("duration")}</dt>
+          <dt className="text-[12px] text-panel-muted">{stories("duration")}</dt>
           <dd className="font-medium">{durationLabel(tours, tour)}</dd>
         </div>
         <div>
-          <dt className="text-[12px] text-ink-soft">{tours("region")}</dt>
+          <dt className="text-[12px] text-panel-muted">{tours("region")}</dt>
           <dd className="font-medium">{tour.regions.map((r) => regions(r)).join(", ")}</dd>
         </div>
         {tour.startTime ? (
@@ -78,7 +78,7 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
         )}
       </div>
 
-      <ul className="mt-6 flex flex-col gap-2.5 text-[13px] text-ink-soft">
+      <ul className="mt-6 flex flex-col gap-2.5 text-[13px] text-panel-muted">
         <li className="flex items-center gap-2">
           <SealCheck size={18} weight="fill" className="text-gold-700" />
           {t("reassurance.iata")}
@@ -92,7 +92,7 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
           <span dir="ltr">{t("reassurance.whatsapp", { number: company.whatsapp.display })}</span>
         </li>
       </ul>
-      <p className="mt-5 text-[12px] leading-relaxed text-ink-soft">{t("priceNote")}</p>
+      <p className="mt-5 text-[12px] leading-relaxed text-panel-muted">{t("priceNote")}</p>
     </aside>
   );
 }

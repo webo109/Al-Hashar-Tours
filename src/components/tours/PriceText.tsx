@@ -27,20 +27,24 @@ export function PriceFrom({
 }: {
   tour: TourBase;
   size?: "card" | "detail";
-  tone?: "dark" | "cream";
+  tone?: "dark" | "cream" | "inverse";
 }) {
   const t = useTranslations("Price");
   const common = useTranslations("Common");
   const locale = useLocale();
-  const muted = tone === "dark" ? "text-cream/60" : "text-ink-soft";
-  const strong = tone === "dark" ? "text-cream" : "text-ink";
+  const muted = tone === "inverse" ? "text-cream/65" : tone === "dark" ? "text-fg/60" : "text-panel-muted";
+  const strong = tone === "inverse" ? "text-cream" : tone === "dark" ? "text-fg" : "text-panel-fg";
 
   if (tour.priceFrom === null) {
     return (
       <div>
         <span
           className={`inline-flex rounded-pill border px-3 py-1 text-[13px] font-medium ${
-            tone === "dark" ? "border-gold/50 text-gold-300" : "border-gold-700/40 text-gold-700"
+            tone === "inverse"
+              ? "border-gold/60 text-gold-300"
+              : tone === "dark"
+                ? "border-gold/50 text-accent-text"
+                : "border-gold-700/40 text-gold-700"
           }`}
         >
           {t("onRequest")}

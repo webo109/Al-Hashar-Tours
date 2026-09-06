@@ -36,14 +36,14 @@ export default async function BookPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "Wizard" });
 
   return (
-    <main id="content" className="bg-midnight">
+    <main id="content" className="bg-surface">
       <div className="mx-auto w-full max-w-[1200px] px-6 pt-32 pb-28 md:px-10 md:pt-40">
-        <Link href={`/tours/${slug}`} className="inline-flex items-center gap-2 text-[14px] text-cream/70 hover:text-cream">
+        <Link href={`/tours/${slug}`} className="inline-flex items-center gap-2 text-[14px] text-fg/70 hover:text-fg">
           <ArrowLeft size={16} className="rtl:rotate-180" />
           {t("backToTour", { name: content.name })}
         </Link>
-        <h1 className="mt-4 text-4xl font-medium tracking-tight text-cream md:text-5xl">{t("title")}</h1>
-        <p className="mt-2 text-lg text-cream/70">{content.name}</p>
+        <h1 className="mt-4 text-4xl font-medium tracking-tight text-fg md:text-5xl">{t("title")}</h1>
+        <p className="mt-2 text-lg text-fg/70">{content.name}</p>
         <div className="mt-10">
           <BookingWizard tour={tour} content={content} />
         </div>

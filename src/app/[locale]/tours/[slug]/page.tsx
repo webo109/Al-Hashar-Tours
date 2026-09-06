@@ -47,7 +47,7 @@ export default async function TourPage({ params }: Props) {
   const gallery = tour.gallery.filter((g) => g !== tour.image).slice(0, 3);
 
   return (
-    <main id="content" className="bg-midnight">
+    <main id="content" className="bg-surface">
       <section className="relative isolate overflow-hidden">
         <div className="grade relative h-[62vh] min-h-[420px] w-full">
           <Image
@@ -60,46 +60,46 @@ export default async function TourPage({ params }: Props) {
             blurDataURL={hero.blurDataURL}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.55)_0%,transparent_35%,rgba(11,18,32,0.75)_80%,#0b1220_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--surface-rgb)/0.55)_0%,transparent_35%,rgb(var(--surface-rgb)/0.75)_80%,var(--color-surface)_100%)]" />
         </div>
 
         <div className="relative mx-auto -mt-40 w-full max-w-[1200px] px-6 md:px-10">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-[13px] text-cream/70">
-            <Link href="/" className="hover:text-cream">{t("breadcrumbHome")}</Link>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-[13px] text-fg/70">
+            <Link href="/" className="hover:text-fg">{t("breadcrumbHome")}</Link>
             <CaretRight size={12} className="rtl:rotate-180" />
-            <Link href="/tours" className="hover:text-cream">{t("breadcrumbTours")}</Link>
+            <Link href="/tours" className="hover:text-fg">{t("breadcrumbTours")}</Link>
             <CaretRight size={12} className="rtl:rotate-180" />
-            <span className="text-cream">{content.name}</span>
+            <span className="text-fg">{content.name}</span>
           </nav>
           <div className="mt-5 flex flex-wrap gap-1.5">
-            <span className="rounded-pill border border-gold/40 bg-midnight/60 px-2.5 py-1 text-[12px] text-gold-300 backdrop-blur-[4px]">
+            <span className="rounded-pill border border-gold/40 bg-surface/60 px-2.5 py-1 text-[12px] text-accent-text backdrop-blur-[4px]">
               {kinds(`kinds.${tour.kind}`)}
             </span>
             {tour.regions.map((r) => (
-              <span key={r} className="rounded-pill border border-cream/20 bg-midnight/60 px-2.5 py-1 text-[12px] text-cream/85 backdrop-blur-[4px]">
+              <span key={r} className="rounded-pill border border-fg/20 bg-surface/60 px-2.5 py-1 text-[12px] text-fg/85 backdrop-blur-[4px]">
                 {regions(r)}
               </span>
             ))}
           </div>
-          <h1 className="mt-4 max-w-[16ch] text-balance text-4xl font-medium leading-[1.05] tracking-tight text-cream md:text-6xl">
+          <h1 className="mt-4 max-w-[16ch] text-balance text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-6xl">
             {content.name}
           </h1>
-          <p className="mt-3 text-xl text-cream/80">{content.tagline}</p>
+          <p className="mt-3 text-xl text-fg/80">{content.tagline}</p>
         </div>
       </section>
 
       <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 pt-14 pb-28 md:px-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">
         <div className="flex flex-col gap-14">
           <section>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">{t("overview")}</h2>
-            <p className="mt-4 max-w-[64ch] text-lg leading-relaxed text-cream/80">{content.summary}</p>
+            <h2 className="text-2xl font-medium tracking-tight text-fg">{t("overview")}</h2>
+            <p className="mt-4 max-w-[64ch] text-lg leading-relaxed text-fg/80">{content.summary}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">{t("highlights")}</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-fg">{t("highlights")}</h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {content.highlights.map((h) => (
-                <li key={h} className="flex items-start gap-3 rounded-panel border border-cream/10 bg-midnight-800 px-4 py-3.5 text-[15px] text-cream/85">
+                <li key={h} className="flex items-start gap-3 rounded-panel border border-fg/10 bg-surface-2 px-4 py-3.5 text-[15px] text-fg/85">
                   <Check size={18} weight="bold" className="mt-0.5 shrink-0 text-gold" />
                   {h}
                 </li>
@@ -108,7 +108,7 @@ export default async function TourPage({ params }: Props) {
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">
+            <h2 className="text-2xl font-medium tracking-tight text-fg">
               {tour.kind === "package" ? t("itinerary") : t("itineraryDay")}
             </h2>
             <div className="mt-7">
@@ -118,8 +118,8 @@ export default async function TourPage({ params }: Props) {
 
           <section className="grid gap-10 sm:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-medium tracking-tight text-cream">{t("included")}</h2>
-              <ul className="mt-4 flex flex-col gap-2.5 text-[15px] text-cream/85">
+              <h2 className="text-2xl font-medium tracking-tight text-fg">{t("included")}</h2>
+              <ul className="mt-4 flex flex-col gap-2.5 text-[15px] text-fg/85">
                 {content.included.map((i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     <Check size={16} weight="bold" className="mt-1 shrink-0 text-gold" />
@@ -129,11 +129,11 @@ export default async function TourPage({ params }: Props) {
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-medium tracking-tight text-cream">{t("excluded")}</h2>
-              <ul className="mt-4 flex flex-col gap-2.5 text-[15px] text-cream/70">
+              <h2 className="text-2xl font-medium tracking-tight text-fg">{t("excluded")}</h2>
+              <ul className="mt-4 flex flex-col gap-2.5 text-[15px] text-fg/70">
                 {content.excluded.map((i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <X size={16} weight="bold" className="mt-1 shrink-0 text-cream/40" />
+                    <X size={16} weight="bold" className="mt-1 shrink-0 text-fg/40" />
                     {i}
                   </li>
                 ))}
@@ -143,12 +143,12 @@ export default async function TourPage({ params }: Props) {
 
           {content.hotels ? (
             <section>
-              <h2 className="text-2xl font-medium tracking-tight text-cream">{t("hotels")}</h2>
+              <h2 className="text-2xl font-medium tracking-tight text-fg">{t("hotels")}</h2>
               <dl className="mt-5 grid gap-4 sm:grid-cols-2">
                 {content.hotels.map((h) => (
-                  <div key={h.place} className="rounded-panel border border-cream/10 bg-midnight-800 p-5">
-                    <dt className="font-medium text-cream">{h.place}</dt>
-                    <dd className="mt-2 flex flex-col gap-1 text-[14px] text-cream/75">
+                  <div key={h.place} className="rounded-panel border border-fg/10 bg-surface-2 p-5">
+                    <dt className="font-medium text-fg">{h.place}</dt>
+                    <dd className="mt-2 flex flex-col gap-1 text-[14px] text-fg/75">
                       {h.options.map((o) => (
                         <span key={o}>{o}</span>
                       ))}
@@ -160,8 +160,8 @@ export default async function TourPage({ params }: Props) {
           ) : null}
 
           <section>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">{t("notes")}</h2>
-            <ul className="mt-4 flex max-w-[64ch] flex-col gap-2.5 text-[15px] leading-relaxed text-cream/75">
+            <h2 className="text-2xl font-medium tracking-tight text-fg">{t("notes")}</h2>
+            <ul className="mt-4 flex max-w-[64ch] flex-col gap-2.5 text-[15px] leading-relaxed text-fg/75">
               {content.notes.map((n) => (
                 <li key={n}>{n}</li>
               ))}
@@ -170,7 +170,7 @@ export default async function TourPage({ params }: Props) {
 
           {gallery.length ? (
             <section>
-              <h2 className="text-2xl font-medium tracking-tight text-cream">{t("gallery")}</h2>
+              <h2 className="text-2xl font-medium tracking-tight text-fg">{t("gallery")}</h2>
               <div className={`mt-5 grid gap-4 ${gallery.length > 1 ? "sm:grid-cols-2" : ""}`}>
                 {gallery.map((key, i) => {
                   const asset = images[key];
@@ -204,9 +204,9 @@ export default async function TourPage({ params }: Props) {
       </div>
 
       {more.length ? (
-        <section className="border-t border-cream/10">
+        <section className="border-t border-fg/10">
           <div className="mx-auto w-full max-w-[1200px] px-6 py-20 md:px-10">
-            <h2 className="text-3xl font-medium tracking-tight text-cream">{t("moreTours")}</h2>
+            <h2 className="text-3xl font-medium tracking-tight text-fg">{t("moreTours")}</h2>
             <ul className="mt-8 grid gap-6 md:grid-cols-3">
               {more.map((m) => (
                 <li key={m.slug}>

@@ -26,7 +26,7 @@ export default async function UmrahPage({ params }: Props) {
         <div className="flex flex-col gap-12">
           <ul className="grid gap-3 sm:grid-cols-2">
             {(["visa", "flights", "hotels", "guidance"] as const).map((k) => (
-              <li key={k} className="flex items-start gap-3 rounded-panel border border-cream/10 bg-midnight-800 px-5 py-4 text-[16px] text-cream/90">
+              <li key={k} className="flex items-start gap-3 rounded-panel border border-fg/10 bg-surface-2 px-5 py-4 text-[16px] text-fg/90">
                 <Check size={20} weight="bold" className="mt-0.5 shrink-0 text-gold" />
                 {t(`inclusions.${k}`)}
               </li>
@@ -34,12 +34,12 @@ export default async function UmrahPage({ params }: Props) {
           </ul>
 
           <div>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">{t("page.stepsTitle")}</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-fg">{t("page.stepsTitle")}</h2>
             <ol className="mt-6 grid gap-6 md:grid-cols-3">
               {(["one", "two", "three"] as const).map((k) => (
                 <li key={k} className="border-t border-gold/40 pt-4">
-                  <h3 className="text-lg font-medium text-cream">{t(`page.steps.${k}.title`)}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-cream/75">{t(`page.steps.${k}.text`)}</p>
+                  <h3 className="text-lg font-medium text-fg">{t(`page.steps.${k}.title`)}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-fg/75">{t(`page.steps.${k}.text`)}</p>
                 </li>
               ))}
             </ol>

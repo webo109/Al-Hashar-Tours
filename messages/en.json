@@ -18,11 +18,14 @@
     "holidays": "Holidays",
     "umrah": "Umrah",
     "contact": "Contact",
+    "more": "More",
     "switchLocale": "العربية",
     "switchLocaleLabel": "Switch to Arabic",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content",
+    "themeToLight": "Switch to the light theme",
+    "themeToDark": "Switch to the dark theme",
     "home": "Al-Hashar Tourism & Travels, home"
   },
   "Hero": {
@@ -30,11 +33,22 @@
     "subtext": "Explore Oman and the world with care, confidence and comfort.",
     "primaryCta": "Plan Your Journey",
     "secondaryCta": "Explore Oman",
-    "imageAlt": "Muscat coastline at dusk with the Al Hajar mountains behind"
+    "imageAlt": "Muscat coastline at dusk with the Al Hajar mountains behind",
+    "pauseVideo": "Pause the background video",
+    "playVideo": "Play the background video"
   },
   "Booking": {
     "passTitle": "Boarding pass",
     "passSubtitle": "Tell us where. We handle the rest.",
+    "airports": {
+      "toggle": "Show airports for {field}",
+      "suggested": "Suggested airports",
+      "matches": "Matching airports",
+      "loading": "Loading airports…",
+      "unavailable": "Suggestions are unavailable. You can still type your city or airport.",
+      "empty": "No matching airports. You can still use the destination you typed.",
+      "results": "{count, plural, one {# suggestion} other {# suggestions}}. Use the arrow keys to browse and Enter to select."
+    },
     "tabs": {
       "flights": "Flights",
       "hotels": "Hotels",
@@ -96,14 +110,89 @@
       "reference": "Reference {reference}"
     }
   },
+  "DatePicker": {
+    "required": "required",
+    "eyebrow": "Your journey",
+    "chooseDate": "Choose date",
+    "chooseMonth": "Choose month",
+    "chooseMonthYear": "Choose month and year",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "previousYear": "Previous year",
+    "nextYear": "Next year",
+    "today": "Today",
+    "thisMonth": "This month",
+    "clear": "Clear date",
+    "cancel": "Cancel",
+    "close": "Close calendar"
+  },
   "Stories": {
     "eyebrow": "Oman tours",
     "headline": "Six journeys, one country.",
-    "cta": "Discover This Journey",
+    "intro": "Find your Oman tour. Compare destinations, durations and starting prices, then view the itinerary for the trip you like.",
+    "chooseTour": "Choose a tour to preview",
+    "cta": "View Tour & Itinerary",
     "allTours": "See all Oman tours",
     "from": "From",
     "location": "Region",
     "duration": "Duration"
+  },
+  "Picker": {
+    "headline": "Pick your adventure.",
+    "intro": "Three taps, and we suggest the journeys that fit.",
+    "stepLabel": "Step {step} of {total}",
+    "resultsLabel": "Your suggestions",
+    "steps": {
+      "place": "Where do you want to be?",
+      "time": "How much time do you have?",
+      "pace": "What pace suits you?",
+      "mood": "What are you in the mood for?"
+    },
+    "options": {
+      "place": { "sea": "By the sea", "mountains": "In the mountains", "desert": "In the desert", "heritage": "Among forts and souqs", "abroad": "Somewhere abroad" },
+      "time": { "halfDay": "Half a day", "fullDay": "A full day", "severalDays": "Several days" },
+      "pace": { "easy": "Easy going", "active": "Active" },
+      "mood": { "beach": "Beaches", "city": "Cities", "nature": "Nature", "culture": "Culture" }
+    },
+    "back": "Back",
+    "startOver": "Start over",
+    "resultsTitle": "Three journeys for you",
+    "resultsAbroad": "Three holidays to ask about",
+    "seeAll": "See all Oman tours",
+    "holidayCta": "Request a holiday"
+  },
+  "World": {
+    "headline": "The world, arranged from Muscat.",
+    "intro": "Al-Hashar's holiday packages, priced per adult on twin share as published. Tell us where, and a consultant builds the trip around you.",
+    "cta": "Plan this holiday",
+    "prev": "Previous destinations",
+    "next": "Next destinations",
+    "also": "Also arranged:",
+    "separator": ", ",
+    "regionOther": "Somewhere else",
+    "items": {
+      "india": { "name": "India, the Golden Triangle", "cities": "Delhi, Agra, Jaipur", "blurb": "The Taj Mahal at dawn, Mughal forts and the pink city." },
+      "georgia": { "name": "Georgia", "cities": "Tbilisi, Batumi", "blurb": "Old-town balconies, mountain roads and the Black Sea coast." },
+      "switzerland": { "name": "Scenic Switzerland", "cities": "Zurich, Lucerne, Interlaken", "blurb": "Lakes, cog railways and snow in the middle of summer." },
+      "bosnia": { "name": "Bosnia", "cities": "Sarajevo, Mostar, Bihac", "blurb": "Ottoman bridges, green rivers and easy Balkan evenings." },
+      "istanbul": { "name": "Istanbul and Trabzon", "cities": "Istanbul, Trabzon", "blurb": "Ten nights across two Turkeys: the Bosphorus and the green Black Sea coast." },
+      "trabzon": { "name": "Glimpses of Turkey", "cities": "Trabzon", "blurb": "Cliffside monasteries, tea hills and the Uzungol lake." },
+      "dubai": { "name": "Dubai", "cities": "Dubai", "blurb": "Skyline, souks and a desert evening, four nights away from Muscat." },
+      "thailand": { "name": "Thailand", "cities": "Bangkok, Phuket", "blurb": "Temples and river life, then the Andaman beaches." },
+      "malaysia": { "name": "Malaysia", "cities": "Kuala Lumpur, Langkawi, Penang, Cameron Highlands", "blurb": "Ten nights from the towers to the tea hills and the islands." },
+      "azerbaijan": { "name": "Azerbaijan", "cities": "Baku", "blurb": "The Flame Towers, the walled old city and the Caspian shore." },
+      "greece": { "name": "Greece", "cities": "Athens, Mykonos, Santorini", "blurb": "The Acropolis, then white villages over the Aegean." },
+      "kenya": { "name": "Kenya safari", "cities": "Nairobi, Lake Nakuru, Masai Mara", "blurb": "Flamingos at Nakuru and the great plains of the Mara." },
+      "france": { "name": "Paris", "cities": "Paris", "blurb": "Three nights on the Seine, from the Louvre to Montmartre." },
+      "sriLanka": { "name": "Sri Lanka", "cities": "Dambulla, Kandy, Nuwara Eliya, Bentota, Colombo", "blurb": "Cave temples, tea country by train and the southern beaches." },
+      "kerala": { "name": "Kerala", "cities": "Cochin, Munnar, Thekkady, Kumarakom, Kovalam", "blurb": "Spice hills, backwater houseboats and Arabian Sea sunsets." },
+      "czechAustria": { "name": "Prague, Vienna and Budapest", "cities": "Prague, Vienna, Budapest", "blurb": "Three imperial capitals by road, castles and coffee houses." },
+      "scandinavia": { "name": "Scandinavian capitals and fjords", "cities": "Copenhagen, Oslo, Bergen, Stockholm, Helsinki", "blurb": "Twelve days from Nyhavn to the fjords and the Baltic." },
+      "qatar": { "name": "Doha", "cities": "Doha", "blurb": "The corniche, Souq Waqif and the Museum of Islamic Art." },
+      "armenia": { "name": "Yerevan", "cities": "Yerevan", "blurb": "Ancient monasteries under Mount Ararat." },
+      "taiwan": { "name": "Taipei", "cities": "Taipei", "blurb": "Night markets, hot springs and the 101 tower." },
+      "indonesia": { "name": "Indonesia", "cities": "Jakarta, Puncak, Bandung", "blurb": "Tea plantations, volcano views and Java's highland air." }
+    }
   },
   "Price": {
     "from": "From",
@@ -451,6 +540,7 @@
     "rating": "{rating} out of 5"
   },
   "LogoMoment": {
+    "since": "With you since 1984",
     "tagline": "Go Further. Feel at Home.",
     "taglineSecondary": "انطلق أبعد. واشعر أنك في بيتك."
   },
@@ -484,6 +574,7 @@
     "company": "Company",
     "rights": "All rights reserved.",
     "credits": "Photography credits",
+    "videoCredits": "Video credits",
     "backToTop": "Back to top",
     "findRequest": "Find your request"
   },

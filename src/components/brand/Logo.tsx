@@ -16,30 +16,28 @@ export function LogoMark({
       aria-hidden={title ? undefined : true}
     >
       {title ? <title>{title}</title> : null}
-      <path
-        d="M99.33 56.36 A44 44 0 1 1 71.05 22.65"
-        stroke="#E89E00"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M56 30 L62.5 57.5 L90 64 L62.5 70.5 L56 98 L49.5 70.5 L22 64 L49.5 57.5 Z"
-        fill="#E89E00"
-      />
-      <path d="M56 30 L62.5 57.5 L56 64 L49.5 57.5 Z" fill="#F7C65A" />
-      <circle cx="56" cy="64" r="3.2" fill="#0B1220" />
-      <path
-        d="M34 88 C 50 76, 68 58, 92 34"
-        stroke="#E89E00"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <g transform="translate(101 25) rotate(-45)">
-        <path
-          d="M10 0 L4 -1.6 L-1 -1.6 L-5 -7 L-8 -7 L-6 -1.6 L-9 -1.6 L-11 -4 L-13 -4 L-11 0 L-13 4 L-11 4 L-9 1.6 L-6 1.6 L-8 7 L-5 7 L-1 1.6 L4 1.6 Z"
-          fill="#E89E00"
-        />
-      </g>
+      {[
+        { angle: 0, colour: "#8CBF26" },
+        { angle: 56, colour: "#E72E28" },
+        { angle: 226, colour: "#0878C9" },
+        { angle: 270, colour: "#E66F0B" },
+        { angle: 314, colour: "#D7C70B" },
+      ].map(({ angle, colour }) => (
+        <g key={angle} transform={`rotate(${angle} 60 60)`}>
+          <path
+            d="M52 57 V34 H43 L60 14 L77 34 H68 V57 L60 64 Z"
+            fill={colour}
+          />
+          <path
+            d="M57 47 V31 H51 L60 21 L69 31 H63 V47"
+            stroke="#FFFDF6"
+            strokeWidth="4.5"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+        </g>
+      ))}
+      <circle cx="60" cy="60" r="5" fill="#0B1220" />
     </svg>
   );
 }
@@ -55,14 +53,14 @@ export function Logo({ size = "nav", className = "" }: LogoProps) {
 
   if (size === "nav") {
     return (
-      <span className={`inline-flex items-center gap-2.5 ${className}`}>
-        <LogoMark className="h-8 w-8 shrink-0" />
+      <span className={`inline-flex items-center gap-1.5 ${className}`}>
+        <LogoMark className="h-10 w-10 shrink-0 md:h-11 md:w-11" />
         {isAr ? (
-          <span className="font-arabic text-[17px] font-semibold leading-none text-cream">
+          <span className="font-arabic text-[17px] font-semibold leading-none text-fg">
             الحشار
           </span>
         ) : (
-          <span className="font-latin text-[15px] font-semibold uppercase leading-none tracking-[0.2em] text-cream">
+          <span className="font-latin text-[18px] font-extrabold italic leading-none tracking-[-0.02em] text-fg">
             Al-Hashar
           </span>
         )}
@@ -88,10 +86,10 @@ export function Logo({ size = "nav", className = "" }: LogoProps) {
           الحشار للسياحة والسفر
         </span>
         <span
-          className={`font-latin mt-2 font-semibold uppercase leading-none text-cream ${
+          className={`font-latin mt-2 font-extrabold italic leading-none text-fg ${
             size === "hero"
-              ? "text-3xl tracking-[0.18em] md:text-4xl"
-              : "text-xl tracking-[0.16em]"
+              ? "text-4xl tracking-[-0.03em] md:text-5xl"
+              : "text-2xl tracking-[-0.02em]"
           }`}
           lang="en"
           dir="ltr"
@@ -99,7 +97,7 @@ export function Logo({ size = "nav", className = "" }: LogoProps) {
           Al-Hashar
         </span>
         <span
-          className={`font-latin mt-2 uppercase leading-none tracking-[0.28em] text-sand ${
+          className={`font-latin mt-2 italic leading-none tracking-[0.08em] text-fg-muted ${
             size === "hero" ? "text-[11px]" : "text-[9px]"
           }`}
           lang="en"

@@ -9,6 +9,18 @@ const priced = [...toursSource.matchAll(/slug:\s*"([^"]+)"[\s\S]*?priceFrom:\s*(
   .filter((m) => m[2] !== "null")
   .map((m) => m[1]);
 const services = ["flights", "hotels", "holidays", "visa", "insurance", "cargo"];
+// Every encoded clip must be served (HEAD 200) and stay under its budget.
+let videoRoutes = [];
+try {
+  const videosSource = await readFile(new URL("../src/data/videos.generated.ts", import.meta.url), "utf8");
+  videoRoutes = [...videosSource.matchAll(/"mp4":"(\/videos\/[^"]+)"/g)].map((m) => ({
+    path: m[1],
+    cls: "Video clips",
+    expect: [200],
+  }));
+} catch {
+  // no clips generated yet
+}
 
 const routes = [
   { path: "/", cls: "Root redirect", expect: [307, 308] },
@@ -34,6 +46,9 @@ const routes = [
   ]),
   { path: "/en/contact", cls: "Contact", expect: [200] },
   { path: "/ar/contact", cls: "Contact", expect: [200] },
+  { path: "/en/services/holidays?region=dubai", cls: "Holidays prefill", expect: [200] },
+  { path: "/ar/services/holidays?region=georgia", cls: "Holidays prefill", expect: [200] },
+  ...videoRoutes,
   { path: "/en/does-not-exist", cls: "404 page", expect: [404] },
   { path: "/en/tours/not-a-tour", cls: "404 page", expect: [404] },
   { path: "/test-report", cls: "Internal", expect: [200] },

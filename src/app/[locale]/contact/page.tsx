@@ -23,7 +23,7 @@ export default async function ContactPage({ params }: Props) {
   const branches = await getTranslations({ locale, namespace: "Branches" });
   const nav = await getTranslations({ locale, namespace: "Nav" });
 
-  const channel = "flex items-center gap-3 rounded-panel border border-cream/10 bg-midnight-800 px-5 py-4 text-cream hover:border-gold/45";
+  const channel = "flex items-center gap-3 rounded-panel border border-fg/10 bg-surface-2 px-5 py-4 text-fg hover:border-gold/45";
 
   return (
     <main id="content">
@@ -35,7 +35,7 @@ export default async function ContactPage({ params }: Props) {
               <a href={`tel:${company.phone.tel}`} className={channel}>
                 <Phone size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
-                  <span className="text-[12px] text-cream/55">{t("phone")}</span>
+                  <span className="text-[12px] text-fg/55">{t("phone")}</span>
                   <span dir="ltr" className="text-[16px]">{company.phone.display}</span>
                 </span>
               </a>
@@ -44,7 +44,7 @@ export default async function ContactPage({ params }: Props) {
               <a href={whatsappUrl(company.whatsapp.digits, "")} target="_blank" rel="noopener noreferrer" className={channel}>
                 <WhatsappLogo size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
-                  <span className="text-[12px] text-cream/55">{t("whatsapp")}</span>
+                  <span className="text-[12px] text-fg/55">{t("whatsapp")}</span>
                   <span dir="ltr" className="text-[16px]">{company.whatsapp.display}</span>
                 </span>
               </a>
@@ -53,7 +53,7 @@ export default async function ContactPage({ params }: Props) {
               <a href={`mailto:${company.email}`} className={channel}>
                 <EnvelopeSimple size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
-                  <span className="text-[12px] text-cream/55">{t("email")}</span>
+                  <span className="text-[12px] text-fg/55">{t("email")}</span>
                   <span className="text-[16px]">{company.email}</span>
                 </span>
               </a>
@@ -62,7 +62,7 @@ export default async function ContactPage({ params }: Props) {
               <div className={channel}>
                 <MapPin size={22} weight="fill" className="shrink-0 text-gold" />
                 <span className="flex flex-col">
-                  <span className="text-[12px] text-cream/55">{t("headOffice")}</span>
+                  <span className="text-[12px] text-fg/55">{t("headOffice")}</span>
                   <span className="text-[15px]">
                     {branches(company.headOffice.areaKey)}, {company.headOffice.postal}
                   </span>
@@ -72,22 +72,22 @@ export default async function ContactPage({ params }: Props) {
           </ul>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-panel border border-cream/10 p-5">
-              <h2 className="text-[13px] font-medium text-cream/60">{t("holidaysDivision")}</h2>
-              <a href={`tel:${company.divisions.holidays.phone.tel}`} dir="ltr" className="mt-2 block text-cream hover:text-gold-300">{company.divisions.holidays.phone.display}</a>
-              <a href={`mailto:${company.divisions.holidays.email}`} className="block text-cream/80 hover:text-gold-300">{company.divisions.holidays.email}</a>
+            <div className="rounded-panel border border-fg/10 p-5">
+              <h2 className="text-[13px] font-medium text-fg/60">{t("holidaysDivision")}</h2>
+              <a href={`tel:${company.divisions.holidays.phone.tel}`} dir="ltr" className="mt-2 block text-fg hover:text-accent-text">{company.divisions.holidays.phone.display}</a>
+              <a href={`mailto:${company.divisions.holidays.email}`} className="block text-fg/80 hover:text-accent-text">{company.divisions.holidays.email}</a>
             </div>
-            <div className="rounded-panel border border-cream/10 p-5">
-              <h2 className="text-[13px] font-medium text-cream/60">{t("cargoDivision")}</h2>
-              <a href={`tel:${company.divisions.cargo.phone.tel}`} dir="ltr" className="mt-2 block text-cream hover:text-gold-300">{company.divisions.cargo.phone.display}</a>
-              <a href={`mailto:${company.divisions.cargo.email}`} className="block text-cream/80 hover:text-gold-300">{company.divisions.cargo.email}</a>
+            <div className="rounded-panel border border-fg/10 p-5">
+              <h2 className="text-[13px] font-medium text-fg/60">{t("cargoDivision")}</h2>
+              <a href={`tel:${company.divisions.cargo.phone.tel}`} dir="ltr" className="mt-2 block text-fg hover:text-accent-text">{company.divisions.cargo.phone.display}</a>
+              <a href={`mailto:${company.divisions.cargo.email}`} className="block text-fg/80 hover:text-accent-text">{company.divisions.cargo.email}</a>
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-medium tracking-tight text-cream">{t("branches")}</h2>
-            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-[15px] text-cream/85 sm:grid-cols-3">
-              <li className="text-gold-300">{branches(company.headOffice.areaKey)}</li>
+            <h2 className="text-2xl font-medium tracking-tight text-fg">{t("branches")}</h2>
+            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-[15px] text-fg/85 sm:grid-cols-3">
+              <li className="text-accent-text">{branches(company.headOffice.areaKey)}</li>
               {company.branchKeys.map((b) => (
                 <li key={b}>{branches(b)}</li>
               ))}

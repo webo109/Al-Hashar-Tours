@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "photos": "node scripts/fetch-photos.mjs && node scripts/optimize-images.mjs",
     "smoke": "node scripts/smoke.mjs",
+    "videos": "node scripts/fetch-videos.mjs && node scripts/optimize-videos.mjs",
     "start": "next start",
     "lint": "eslint"
   },

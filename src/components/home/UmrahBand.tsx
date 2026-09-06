@@ -43,7 +43,7 @@ export function UmrahBand() {
   );
 
   return (
-    <section ref={root} id="umrah" className="relative bg-midnight">
+    <section ref={root} id="umrah" className="relative bg-surface">
       <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-6 py-24 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-20 lg:py-32">
         <div
           data-arch
@@ -62,15 +62,15 @@ export function UmrahBand() {
         </div>
 
         <div>
-          <h2 data-reveal className="text-balance text-4xl font-medium leading-[1.05] tracking-tight text-cream md:text-5xl">
+          <h2 data-reveal className="text-balance text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-5xl">
             {t("headline")}
           </h2>
-          <p data-reveal className="mt-5 max-w-[48ch] text-lg leading-relaxed text-cream/80">
+          <p data-reveal className="mt-5 max-w-[48ch] text-lg leading-relaxed text-fg/80">
             {t("body")}
           </p>
           <ul data-reveal className="mt-8 grid gap-2.5 sm:grid-cols-2">
             {(["visa", "flights", "hotels", "guidance"] as const).map((k) => (
-              <li key={k} className="flex items-start gap-2.5 text-[15px] text-cream/85">
+              <li key={k} className="flex items-start gap-2.5 text-[15px] text-fg/85">
                 <Check size={16} weight="bold" className="mt-1 shrink-0 text-gold" />
                 {t(`inclusions.${k}`)}
               </li>

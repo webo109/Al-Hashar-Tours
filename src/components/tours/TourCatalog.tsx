@@ -80,8 +80,8 @@ export function TourCatalog({ items }: { items: Item[] }) {
   const pill = (active: boolean) =>
     `shrink-0 rounded-pill border px-3.5 py-2 text-[13px] transition-colors duration-300 ${
       active
-        ? "border-gold bg-gold text-ink"
-        : "border-cream/15 text-cream/80 hover:border-cream/40 hover:text-cream"
+        ? "border-gold bg-gold text-panel-fg"
+        : "border-fg/15 text-fg/80 hover:border-fg/40 hover:text-fg"
     }`;
 
   const toolButton =
@@ -95,14 +95,14 @@ export function TourCatalog({ items }: { items: Item[] }) {
           <MagnifyingGlass
             size={18}
             weight="fill"
-            className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-cream/50"
+            className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-fg/50"
           />
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("search")}
-            className="h-12 w-full rounded-pill border border-cream/15 bg-midnight-800 ps-11 pe-4 text-[15px] text-cream placeholder:text-cream/45 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/35"
+            className="h-12 w-full rounded-pill border border-fg/15 bg-surface-2 ps-11 pe-4 text-[15px] text-fg placeholder:text-fg/45 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/35"
           />
         </label>
 
@@ -114,14 +114,14 @@ export function TourCatalog({ items }: { items: Item[] }) {
             aria-controls="catalog-filters"
             className={`${toolButton} ${
               filtersOpen || activeFilters > 0
-                ? "border-gold/60 bg-midnight-800 text-cream"
-                : "border-cream/15 bg-midnight-800 text-cream/85 hover:border-cream/40"
+                ? "border-gold/60 bg-surface-2 text-fg"
+                : "border-fg/15 bg-surface-2 text-fg/85 hover:border-fg/40"
             }`}
           >
             <SlidersHorizontal size={18} weight="fill" className="text-gold" />
             {t("filters")}
             {activeFilters > 0 ? (
-              <span className="font-latin flex h-5 min-w-5 items-center justify-center rounded-pill bg-gold px-1.5 text-[11px] font-semibold text-ink">
+              <span className="font-latin flex h-5 min-w-5 items-center justify-center rounded-pill bg-gold px-1.5 text-[11px] font-semibold text-panel-fg">
                 {activeFilters}
               </span>
             ) : null}
@@ -133,9 +133,9 @@ export function TourCatalog({ items }: { items: Item[] }) {
               onClick={() => setSortOpen((v) => !v)}
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
-              className={`${toolButton} border-cream/15 bg-midnight-800 text-cream hover:border-cream/40`}
+              className={`${toolButton} border-fg/15 bg-surface-2 text-fg hover:border-fg/40`}
             >
-              <span className="text-[12px] uppercase tracking-[0.12em] text-cream/55">{t("sort")}</span>
+              <span className="text-[12px] uppercase tracking-[0.12em] text-fg/55">{t("sort")}</span>
               <span>{t(`sorts.${sort}`)}</span>
               <CaretDown size={14} className={`transition-transform duration-300 ${sortOpen ? "rotate-180" : ""}`} />
             </button>
@@ -143,7 +143,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
               <ul
                 role="listbox"
                 aria-label={t("sort")}
-                className="absolute end-0 top-[calc(100%+8px)] z-20 min-w-[240px] overflow-hidden rounded-panel border border-cream/15 bg-midnight-800 p-1.5 shadow-lift"
+                className="absolute end-0 top-[calc(100%+8px)] z-20 min-w-[240px] overflow-hidden rounded-panel border border-fg/15 bg-surface-2 p-1.5 shadow-lift"
               >
                 {SORTS.map((s) => (
                   <li key={s}>
@@ -156,7 +156,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
                         setSortOpen(false);
                       }}
                       className={`flex w-full items-center justify-between gap-3 rounded-input px-3 py-2.5 text-start text-[14px] transition-colors ${
-                        sort === s ? "bg-gold/15 text-gold-300" : "text-cream/85 hover:bg-cream/8 hover:text-cream"
+                        sort === s ? "bg-gold/15 text-accent-text" : "text-fg/85 hover:bg-fg/8 hover:text-fg"
                       }`}
                     >
                       {t(`sorts.${s}`)}
@@ -173,10 +173,10 @@ export function TourCatalog({ items }: { items: Item[] }) {
       {filtersOpen ? (
         <div
           id="catalog-filters"
-          className="mt-3 flex flex-col gap-4 rounded-panel border border-cream/10 bg-midnight-800/70 px-5 py-4"
+          className="mt-3 flex flex-col gap-4 rounded-panel border border-fg/10 bg-surface-2/70 px-5 py-4"
         >
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("kind")}>
-            <span className="me-1 w-16 shrink-0 text-[13px] text-cream/55">{t("kind")}</span>
+            <span className="me-1 w-16 shrink-0 text-[13px] text-fg/55">{t("kind")}</span>
             {KINDS.map((k) => (
               <button key={k} type="button" onClick={() => setKind(k)} aria-pressed={kind === k} className={pill(kind === k)}>
                 {t(`kinds.${k}`)}
@@ -184,7 +184,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("region")}>
-            <span className="me-1 w-16 shrink-0 text-[13px] text-cream/55">{t("region")}</span>
+            <span className="me-1 w-16 shrink-0 text-[13px] text-fg/55">{t("region")}</span>
             {REGIONS.map((r) => (
               <button key={r} type="button" onClick={() => setRegion(r)} aria-pressed={region === r} className={pill(region === r)}>
                 {regions(r)}
@@ -194,7 +194,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
         </div>
       ) : null}
 
-      <div className="flex items-center justify-between pt-7 pb-5 text-[14px] text-cream/70">
+      <div className="flex items-center justify-between pt-7 pb-5 text-[14px] text-fg/70">
         <span aria-live="polite">{t("count", { count: results.length })}</span>
         {dirty ? (
           <button
@@ -205,7 +205,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
               setRegion("all");
               setSort("popular");
             }}
-            className="text-gold-300 underline-offset-4 hover:underline"
+            className="text-accent-text underline-offset-4 hover:underline"
           >
             {t("clear")}
           </button>
@@ -213,7 +213,7 @@ export function TourCatalog({ items }: { items: Item[] }) {
       </div>
 
       {results.length === 0 ? (
-        <p className="rounded-panel border border-cream/10 px-6 py-14 text-center text-cream/75">{t("empty")}</p>
+        <p className="rounded-panel border border-fg/10 px-6 py-14 text-center text-fg/75">{t("empty")}</p>
       ) : (
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {results.map(({ tour, content }, i) => (

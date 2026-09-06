@@ -26,40 +26,40 @@ export function LookupForm() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <form onSubmit={onSubmit} className="rounded-panel bg-cream p-6 text-ink shadow-panel md:p-8" style={{ colorScheme: "light" }}>
-        <label htmlFor="reference" className="text-[12px] font-medium text-ink-soft">{t("label")}</label>
+      <form onSubmit={onSubmit} className="rounded-panel bg-panel p-6 text-panel-fg shadow-panel md:p-8" style={{ colorScheme: "light" }}>
+        <label htmlFor="reference" className="text-[12px] font-medium text-panel-muted">{t("label")}</label>
         <input
           id="reference"
           value={reference}
           onChange={(e) => setReference(e.target.value)}
           placeholder={t("placeholder")}
           dir="ltr"
-          className="mt-1.5 h-12 w-full rounded-input border border-ink/15 bg-white/70 px-3 font-latin text-[16px] uppercase tracking-[0.08em] text-ink placeholder:normal-case placeholder:tracking-normal placeholder:text-ink-soft/60 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/45"
+          className="mt-1.5 h-12 w-full rounded-input border border-panel-fg/15 bg-white/70 px-3 font-latin text-[16px] uppercase tracking-[0.08em] text-panel-fg placeholder:normal-case placeholder:tracking-normal placeholder:text-panel-muted/60 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/45"
         />
         <Button type="submit" className="mt-4 w-full">{t("submit")}</Button>
-        <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">{t("hint")}</p>
+        <p className="mt-4 text-[13px] leading-relaxed text-panel-muted">{t("hint")}</p>
         {result === "missing" ? (
           <p className="mt-3 text-[14px] text-[#b0361f]" role="alert">{t("notFound")}</p>
         ) : null}
       </form>
 
       {result && result !== "missing" ? (
-        <article className="rounded-panel border border-cream/10 bg-midnight-800 p-6 text-cream md:p-8" aria-live="polite">
-          <span className="text-[12px] text-cream/55">{t("found", { reference: result.reference })}</span>
+        <article className="rounded-panel border border-fg/10 bg-surface-2 p-6 text-fg md:p-8" aria-live="polite">
+          <span className="text-[12px] text-fg/55">{t("found", { reference: result.reference })}</span>
           <h2 className="mt-2 text-2xl font-medium tracking-tight">
-            <Link href={`/tours/${result.slug}`} className="hover:text-gold-300">{result.name}</Link>
+            <Link href={`/tours/${result.slug}`} className="hover:text-accent-text">{result.name}</Link>
           </h2>
-          <p className="text-[13px] text-cream/55">
+          <p className="text-[13px] text-fg/55">
             {t("madeOn", { date: formatDate(locale, result.createdAt.slice(0, 10)) })}
           </p>
           <dl className="mt-5 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 text-[14px]">
-            <dt className="text-cream/55">{wizard("review.date")}</dt>
+            <dt className="text-fg/55">{wizard("review.date")}</dt>
             <dd>{formatDate(locale, result.date)}</dd>
-            <dt className="text-cream/55">{wizard("review.travellers")}</dt>
+            <dt className="text-fg/55">{wizard("review.travellers")}</dt>
             <dd>{wizard("review.adultsChildren", { adults: result.adults, children: result.children })}</dd>
             {result.estimate !== null ? (
               <>
-                <dt className="text-cream/55">{wizard("review.estimate")}</dt>
+                <dt className="text-fg/55">{wizard("review.estimate")}</dt>
                 <dd>{formatOmr(locale, result.estimate, common("currency"))}</dd>
               </>
             ) : null}

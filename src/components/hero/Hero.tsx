@@ -12,6 +12,9 @@ import { scrollToTarget, useLenisRef } from "@/components/motion/SmoothScroll";
 import { requestBookingTab } from "@/components/nav/FloatingNav";
 import { SkyLayer } from "./SkyLayer";
 import { BoardingPass } from "./BoardingPass";
+import { AmbientVideo } from "@/components/media/AmbientVideo";
+import { VideoControl } from "@/components/media/VideoControl";
+import { getVideo } from "@/data/videos.generated";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -23,6 +26,7 @@ function mask(stops: string): CSSProperties {
 const range = images["plane-hajar-sunset"];
 const plate = images["hero-muscat-coast"];
 const dunes = images["dest-wahiba-dunes"];
+const heroClip = getVideo("hero-oman-drone");
 
 export function Hero() {
   const t = useTranslations("Hero");
@@ -85,7 +89,7 @@ export function Hero() {
   }
 
   return (
-    <section ref={root} id="hero" className="relative isolate overflow-hidden bg-midnight">
+    <section ref={root} id="hero" className="relative isolate overflow-hidden bg-surface">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <SkyLayer />
 
@@ -101,7 +105,7 @@ export function Hero() {
               blurDataURL={range.blurDataURL}
               className="object-cover object-bottom brightness-[.9] saturate-[.85]"
             />
-            <div className="absolute inset-0 bg-midnight/40 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-surface/40 mix-blend-multiply" />
           </div>
         </div>
 
@@ -125,22 +129,24 @@ export function Hero() {
               blurDataURL={plate.blurDataURL}
               className="object-cover object-[50%_62%]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(11,18,32,0.4)_70%,rgba(11,18,32,0.9)_100%)]" />
+            {/* The living plate: a slow drone loop over the photograph, after the page has loaded. */}
+            <AmbientVideo video={heroClip} mode="ambient" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgb(var(--surface-rgb)/0.4)_70%,rgb(var(--surface-rgb)/0.9)_100%)]" />
           </div>
         </div>
 
-        <div className="absolute inset-y-0 start-0 w-[72%] bg-[radial-gradient(70%_60%_at_18%_52%,rgba(11,18,32,0.82),transparent_72%)] rtl:bg-[radial-gradient(70%_60%_at_82%_52%,rgba(11,18,32,0.82),transparent_72%)]" />
+        <div className="absolute inset-y-0 start-0 w-[72%] bg-[radial-gradient(70%_60%_at_18%_52%,rgb(var(--surface-rgb)/0.82),transparent_72%)] rtl:bg-[radial-gradient(70%_60%_at_82%_52%,rgb(var(--surface-rgb)/0.82),transparent_72%)]" />
       </div>
 
       <div className="relative z-10 mx-auto grid min-h-[100dvh] w-full max-w-[1200px] grid-cols-1 items-center gap-12 px-6 pt-32 pb-40 md:px-10 lg:grid-cols-[1.05fr_minmax(380px,460px)] lg:gap-16 lg:pt-24 lg:pb-36">
         <div data-copy-group className="max-w-[600px]">
           <h1
             data-copy
-            className="text-balance text-5xl font-medium leading-[1.02] tracking-tight text-cream md:text-6xl lg:text-[76px]"
+            className="text-balance text-5xl font-medium leading-[1.02] tracking-tight text-fg md:text-6xl lg:text-[76px]"
           >
             {t("headline")}
           </h1>
-          <p data-copy className="mt-6 max-w-[36ch] text-lg leading-relaxed text-cream/82 md:text-xl">
+          <p data-copy className="mt-6 max-w-[36ch] text-lg leading-relaxed text-fg/82 md:text-xl">
             {t("subtext")}
           </p>
           <div data-copy className="mt-9 flex flex-wrap gap-3">
@@ -158,22 +164,30 @@ export function Hero() {
         </div>
       </div>
 
+      {heroClip ? (
+        <VideoControl
+          className="absolute bottom-5 start-5 z-30 md:bottom-8 md:start-8"
+          pauseLabel={t("pauseVideo")}
+          playLabel={t("playVideo")}
+        />
+      ) : null}
+
       <div
         data-parallax="foreground"
         className="pointer-events-none absolute inset-x-[-4%] bottom-[-3%] z-20 h-[24%] lg:h-[40%]"
         aria-hidden
       >
-        <div data-enter="plane" className="absolute inset-0" style={mask("transparent 0%, black 28%, black 100%")}>
+        <div data-enter="plane" className="plane-fg absolute inset-0" style={mask("transparent 0%, black 28%, black 100%")}>
           <Image
             src={dunes.src}
             alt=""
             fill
             sizes="100vw"
             loading="eager"
-            className="object-cover object-[50%_40%] brightness-[.3] saturate-[.7]"
+            className="object-cover object-[50%_40%]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(232,158,0,0.3)_0%,rgba(232,158,0,0.08)_24%,transparent_48%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(180deg,transparent,#0b1220)]" />
+          <div className="plane-rim absolute inset-0" />
+          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(180deg,transparent,var(--color-surface))]" />
         </div>
       </div>
     </section>

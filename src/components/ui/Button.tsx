@@ -6,12 +6,12 @@ const base =
   "inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-pill px-6 text-[15px] font-medium transition-[transform,background-color,border-color,color] duration-300 ease-out-expo hover:-translate-y-px active:translate-y-0 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-gold text-ink hover:bg-gold-300",
+  primary: "bg-gold text-panel-fg hover:bg-gold-300",
   secondary:
-    "border border-cream/25 bg-transparent text-cream hover:border-gold hover:text-gold-300",
+    "border border-fg/25 bg-transparent text-fg hover:border-gold hover:text-accent-text",
   onCream:
-    "border border-ink/20 bg-transparent text-ink hover:border-gold-700 hover:text-gold-700",
-  ghost: "h-auto px-0 text-gold hover:text-gold-300",
+    "border border-panel-fg/20 bg-transparent text-panel-fg hover:border-gold-700 hover:text-gold-700",
+  ghost: "h-auto px-0 text-gold hover:text-accent-text",
 };
 
 export function buttonClass(variant: Variant = "primary", extra = "") {
