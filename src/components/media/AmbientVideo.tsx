@@ -43,14 +43,21 @@ export function AmbientVideo({ video, mode, active, className = "", objectPositi
   useEffect(() => {
     const el = ref.current;
     if (!el || !allowed || !armed) return;
+    // Pause while the tab is hidden and resume when it returns, if still in view.
+    let inView = false;
     const onVisibility = () => {
       if (document.hidden) releasePlay(el);
+      else if (inView) requestPlay(el);
     };
     document.addEventListener("visibilitychange", onVisibility);
 
     if (mode === "ambient") {
       const io = new IntersectionObserver(
-        ([entry]) => (entry.isIntersecting ? requestPlay(el) : releasePlay(el)),
+        ([entry]) => {
+          inView = entry.isIntersecting;
+          if (inView && !document.hidden) requestPlay(el);
+          else releasePlay(el);
+        },
         { threshold: 0.1 },
       );
       io.observe(el);
@@ -88,7 +95,11 @@ export function AmbientVideo({ video, mode, active, className = "", objectPositi
       return;
     }
     const io = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? requestPlay(el) : releasePlay(el)),
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        if (inView && !document.hidden) requestPlay(el);
+        else releasePlay(el);
+      },
       { threshold: 0.55 },
     );
     io.observe(el);
