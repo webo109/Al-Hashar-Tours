@@ -370,6 +370,27 @@
     animation-direction: reverse;
   }
 
+  /* A faint chart grid laid over a paper tone. The box keeps its own gradient
+     as background; the grid is an overlay so the two never compete for the
+     same property. */
+  .chart-grid {
+    position: relative;
+  }
+  .chart-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgb(11 18 32 / 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(11 18 32 / 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .chart-grid > * {
+    position: relative;
+  }
+
   /* The active slide's dot fills as its turn runs down. */
   .hero-dot-fill {
     transform-origin: left;

@@ -3,14 +3,23 @@ import { MapPin, SealCheck, Clock, ArrowUpRight } from "@phosphor-icons/react/di
 import { company } from "@/data/company";
 import { Reveal } from "@/components/motion/Reveal";
 
-// One colour, three steps down: rich gold, then lighter, then lighter again.
-// The values are fixed rather than token tints, so the ramp reads the same in
-// both themes; a translucent tint would sit on a dark surface and go muddy.
-// Dark type on all three keeps every step well past the contrast threshold.
+// Three calm papers rather than three fills: sand, pale gold and a navy-tinted
+// cream, each with a soft diagonal light and a faint chart grid, so the row has
+// texture and difference without shouting. Dark type on all three holds
+// contrast in either theme because the papers are fixed colours.
 const tones = [
-  { box: "bg-gold", icon: "text-panel-fg" },
-  { box: "bg-gold-300", icon: "text-gold-700" },
-  { box: "bg-[#f9dfae]", icon: "text-gold-700" },
+  {
+    box: "bg-[linear-gradient(150deg,#f3e9d6_0%,#e8d9c1_100%)] chart-grid",
+    icon: "text-gold-700",
+  },
+  {
+    box: "bg-[linear-gradient(150deg,#faf1dc_0%,#f2dfae_100%)] chart-grid",
+    icon: "text-gold-700",
+  },
+  {
+    box: "bg-[linear-gradient(150deg,#eef0f4_0%,#dfe3ea_100%)] chart-grid",
+    icon: "text-[#3b4a6b]",
+  },
 ] as const;
 
 // Credentials a traveller can verify somewhere other than this site: an award
@@ -49,7 +58,7 @@ export function AboutRecognition() {
           {credentials.map(({ key, Icon, title, detail }, i) => (
             <li key={key}>
               <Reveal className="h-full" delay={0.07 * i}>
-                <div className={`h-full rounded-panel p-6 text-panel-fg ${tones[i].box}`}>
+                <div className={`h-full rounded-panel border border-fg/10 p-6 text-panel-fg ${tones[i].box}`}>
                   <Icon size={30} weight="fill" className={tones[i].icon} />
                   <h3 className="mt-4 text-xl font-medium tracking-tight">{title}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-panel-fg/80">{detail}</p>
