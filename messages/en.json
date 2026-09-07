@@ -257,6 +257,13 @@
       "engineering": "Engineering and projects"
     }
   },
+  "Reach": {
+    "eyebrow": "National reach",
+    "headline": "Wherever you are in Oman, there is a desk.",
+    "intro": "Twelve branches, from Sohar in the north to Salalah in the south. Most agencies ask you to come to them.",
+    "hq": "Head office",
+    "branchCount": "{count} branches"
+  },
   "Picker": {
     "headline": "Pick your adventure.",
     "intro": "Three taps, and we suggest the journeys that fit.",
@@ -269,10 +276,28 @@
       "mood": "What are you in the mood for?"
     },
     "options": {
-      "place": { "sea": "By the sea", "mountains": "In the mountains", "desert": "In the desert", "heritage": "Among forts and souqs", "abroad": "Somewhere abroad" },
-      "time": { "halfDay": "Half a day", "fullDay": "A full day", "severalDays": "Several days" },
-      "pace": { "easy": "Easy going", "active": "Active" },
-      "mood": { "beach": "Beaches", "city": "Cities", "nature": "Nature", "culture": "Culture" }
+      "place": {
+        "sea": "By the sea",
+        "mountains": "In the mountains",
+        "desert": "In the desert",
+        "heritage": "Among forts and souqs",
+        "abroad": "Somewhere abroad"
+      },
+      "time": {
+        "halfDay": "Half a day",
+        "fullDay": "A full day",
+        "severalDays": "Several days"
+      },
+      "pace": {
+        "easy": "Easy going",
+        "active": "Active"
+      },
+      "mood": {
+        "beach": "Beaches",
+        "city": "Cities",
+        "nature": "Nature",
+        "culture": "Culture"
+      }
     },
     "back": "Back",
     "startOver": "Start over",
@@ -293,27 +318,111 @@
     "separator": ", ",
     "regionOther": "Somewhere else",
     "items": {
-      "india": { "name": "India, the Golden Triangle", "cities": "Delhi, Agra, Jaipur", "blurb": "The Taj Mahal at dawn, Mughal forts and the pink city." },
-      "georgia": { "name": "Georgia", "cities": "Tbilisi, Batumi", "blurb": "Old-town balconies, mountain roads and the Black Sea coast." },
-      "switzerland": { "name": "Scenic Switzerland", "cities": "Zurich, Lucerne, Interlaken", "blurb": "Lakes, cog railways and snow in the middle of summer." },
-      "bosnia": { "name": "Bosnia", "cities": "Sarajevo, Mostar, Bihac", "blurb": "Ottoman bridges, green rivers and easy Balkan evenings." },
-      "istanbul": { "name": "Istanbul and Trabzon", "cities": "Istanbul, Trabzon", "blurb": "Ten nights across two Turkeys: the Bosphorus and the green Black Sea coast." },
-      "trabzon": { "name": "Glimpses of Turkey", "cities": "Trabzon", "blurb": "Cliffside monasteries, tea hills and the Uzungol lake." },
-      "dubai": { "name": "Dubai", "cities": "Dubai", "blurb": "Skyline, souks and a desert evening, four nights away from Muscat." },
-      "thailand": { "name": "Thailand", "cities": "Bangkok, Phuket", "blurb": "Temples and river life, then the Andaman beaches." },
-      "malaysia": { "name": "Malaysia", "cities": "Kuala Lumpur, Langkawi, Penang, Cameron Highlands", "blurb": "Ten nights from the towers to the tea hills and the islands." },
-      "azerbaijan": { "name": "Azerbaijan", "cities": "Baku", "blurb": "The Flame Towers, the walled old city and the Caspian shore." },
-      "greece": { "name": "Greece", "cities": "Athens, Mykonos, Santorini", "blurb": "The Acropolis, then white villages over the Aegean." },
-      "kenya": { "name": "Kenya safari", "cities": "Nairobi, Lake Nakuru, Masai Mara", "blurb": "Flamingos at Nakuru and the great plains of the Mara." },
-      "france": { "name": "Paris", "cities": "Paris", "blurb": "Three nights on the Seine, from the Louvre to Montmartre." },
-      "sriLanka": { "name": "Sri Lanka", "cities": "Dambulla, Kandy, Nuwara Eliya, Bentota, Colombo", "blurb": "Cave temples, tea country by train and the southern beaches." },
-      "kerala": { "name": "Kerala", "cities": "Cochin, Munnar, Thekkady, Kumarakom, Kovalam", "blurb": "Spice hills, backwater houseboats and Arabian Sea sunsets." },
-      "czechAustria": { "name": "Prague, Vienna and Budapest", "cities": "Prague, Vienna, Budapest", "blurb": "Three imperial capitals by road, castles and coffee houses." },
-      "scandinavia": { "name": "Scandinavian capitals and fjords", "cities": "Copenhagen, Oslo, Bergen, Stockholm, Helsinki", "blurb": "Twelve days from Nyhavn to the fjords and the Baltic." },
-      "qatar": { "name": "Doha", "cities": "Doha", "blurb": "The corniche, Souq Waqif and the Museum of Islamic Art." },
-      "armenia": { "name": "Yerevan", "cities": "Yerevan", "blurb": "Ancient monasteries under Mount Ararat." },
-      "taiwan": { "name": "Taipei", "cities": "Taipei", "blurb": "Night markets, hot springs and the 101 tower." },
-      "indonesia": { "name": "Indonesia", "cities": "Jakarta, Puncak, Bandung", "blurb": "Tea plantations, volcano views and Java's highland air." }
+      "india": {
+        "name": "India, the Golden Triangle",
+        "cities": "Delhi, Agra, Jaipur",
+        "blurb": "The Taj Mahal at dawn, Mughal forts and the pink city."
+      },
+      "georgia": {
+        "name": "Georgia",
+        "cities": "Tbilisi, Batumi",
+        "blurb": "Old-town balconies, mountain roads and the Black Sea coast."
+      },
+      "switzerland": {
+        "name": "Scenic Switzerland",
+        "cities": "Zurich, Lucerne, Interlaken",
+        "blurb": "Lakes, cog railways and snow in the middle of summer."
+      },
+      "bosnia": {
+        "name": "Bosnia",
+        "cities": "Sarajevo, Mostar, Bihac",
+        "blurb": "Ottoman bridges, green rivers and easy Balkan evenings."
+      },
+      "istanbul": {
+        "name": "Istanbul and Trabzon",
+        "cities": "Istanbul, Trabzon",
+        "blurb": "Ten nights across two Turkeys: the Bosphorus and the green Black Sea coast."
+      },
+      "trabzon": {
+        "name": "Glimpses of Turkey",
+        "cities": "Trabzon",
+        "blurb": "Cliffside monasteries, tea hills and the Uzungol lake."
+      },
+      "dubai": {
+        "name": "Dubai",
+        "cities": "Dubai",
+        "blurb": "Skyline, souks and a desert evening, four nights away from Muscat."
+      },
+      "thailand": {
+        "name": "Thailand",
+        "cities": "Bangkok, Phuket",
+        "blurb": "Temples and river life, then the Andaman beaches."
+      },
+      "malaysia": {
+        "name": "Malaysia",
+        "cities": "Kuala Lumpur, Langkawi, Penang, Cameron Highlands",
+        "blurb": "Ten nights from the towers to the tea hills and the islands."
+      },
+      "azerbaijan": {
+        "name": "Azerbaijan",
+        "cities": "Baku",
+        "blurb": "The Flame Towers, the walled old city and the Caspian shore."
+      },
+      "greece": {
+        "name": "Greece",
+        "cities": "Athens, Mykonos, Santorini",
+        "blurb": "The Acropolis, then white villages over the Aegean."
+      },
+      "kenya": {
+        "name": "Kenya safari",
+        "cities": "Nairobi, Lake Nakuru, Masai Mara",
+        "blurb": "Flamingos at Nakuru and the great plains of the Mara."
+      },
+      "france": {
+        "name": "Paris",
+        "cities": "Paris",
+        "blurb": "Three nights on the Seine, from the Louvre to Montmartre."
+      },
+      "sriLanka": {
+        "name": "Sri Lanka",
+        "cities": "Dambulla, Kandy, Nuwara Eliya, Bentota, Colombo",
+        "blurb": "Cave temples, tea country by train and the southern beaches."
+      },
+      "kerala": {
+        "name": "Kerala",
+        "cities": "Cochin, Munnar, Thekkady, Kumarakom, Kovalam",
+        "blurb": "Spice hills, backwater houseboats and Arabian Sea sunsets."
+      },
+      "czechAustria": {
+        "name": "Prague, Vienna and Budapest",
+        "cities": "Prague, Vienna, Budapest",
+        "blurb": "Three imperial capitals by road, castles and coffee houses."
+      },
+      "scandinavia": {
+        "name": "Scandinavian capitals and fjords",
+        "cities": "Copenhagen, Oslo, Bergen, Stockholm, Helsinki",
+        "blurb": "Twelve days from Nyhavn to the fjords and the Baltic."
+      },
+      "qatar": {
+        "name": "Doha",
+        "cities": "Doha",
+        "blurb": "The corniche, Souq Waqif and the Museum of Islamic Art."
+      },
+      "armenia": {
+        "name": "Yerevan",
+        "cities": "Yerevan",
+        "blurb": "Ancient monasteries under Mount Ararat."
+      },
+      "taiwan": {
+        "name": "Taipei",
+        "cities": "Taipei",
+        "blurb": "Night markets, hot springs and the 101 tower."
+      },
+      "indonesia": {
+        "name": "Indonesia",
+        "cities": "Jakarta, Puncak, Bandung",
+        "blurb": "Tea plantations, volcano views and Java's highland air."
+      }
     }
   },
   "Price": {
@@ -371,7 +480,8 @@
     "dakhiliyah": "Ad Dakhiliyah",
     "sharqiyah": "Ash Sharqiyah",
     "batinah": "Al Batinah",
-    "acrossOman": "Across Oman"
+    "acrossOman": "Across Oman",
+    "dhofar": "Dhofar"
   },
   "TourDetail": {
     "breadcrumbHome": "Home",

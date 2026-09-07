@@ -46,6 +46,15 @@ export const company = {
   ] as const,
   // Their own site states 12 branches; the contact page names 11 plus the head office.
   branchesClaimed: 12,
+  // The same twelve grouped by governorate, so the About page can show national
+  // coverage rather than a flat list that reads as twelve offices in Muscat.
+  branchRegions: [
+    { region: "muscat", keys: ["shattiAlQurum", "ruwi", "muttrah", "ghobra", "seeb", "alKhoud", "mabela"] },
+    { region: "batinah", keys: ["barka", "sohar"] },
+    { region: "dakhiliyah", keys: ["nizwa"] },
+    { region: "sharqiyah", keys: ["jalanBaniBuAli"] },
+    { region: "dhofar", keys: ["salalah"] },
+  ],
   iataAccredited: true,
   // Displayed as a winner's badge in the header of alhashartravels.com.
   worldTravelAwardsYear: 2025,

@@ -3,7 +3,29 @@ import { Trophy, SealCheck, Clock, ArrowUpRight } from "@phosphor-icons/react/di
 import { company } from "@/data/company";
 import { Reveal } from "@/components/motion/Reveal";
 
-const box = "h-full rounded-panel border border-fg/10 bg-surface-2 p-6";
+// Three tones rather than one, so the row reads as a hierarchy: the award is
+// the loudest thing they have, the accreditation supports it, the trading
+// history sits quietly under both. All three hold their contrast in either theme.
+const tones = {
+  solid: {
+    box: "border-transparent bg-gold",
+    icon: "text-panel-fg",
+    title: "text-panel-fg",
+    detail: "text-panel-fg/80",
+  },
+  tinted: {
+    box: "border-gold/40 bg-gold/15",
+    icon: "text-gold-700",
+    title: "text-fg",
+    detail: "text-fg/75",
+  },
+  quiet: {
+    box: "border-fg/10 bg-surface-2",
+    icon: "text-accent-text",
+    title: "text-fg",
+    detail: "text-fg/75",
+  },
+} as const;
 
 // Credentials a traveller can verify somewhere other than this site: an award
 // judged by the industry, an accreditation held to its standard, and a trading
@@ -17,18 +39,21 @@ export function AboutRecognition() {
     {
       key: "award",
       Icon: Trophy,
+      tone: tones.solid,
       title: t("awardTitle"),
       detail: t("awardDetail", { year: company.worldTravelAwardsYear }),
     },
     {
       key: "iata",
       Icon: SealCheck,
+      tone: tones.tinted,
       title: t("iataTitle"),
       detail: t("iataDetail"),
     },
     {
       key: "since",
       Icon: Clock,
+      tone: tones.quiet,
       title: t("sinceTitle", { year: company.established }),
       detail: t("sinceDetail"),
     },
@@ -46,13 +71,13 @@ export function AboutRecognition() {
         </Reveal>
 
         <ul className="mt-12 grid auto-rows-fr gap-4 md:grid-cols-3">
-          {credentials.map(({ key, Icon, title, detail }, i) => (
+          {credentials.map(({ key, Icon, tone, title, detail }, i) => (
             <li key={key}>
               <Reveal className="h-full" delay={0.07 * i}>
-                <div className={box}>
-                  <Icon size={30} weight="fill" className="text-gold" />
-                  <h3 className="mt-4 text-xl font-medium tracking-tight text-fg">{title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-fg/75">{detail}</p>
+                <div className={`h-full rounded-panel border p-6 ${tone.box}`}>
+                  <Icon size={30} weight="fill" className={tone.icon} />
+                  <h3 className={`mt-4 text-xl font-medium tracking-tight ${tone.title}`}>{title}</h3>
+                  <p className={`mt-2 text-[15px] leading-relaxed ${tone.detail}`}>{detail}</p>
                 </div>
               </Reveal>
             </li>
