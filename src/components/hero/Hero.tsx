@@ -11,6 +11,7 @@ import { images } from "@/data/images.generated";
 import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
 import { buttonClass } from "@/components/ui/Button";
+import jabalAkhdarHero from "../../../public/images/hero-jabal-akhdar-v2.webp";
 
 const SLIDE_MS = 6500;
 
@@ -69,7 +70,10 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
       onBlurCapture={() => setHeld(false)}
     >
       {slides.map((slide, i) => {
-        const asset = images[slide.art];
+        const asset =
+          slide.tour.slug === "jabal-akhdar-day-tour"
+            ? jabalAkhdarHero
+            : images[slide.art];
         const isActive = i === active;
         return (
           <div
@@ -87,7 +91,11 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
               sizes="100vw"
               placeholder="blur"
               blurDataURL={asset.blurDataURL}
-              className="object-cover"
+              className={`object-cover ${
+                slide.tour.slug === "jabal-akhdar-day-tour"
+                  ? "object-[72%_center] lg:object-center"
+                  : "object-center"
+              }`}
               // A slow drift while the slide holds, easing back as it leaves.
               style={
                 reduce

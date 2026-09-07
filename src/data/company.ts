@@ -56,8 +56,8 @@ export const company = {
     { region: "dhofar", keys: ["salalah"] },
   ],
   iataAccredited: true,
-  // Displayed as a winner's badge in the header of alhashartravels.com.
-  worldTravelAwardsYear: 2025,
+  // Winner's badges supplied by the client: three consecutive years.
+  worldTravelAwardsYears: [2023, 2024, 2025],
   // The parent house. Founder and the thirteen business lines are listed on
   // alhashargroup.com (Our Group, and Our Business), September 2026.
   group: {

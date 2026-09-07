@@ -227,12 +227,19 @@
       }
     }
   },
+  "Awards": {
+    "eyebrow": "World Travel Awards",
+    "headline": "Winner, three years running.",
+    "intro": "Judged across the travel industry, and won again in each of the last three years.",
+    "winner": "Winner",
+    "badgeLabel": "World Travel Awards winner, {year}"
+  },
   "Recognition": {
     "eyebrow": "Credentials",
     "headline": "Why the name carries weight.",
     "intro": "Three things a traveller can check before trusting anyone with a journey.",
-    "awardTitle": "World Travel Awards winner",
-    "awardDetail": "Recognised in {year}, judged across the travel industry rather than by us.",
+    "awardTitle": "Twelve branches across Oman",
+    "awardDetail": "From Sohar in the north to Salalah in the south, so there is a desk near you.",
     "iataTitle": "IATA accredited agency",
     "iataDetail": "Accreditation that lets us issue airline tickets directly, held to the industry's own standard.",
     "sinceTitle": "Trading since {year}",
@@ -256,13 +263,6 @@
       "construction": "Construction and contracting",
       "engineering": "Engineering and projects"
     }
-  },
-  "Reach": {
-    "eyebrow": "National reach",
-    "headline": "Wherever you are in Oman, there is a desk.",
-    "intro": "Twelve branches, from Sohar in the north to Salalah in the south. Most agencies ask you to come to them.",
-    "hq": "Head office",
-    "branchCount": "{count} branches"
   },
   "Picker": {
     "headline": "Pick your adventure.",
