@@ -320,7 +320,7 @@ export const tours: TourBase[] = [
     priceBasis: "car",
     maxPersons: 4,
     priceTiers: null,
-    featured: 6,
+    featured: null,
     popularity: 85,
   },
   {

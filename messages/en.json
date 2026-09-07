@@ -266,20 +266,18 @@
   },
   "Team": {
     "eyebrow": "The people",
-    "headline": "Consultants who answer the phone.",
-    "intro": "Every journey is arranged by a named person who stays with it until you are home.",
+    "headline": "The people who answer.",
+    "intro": "Seven people run Al-Hashar day to day. These are the ones the company puts its name to.",
     "roles": {
-      "gm": "General Manager",
-      "holidays": "Holidays Manager",
-      "corporate": "Corporate Travel Consultant",
-      "umrah": "Umrah and Visa Consultant",
-      "cargo": "Cargo Division Manager",
-      "care": "Customer Care Lead"
+      "ceo": "Chief Executive Officer",
+      "operations": "Manager, Operations",
+      "bizdev": "Business Development Manager",
+      "salesGovt": "Sales Manager, Government",
+      "finance": "Financial Controller",
+      "corporates": "Manager, Corporates",
+      "branches": "Manager, Branches"
     },
-    "quote": "When the flight was cancelled at midnight, one call rebooked the whole family. Nobody else we tried even answered.",
-    "quoteName": "Hamad Al Kindi",
-    "quoteRole": "Travelled with Al-Hashar since 2011 · Muscat",
-    "placeholderNote": "Photographs and names shown are placeholders pending Al-Hashar's own."
+    "source": "As published on alhashartravels.com"
   },
   "Picker": {
     "headline": "Pick your adventure.",

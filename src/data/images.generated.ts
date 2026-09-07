@@ -361,41 +361,47 @@ export const images = {
     "height": 3600,
     "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACQBgCdASoYACQAPu1ur1GppiQipWsxMB2JZwDQkC5z0GJt+ULVprrJIRfFPsXa1CNS9PruoPdX10ipI6Q4AP7qfjDvCUUCPK+czCQ/Cvq/YBPmDx9It6YbsCKH2c5TBb9WbXefNxVvYvZC2i9cplCc6NuvRCQQ5OuqI0/OeMOzrmFdyPNsMd+t7qHPwADBTFYlyKAaammdf1LrYgEs0LAdq5B1Vh0X7IWmNtNmAAA="
   },
-  "team-portrait-1": {
-    "src": "/images/team-portrait-1.webp",
-    "width": 1200,
-    "height": 1803,
-    "blurDataURL": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoYACQAPu1krE8ppSQiMBVaqTAdiUAYDIS7E1iJRXL/R7QCtdHl2Lko5qNrisrLiiAA/QsT67YlCF3+UgEZebenfoMxTUb+aFnBVq2Gm15VoTs1xALRM3SBylSIS+4T8xKvKBR9QKZU4w94WZrQS8atvuhLXR1cWcGeZGMNEVH8h5yHZRorpWDhRQKf/0k3koX6yvsjkWHhdhtJILtFt7ALIAJHpkCNXyRlIumCX39EcLngtREU2Tpg7fYNWAAA"
+  "team-mehmood": {
+    "src": "/images/team-mehmood.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAADwBQCdASoYABsAPu1qsFAppiUiqAqpMB2JZQDI1dwLhyOMg5bj16DlPHSPqWdh+EpbRfYrx772wAD+5zhgpX0fsVSYLgjUzeSiO1BYF0xM9nSVpgfRjhUw6+HWjR+IJ7xVoNyuQfCaT8ZQItvndZU/mvO3L55vtn1LbSCiF+vak+1nM4frMdLTbrBbxgsl8211rynt+GsPwg/mG4jlJA1IzmllDhyNYcKy+uZSY27zU4RLYeiyhlCkFNPKlJlabvz1lG1yy/3UPPiLVw0tWrHkQAA="
   },
-  "team-portrait-2": {
-    "src": "/images/team-portrait-2.webp",
-    "width": 1200,
-    "height": 1800,
-    "blurDataURL": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACQBQCdASoYACQAPu1iqE2ppaOpKq35MB2JQBdgAsqZm+5CRdvhL8mCbdKcuaSeGMw5u8qwYAD+4vVTQSPPp73qpCBCQLtE+MxjQuwQEjuvGdgaUPPjmfph0KFGSr7xYpiqzQvObI/gvQ3hu4N2AoZJaHXnaESiOyFgH+jJhVOqmpDljflKUjfXRlJH8egv0N/hNmtxPG6nEGL8APltd+wqkfckTC3U8pkyVYCRATcwCtTxl16BKjAA"
+  "team-manjula-kamath": {
+    "src": "/images/team-manjula-kamath.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAABwBQCdASoYABsAPu1qq1EppaOiqAqpMB2JYgCdL8CA9whjKzcGxOmkYrks3pGSApTwI34AAPKllK1t06Vd3yWw4eXSIZy2QUkRpPVQdDfUvxaIkiH0i8hQRuKfUJOELau4WRaWvXUdCT4b369v6YSzJ6O9H2VcELxpfTPPpQx/OEbVUuLB22icVVYKC0X6lTP+76vc6qPxCXUNR04j7tbDPOvJ4EkBUIxyiojtBBQIu79KVJhPEZ1mRXk1SQb1QTs3jHEZL3j6AL3JC1xVE/VAUAJ/yKgAAAA="
   },
-  "team-portrait-3": {
-    "src": "/images/team-portrait-3.webp",
-    "width": 1200,
-    "height": 1800,
-    "blurDataURL": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoYACQAPu10sVOppqSipWgBMB2JZwDIIApWp2G5KPc1eL6bwPlVFi4ooCxuXyMaAAD+cVvZVTy2xVlOngdqxlyMqg01Fmd3cQsnYbAkgo+cP7biq5UgO9ZiLWj3jk0N4zpMx1Uog/fxJx2paHjsur9mwcW5k7CHsqMg+BZlTLCahys49FS2kGhnqKRbkeg669+AAA=="
+  "team-yasir-al-amri": {
+    "src": "/images/team-yasir-al-amri.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAABwBgCdASoYABsAPu1qqFAppiOiqA1RMB2JZgC7IKocJwyhJR0qRnhmrsMthHe61AIicWrSBN3/NsOY68AA/up7UZGemhWSWgRimH27iEvmRLk0J1G6MmG/JQoTPJtM8GA/zjJKxiN3NPV7xf6dn2RqSu17nb/CqjSB/Q4uC7gS0atgCUSpAMYO683lFV9znUmj1mm2zItcVzh64Rjrb82zryNTcR+LY0idmH/1iVxKsqIR1PmBy0SgiKkV1Ugyxh6HiSSSVXcPsojnmZJTPgNnwoEcAAAA"
   },
-  "team-portrait-4": {
-    "src": "/images/team-portrait-4.webp",
-    "width": 1200,
-    "height": 1800,
-    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBQCdASoYACQAPuVmpE2pJiOmNVgIASAciWUAAD6QQMzSupO3uXOq8Ib5reQPJqCAAP70GxXgvjRpyt+eSw/ud2tzfNG1CMOITTCYBh+D+71pIrL3U0U4XohcenKQE5vfHcA5Q6X50JJ2whclqdh03GrZ9L6g+253TLu1pgAAAA=="
+  "team-yousuf-al-balushi": {
+    "src": "/images/team-yousuf-al-balushi.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAADwBQCdASoYABsAPu1sqk8ppiOiMBgIATAdiWoAnSA2g4G1bXfCObN8i2aAaT+Pc4RAmS44135IgAD+jGyfba2/hY85kIjbwByJUAouMyAths6h2ynU6g63sSqgBpQCHmwptzsQF55w9L8q0HqaL0y1IN7veGUfzEBZtvzBloK8R/2ObIdBhvEnOChnJUM244NjAvNV3ZbWlonNTRkg7LJhibj5VnQp3/9eamtxdW1fpEjb9Lv1fBJAk7Ku6UQj+/77wDA6+TQG+SrmKjPPGjJMVSbXNC6Tl1NSpnIQkbboYUYTEDjwRdxYqckPZs8BRAAAAA=="
   },
-  "team-portrait-5": {
-    "src": "/images/team-portrait-5.webp",
-    "width": 1200,
-    "height": 1800,
-    "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAAAQBgCdASoYACQAPu1wrlIppiQipWsxMB2JYwDPoYv1M0R3G8zqUbwHKQLVPQ2pKTm+mMIqc6PFwQAA/vTXERtGh2cEu2Tdqbb6v1Nm2BZYybwEf9ZBbu7aqs7CAt6/fhXaFAYqa5Jdv8E+tKYluLniqo80Y3OZjWDI6hrf8pkCqEiEtAgjcMRQ0Jxzd4FHrfFBAri+c4741w4OxFU9cyjQ/W9vhaPPsp1VXc5ZXxauH7su3KlkvDQlCyWi4tKZiWns3NyZpqvbI11KwfZnhqXlR+AhAYfcF2D5mvsUJOOsrlbgYyTurmle+wej1qCYg4AAAA=="
+  "team-nouman-nasir": {
+    "src": "/images/team-nouman-nasir.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoYABsAPuViqE2pJaQiMAwBIByJQBadMZQIdrmT3OD77B0d43OhoOAhj/3LXu7fZgAA/u+/wPl0OKEA5LBfGy/CiabTe4VXVp2m2UjjqnH8W4SZ+y9EIwD0Mh6QtNK8p9aJ4ykXmwSlyx0qzTrRIliJQCRFcyt5UDrbmEGy0oTs5kVB5q2InlW/EbGEz+HX/mC7AjDH1BMjlRh6O6gYES786C9TD3TIqMvWBeIEVguJGn4cjI9L7rkO4lQNzEgA"
   },
-  "team-portrait-6": {
-    "src": "/images/team-portrait-6.webp",
-    "width": 1200,
-    "height": 1800,
-    "blurDataURL": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAADwBgCdASoYACQAPu1sqlAppiOiqrgMATAdiWgAwcwjE/VJYRs5QqfVf59B7GiHt6tH7gz5se/ES7eMaIsCc0bgAP6vmGXxfgRrCtMfIiUW8XsEs/UN1ADVOWszW4zTYI5uK41i8nMnDN3RKya9ivfQGguBk5cvYkbFcqRtttVRGqsTWPfy/Ce/BFAvFOvvbO5YHHRbCCv3KzfJQrUNA0Es728HOMtjQVk0z/erSXH9wdN095v+ocen8Gf4RW69Fsr93T3kx/U9md+QteF/bpdpxepXTkB4z3nYF7Xd+tVG6faH9e3zj5rwNGxJUjl3hS0VbFKnPi74DBYVvDsG/RPHtLbArGtvIogAAA=="
+  "team-shaji-sajsha": {
+    "src": "/images/team-shaji-sajsha.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAACwBgCdASoYABsAPu1sqlEppaOiqAqpMB2JbACdMoR0X52IoYJzoxVFLrlku/AbfJZdqXWZ42w8lvgZKpAKQAD9T4JMvxPd4WiYSStJgADavu0oZVMQNuLGFMInJIE2auWrnPsOm0h+RUmf4RUb/DrWmh2jC9/VCphBr1pCvvrK3+QqQxDMQGqDyGyRScjVVeaplPe2qvPYgQegSBaKysM/bVznMCvifLhw9jqN8Z1kEn3fdE7YPTggLNq3rSP0ouqKxXBa2x17smjBd6ETHClfSQWxJGI7impEave4mC/Ik4DRGvtuKV6VEZoJV4jobZ+KoC7OKY91pxb0Oiz3ZmtXbQAAAA=="
+  },
+  "team-vinod-pillai": {
+    "src": "/images/team-vinod-pillai.webp",
+    "width": 900,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAACwBQCdASoYABsAPu1srVEppiQiqAqpMB2JYgCdMxgBPJJM7fnhXWX+IGKeUNxzzXlSp1y93XAA3LZ1HTwUzMeLhjobhtufPemrnWkmyoWhPHx6xP2rV0ielMNidjEGJcoRlU2Ss7agn5wD/dxCsO+b5+D+wm/Td1LCGAQZs6TOBv9QphNFuT+HIKkCazSbGi7gKAAaTl0ywL4908NfzWybxL5PC+4RArX2SD1yYfSknCmnqiVzbFBy5e8HoE4/OrALCh2ijzKL6o9dxYH/15BZ/Pkj/n/bhq2prlENDSuAAA=="
   },
   "extra-airport-wait": {
     "src": "/images/extra-airport-wait.webp",

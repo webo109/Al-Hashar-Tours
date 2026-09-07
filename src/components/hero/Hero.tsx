@@ -11,6 +11,7 @@ import { images } from "@/data/images.generated";
 import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
 import { buttonClass } from "@/components/ui/Button";
+import muscatMomentsHero from "../../../public/images/hero-muscat-moments-v2.webp";
 import jabalAkhdarHero from "../../../public/images/hero-jabal-akhdar-v2.webp";
 import glimpseOmanHero from "../../../public/images/hero-glimpse-oman-v2.webp";
 
@@ -72,7 +73,9 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
     >
       {slides.map((slide, i) => {
         const asset =
-          slide.tour.slug === "jabal-akhdar-day-tour"
+          slide.tour.slug === "muscat-moments"
+            ? muscatMomentsHero
+            : slide.tour.slug === "jabal-akhdar-day-tour"
             ? jabalAkhdarHero
             : slide.tour.slug === "glimpse-oman"
               ? glimpseOmanHero

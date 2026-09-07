@@ -1,6 +1,13 @@
 import type { ImageKey } from "./images.generated";
 
-export type TeamRole = "gm" | "holidays" | "corporate" | "umrah" | "cargo" | "care";
+export type TeamRole =
+  | "ceo"
+  | "operations"
+  | "bizdev"
+  | "salesGovt"
+  | "finance"
+  | "corporates"
+  | "branches";
 
 export type TeamMember = {
   image: ImageKey;
@@ -8,18 +15,17 @@ export type TeamMember = {
   role: TeamRole;
 };
 
-// PLACEHOLDER — every entry here is invented.
-//
-// Al-Hashar publishes no staff names or photographs. The portraits are stock
-// photographs from Pexels and the names are made up, so the About page can
-// show the team section as a layout in the demo. This was chosen knowingly for
-// the pitch; before the site goes to the client as anything more than a
-// mock-up, replace all six with real people, and remove this note.
+// The seven Key Persons exactly as Al-Hashar publish them on
+// alhashartravels.com/about-us (September 2026): names, titles and the order
+// they appear in. The photographs are theirs, fetched from that page, so the
+// person-to-portrait mapping is the client's own, not a guess. Arabic names are
+// transliterations; the client has not published Arabic forms.
 export const team: TeamMember[] = [
-  { image: "team-portrait-1", name: { en: "Khalid Al Busaidi", ar: "خالد البوسعيدي" }, role: "gm" },
-  { image: "team-portrait-3", name: { en: "Maryam Al Balushi", ar: "مريم البلوشي" }, role: "holidays" },
-  { image: "team-portrait-2", name: { en: "Salim Al Harthi", ar: "سالم الحارثي" }, role: "corporate" },
-  { image: "team-portrait-6", name: { en: "Fatma Al Lawati", ar: "فاطمة اللواتي" }, role: "umrah" },
-  { image: "team-portrait-5", name: { en: "Ahmed Al Rawahi", ar: "أحمد الرواحي" }, role: "cargo" },
-  { image: "team-portrait-4", name: { en: "Noor Al Zadjali", ar: "نور الزدجالي" }, role: "care" },
+  { image: "team-mehmood", name: { en: "M. Mehmood", ar: "م. محمود" }, role: "ceo" },
+  { image: "team-manjula-kamath", name: { en: "Manjula Kamath", ar: "مانجولا كاماث" }, role: "operations" },
+  { image: "team-yasir-al-amri", name: { en: "Yasir Al Amri", ar: "ياسر العامري" }, role: "bizdev" },
+  { image: "team-yousuf-al-balushi", name: { en: "Yousuf Al Balushi", ar: "يوسف البلوشي" }, role: "salesGovt" },
+  { image: "team-nouman-nasir", name: { en: "Nouman Nasir", ar: "نعمان ناصر" }, role: "finance" },
+  { image: "team-shaji-sajsha", name: { en: "Muhammed Shaji Sajsha", ar: "محمد شاجي ساجشا" }, role: "corporates" },
+  { image: "team-vinod-pillai", name: { en: "Vinod Pillai", ar: "فينود بيلاي" }, role: "branches" },
 ];

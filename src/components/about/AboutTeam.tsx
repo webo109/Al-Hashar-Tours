@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { Quotes } from "@phosphor-icons/react/dist/ssr";
 import { images } from "@/data/images.generated";
 import { team } from "@/data/team";
 import { Marquee } from "@/components/motion/Marquee";
@@ -67,28 +66,12 @@ export function AboutTeam() {
         </Marquee>
       </div>
 
-      <div className="mx-auto mt-20 w-full max-w-[720px] px-6 text-center md:px-10">
-        <Reveal>
-          <Quotes size={28} weight="fill" className="mx-auto text-gold" />
-          <blockquote className="mt-5 text-balance text-xl font-medium leading-relaxed tracking-tight text-fg md:text-2xl">
-            {t("quote")}
-          </blockquote>
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <span
-              aria-hidden
-              className="font-latin flex h-12 w-12 items-center justify-center rounded-pill border border-gold/45 bg-gold/12 text-[15px] font-semibold text-gold-700"
-            >
-              {t("quoteName")
-                .split(" ")
-                .slice(0, 2)
-                .map((w) => w[0])
-                .join("")}
-            </span>
-            <p className="text-[15px] font-medium text-fg">{t("quoteName")}</p>
-            <p className="text-[13px] text-fg/65">{t("quoteRole")}</p>
-          </div>
-        </Reveal>
-      </div>
+      {/* The seven are real, so the section says where they come from. The
+          invented customer quote that used to sit here is gone with the
+          placeholder people. */}
+      <p className="mx-auto mt-10 w-full max-w-[1200px] px-6 text-center text-[12px] uppercase tracking-[0.18em] text-fg/50 md:px-10">
+        {t("source")}
+      </p>
     </section>
   );
 }
