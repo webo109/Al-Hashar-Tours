@@ -1,224 +1,245 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useTranslations } from "next-intl";
-import {
-  ArrowRight,
-  FacebookLogo,
-  InstagramLogo,
-  LinkedinLogo,
-  MapPin,
-  WhatsappLogo,
-} from "@phosphor-icons/react";
-import { images, type ImageKey } from "@/data/images.generated";
-import { company } from "@/data/company";
+import { motion, useReducedMotion } from "motion/react";
+import { MapPin } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
+import { images } from "@/data/images.generated";
+import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
-import { getVideo } from "@/data/videos.generated";
-import { whatsappUrl } from "@/lib/whatsapp";
-import { scrollToTarget, useLenisRef } from "@/components/motion/SmoothScroll";
-import { requestBookingTab } from "@/components/nav/FloatingNav";
-import { AmbientVideo } from "@/components/media/AmbientVideo";
-import { VideoControl } from "@/components/media/VideoControl";
-import { PickerFlow } from "@/components/home/AdventurePicker";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const SLIDE_MS = 6000;
 
-const heroClip = getVideo("hero-oman-drone");
-const still = images["dest-nizwa-fort-palms"];
-const socialIcon = { instagram: InstagramLogo, facebook: FacebookLogo, linkedin: LinkedinLogo } as const;
-
-// One crisp full-bleed clip, and over it a frosted glass card that holds the
-// picker. The photograph stays sharp outside the card and is blurred and
-// darkened only behind it.
+// The first screen: a slideshow that fills the viewport under the floating
+// header. The photograph on show is repeated behind everything, blurred far
+// past legibility, so the whole stage takes its colour from the active slide.
 export function Hero({ content }: { content: Record<string, TourContent> }) {
   const t = useTranslations("Hero");
-  const picker = useTranslations("Picker");
-  const root = useRef<HTMLElement>(null);
-  const lenisRef = useLenisRef();
-  // Set once the picker reaches its results: the journey on show takes over the
-  // stage as a blurred plate, and the glass card gets out of its way.
-  const [stage, setStage] = useState<ImageKey | null>(null);
-  const onActive = useCallback((image: ImageKey | null) => setStage(image), []);
-  const stageAsset = stage ? images[stage] : null;
+  const regions = useTranslations("Regions");
+  const rail = useRef<HTMLUListElement>(null);
+  const reduce = useReducedMotion();
+  const [active, setActive] = useState(0);
+  const [held, setHeld] = useState(false);
 
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Entrance: the photograph settles, then the glass rises and its contents follow.
-        gsap
-          .timeline({ defaults: { ease: "expo.out" } })
-          .from("[data-bg]", { scale: 1.06, opacity: 0.6, duration: 2.2 })
-          .from("[data-glass]", { opacity: 0, y: 40, duration: 1.3 }, "-=1.7")
-          .from("[data-glass-item]", { opacity: 0, y: 16, duration: 0.9, stagger: 0.08 }, "-=1.0");
+  const slides = featuredTours()
+    .map((tour) => ({ tour, copy: content[tour.slug] }))
+    .filter((slide) => slide.copy && images[slide.tour.image]);
 
-        // Depth on scroll: the photograph lags, the glass leads.
-        const scrollTrigger = { trigger: root.current, start: "top top", end: "bottom top", scrub: true };
-        gsap.to("[data-bg]", { y: 70, ease: "none", scrollTrigger });
-        gsap.to("[data-glass]", { y: -28, ease: "none", scrollTrigger });
+  // Whichever card sits nearest the middle is the active one. Reading geometry
+  // rather than scroll offsets keeps this correct in RTL, where the rail is
+  // mirrored and scrollLeft is not comparable across browsers.
+  const sync = useCallback(() => {
+    const el = rail.current;
+    if (!el) return;
+    const middle = el.getBoundingClientRect().left + el.clientWidth / 2;
+    let best = 0;
+    let shortest = Infinity;
+    Array.from(el.children).forEach((card, i) => {
+      const box = card.getBoundingClientRect();
+      const distance = Math.abs(box.left + box.width / 2 - middle);
+      if (distance < shortest) {
+        shortest = distance;
+        best = i;
+      }
+    });
+    setActive(best);
+  }, []);
+
+  useEffect(() => {
+    const el = rail.current;
+    if (!el) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(sync);
+    };
+    sync();
+    el.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [sync]);
+
+  const goTo = useCallback((index: number, smooth = true) => {
+    const el = rail.current;
+    const card = el?.children[index] as HTMLElement | undefined;
+    if (!card) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    card.scrollIntoView({
+      behavior: smooth && !reduce ? "smooth" : "auto",
+      inline: "center",
+      block: "nearest",
+    });
+  }, []);
+
+  // Advances on its own, and stands still while a pointer or the keyboard is on
+  // it, or when the reader has asked for less motion.
+  useEffect(() => {
+    if (held || slides.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      setActive((current) => {
+        const next = (current + 1) % slides.length;
+        goTo(next);
+        return current;
       });
-    },
-    { scope: root },
-  );
+    }, SLIDE_MS);
+    return () => window.clearInterval(id);
+  }, [held, slides.length, goTo]);
 
-  function planJourney() {
-    requestBookingTab("flights");
-    scrollToTarget(lenisRef?.current, "#booking", -110);
-    window.setTimeout(() => {
-      document.querySelector<HTMLInputElement>("#booking input")?.focus({ preventScroll: true });
-    }, 900);
-  }
+  const current = slides[active];
 
   return (
-    <section ref={root} id="hero" className="relative isolate z-[4] overflow-hidden bg-surface">
-      <div data-bg className="absolute inset-0 will-change-transform" aria-hidden>
-        {heroClip ? (
-          <Image
-            src={heroClip.poster}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: heroClip.position }}
-          />
-        ) : (
-          <Image
-            src={still.src}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={still.blurDataURL}
-            className="object-cover object-[50%_40%]"
-          />
-        )}
-        <AmbientVideo video={heroClip} mode="ambient" />
-        {/* A dark scrim buffers the video before it meets the page surface: a short
-            band, mostly held dark, with only its last stretch easing into the
-            page surface so light mode never reads as a bright flash. */}
-        <div className="absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.6)_30%,rgb(11_18_32/0.88)_50%,var(--color-surface)_100%)]" />
-      </div>
-
-      {/* The suggested journey, blurred far past legibility, standing in for the
-          video while the results are on screen. It carries the same bottom fade
-          so the hero still melts into the page underneath it. */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-1000 ease-out-expo ${
-          stageAsset ? "opacity-100" : "opacity-0"
-        }`}
-        aria-hidden
-      >
-        {stageAsset ? (
-          <Image
-            key={stageAsset.src}
-            src={stageAsset.src}
-            alt=""
-            fill
-            sizes="100vw"
-            className="scale-[1.15] object-cover blur-[42px]"
-          />
-        ) : null}
-        <div className="absolute inset-0 bg-[rgb(11_18_32/0.52)]" />
-        <div className="absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.6)_30%,rgb(11_18_32/0.88)_50%,var(--color-surface)_100%)]" />
-      </div>
-
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10">
-        {/* The glass keeps its class in the results state so the copy keeps its
-            palette; only the chrome is dissolved, letting the carousel float. */}
-        <div
-          data-glass
-          className={`glass hero-glass-copy w-full overflow-y-auto p-6 transition-[max-width,background-color,border-color,backdrop-filter] duration-700 ease-out-expo md:p-7 ${
-            stageAsset ? "max-w-[1180px] md:max-h-[calc(100dvh-9rem)]" : "max-w-[860px] md:max-h-[calc(100dvh-11rem)]"
-          }`}
-          style={
-            stageAsset
-              ? {
-                  background: "transparent",
-                  borderColor: "transparent",
-                  boxShadow: "none",
-                  backdropFilter: "none",
-                  WebkitBackdropFilter: "none",
-                }
-              : undefined
-          }
-        >
-          {/* Once the journeys are on screen they carry their own heading, so the
-              invitation to pick recedes and gives the carousel the height. */}
+    <section
+      id="hero"
+      className="relative isolate z-[4] flex min-h-[100dvh] flex-col overflow-hidden bg-surface"
+    >
+      {slides.map((slide, i) => {
+        const asset = images[slide.tour.image];
+        return (
           <div
-            className={`overflow-hidden transition-all duration-700 ease-out-expo ${
-              stageAsset ? "max-h-0 opacity-0" : "max-h-[420px] opacity-100"
+            key={slide.tour.slug}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-out-expo ${
+              i === active ? "opacity-100" : "opacity-0"
             }`}
-            aria-hidden={stageAsset ? true : undefined}
+            aria-hidden
           >
-            <p data-glass-item className="text-[14px] font-medium text-white/75">{t("headline")}</p>
-            <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-5xl lg:text-[3.25rem]">
-              {picker("headline")}
-            </h1>
-            <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75">
-              {picker("intro")}
-            </p>
+            <Image
+              src={asset.src}
+              alt=""
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL={asset.blurDataURL}
+              className="scale-[1.15] object-cover blur-[34px]"
+            />
           </div>
+        );
+      })}
+      {/* Enough to hold white type, not so much that the slide loses its colour. */}
+      <div className="absolute inset-0 bg-[rgb(11_18_32/0.42)]" aria-hidden />
+      {/* The hero still has to melt into the page below it. */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-[12%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.35)_45%,var(--color-surface)_100%)]"
+        aria-hidden
+      />
 
-          <div data-glass-item className={stageAsset ? "" : "mt-7 md:mt-4"}>
-            <PickerFlow content={content} variant="glass" onActive={onActive} />
-          </div>
+      <div
+        className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 pb-10 pt-28 md:gap-7 md:px-10 md:pt-24"
+        onPointerEnter={() => setHeld(true)}
+        onPointerLeave={() => setHeld(false)}
+        onFocusCapture={() => setHeld(true)}
+        onBlurCapture={() => setHeld(false)}
+      >
+        <motion.div
+          key={`copy-${active}`}
+          initial={reduce ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+        >
+          <h1 className="text-balance text-4xl font-medium leading-[1.05] tracking-tight text-white md:text-6xl">
+            {current ? current.copy.name : t("headline")}
+          </h1>
+          <p className="mx-auto mt-3 max-w-[46ch] text-balance text-[15px] leading-relaxed text-white/75 md:text-lg">
+            {current ? current.copy.tagline : t("subtext")}
+          </p>
+        </motion.div>
 
-          <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5 md:mt-4 md:pt-3">
-            <span className="inline-flex items-center gap-2 rounded-pill border border-white/25 px-3.5 py-1.5 text-[13px] text-white/85">
-              <MapPin size={14} weight="fill" className="text-gold" />
-              {t("location")}
-            </span>
-            <div className="flex items-center gap-0.5">
-              {company.socials.map((s) => {
-                const Icon = socialIcon[s.key as keyof typeof socialIcon];
-                return Icon ? (
-                  <a
-                    key={s.key}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-pill text-white/75 transition-colors hover:text-accent-text"
-                  >
-                    <Icon size={18} weight="fill" />
-                  </a>
-                ) : null;
-              })}
-              <a
-                href={whatsappUrl(company.whatsapp.digits, "")}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="flex h-9 w-9 items-center justify-center rounded-pill text-white/75 transition-colors hover:text-accent-text"
+        <ul
+          ref={rail}
+          role="list"
+          // Card width and the rail's inline padding both come from --card-w, so
+          // the first and last slide land dead centre at every size. Deriving one
+          // from a guess at the other put the active card off centre.
+          // The max-width keeps the frame to one card and two slivers, the way the
+          // reference reads; without it a wide screen simply shows more cards.
+          className="mx-auto flex w-full max-w-[calc(var(--card-w)*2.35)] snap-x snap-mandatory items-center gap-4 overflow-x-auto overscroll-x-contain px-[calc(50%-var(--card-w)/2)] [--card-w:clamp(170px,24vh,280px)] [scrollbar-width:none] md:gap-6 lg:[--card-w:clamp(190px,30vh,330px)] [&::-webkit-scrollbar]:hidden"
+        >
+          {slides.map((slide, i) => {
+            const asset = images[slide.tour.image];
+            const isActive = i === active;
+            return (
+              <li
+                key={slide.tour.slug}
+                className={`aspect-[5/9] w-[var(--card-w)] shrink-0 snap-center transition-[transform,opacity] duration-700 ease-out-expo motion-reduce:transition-none lg:aspect-[2/3] ${
+                  isActive ? "scale-100 opacity-100" : "scale-[0.96] opacity-75"
+                }`}
               >
-                <WhatsappLogo size={18} weight="fill" />
-              </a>
-            </div>
-            <button
-              type="button"
-              onClick={planJourney}
-              className="ms-auto inline-flex items-center gap-1.5 text-[14px] font-medium text-accent-text underline-offset-4 hover:underline"
-            >
-              {t("primaryCta")}
-              <ArrowRight size={14} weight="bold" className="rtl:rotate-180" />
-            </button>
+                {isActive ? (
+                  <Link
+                    href={`/tours/${slide.tour.slug}`}
+                    aria-label={slide.copy.name}
+                    className="group block h-full w-full overflow-hidden rounded-[26px] shadow-[0_30px_70px_-30px_rgb(0_0_0/0.75)]"
+                  >
+                    <Image
+                      src={asset.src}
+                      alt={slide.copy.name}
+                      width={asset.width}
+                      height={asset.height}
+                      placeholder="blur"
+                      blurDataURL={asset.blurDataURL}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
+                    />
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => goTo(i)}
+                    aria-label={slide.copy.name}
+                    className="block h-full w-full overflow-hidden rounded-[26px]"
+                  >
+                    <Image
+                      src={asset.src}
+                      alt=""
+                      width={asset.width}
+                      height={asset.height}
+                      placeholder="blur"
+                      blurDataURL={asset.blurDataURL}
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex flex-col items-center gap-4">
+          <motion.div
+            key={`place-${active}`}
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center"
+          >
+            <MapPin size={20} weight="fill" className="mx-auto text-gold" />
+            <p className="mt-1.5 text-[14px] font-medium text-white/85">
+              {current ? regions(current.tour.regions[0]) : t("location")}
+            </p>
+          </motion.div>
+          <div className="flex items-center gap-1.5">
+            {slides.map((slide, i) => (
+              <button
+                key={slide.tour.slug}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={slide.copy.name}
+                aria-current={i === active}
+                className={`h-1 rounded-pill transition-all duration-500 ${
+                  i === active ? "w-6 bg-gold" : "w-2.5 bg-white/35 hover:bg-white/60"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {heroClip ? (
-        <VideoControl
-          className="absolute bottom-5 start-5 z-30 md:bottom-8 md:start-8"
-          pauseLabel={t("pauseVideo")}
-          playLabel={t("playVideo")}
-        />
-      ) : null}
     </section>
   );
 }

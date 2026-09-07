@@ -67,7 +67,37 @@ Filled in as each section is specified.
 
 ### 1. Hero
 
-**Journey carousel — built 2026-09-07.** `components/home/JourneyCarousel.tsx`.
+**Superseded 2026-09-07: the hero is now a slideshow.** The user rejected the
+carousel-as-picker-payoff below and asked for the reference layout as the first
+screen itself, filling the viewport under the floating header.
+
+`components/hero/Hero.tsx` was rewritten. Six `featuredTours()` supply the slides;
+each gives a photograph, a name (title), a tagline (subtitle) and a region label
+for the location line, so the reference's title / subtitle / card / pin structure
+is filled entirely with real published data.
+
+- The active photograph is repeated behind everything, blurred and dimmed just
+  enough to hold white type, so the stage takes its colour from the slide.
+- Card width and the rail's inline padding both derive from one `--card-w`
+  variable. Deriving the padding from a guess at the card width put the active
+  card 37px off centre on desktop.
+- The rail is capped at `--card-w * 2.35` so the frame holds one card and two
+  slivers. Without the cap a wide screen simply showed five cards, which is not
+  what the reference reads like.
+- Auto-advances every 6s, pausing on pointer or focus, and not at all under
+  `prefers-reduced-motion`.
+
+**Consequences, accepted by the user:** the hero video is gone, and so is the
+three-tap picker — `PickerFlow` was rendered nowhere else. `AdventurePicker.tsx`
+and `JourneyCarousel.tsx` are left in the repo, unused, so the picker can be
+re-homed later. The hero also no longer carries a call to action; the boarding
+pass at #3 is now the first one on the page.
+
+Validated at 458px and 1024px, English and Arabic RTL.
+
+---
+
+**Superseded: journey carousel — built 2026-09-07.** `components/home/JourneyCarousel.tsx`.
 
 From a reference the user supplied: a centre-focused card with its neighbours
 peeking in at both edges, over a heavily blurred copy of the active card's own
