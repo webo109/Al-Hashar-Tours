@@ -58,3 +58,4 @@ All photographs are used under the Unsplash or Pexels free licence.
 | people-holiday-abroad.webp | Alexander Shabanov | [Pexels](https://www.pexels.com/photo/family-posing-with-atlantis-the-palm-in-dubai-background-39157989/) |
 | people-umrah.webp | hussam eldeen | [Pexels](https://www.pexels.com/photo/family-visiting-masjid-al-haram-in-makkah-34303915/) |
 | extra-al-alam-palace.webp | Daan Oosters | [Unsplash](https://unsplash.com/photos/grand-palace-facade-with-ornate-details-and-flag-wyw4v7t9fsI) |
+| extra-airport-wait.webp | André Gustavo de Castro | [Pexels](https://www.pexels.com/photo/empty-seats-at-an-airport-8419929/) |

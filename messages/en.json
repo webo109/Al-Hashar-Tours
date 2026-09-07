@@ -40,6 +40,30 @@
     "playVideo": "Play the background video",
     "location": "Muscat, Sultanate of Oman"
   },
+  "Problem": {
+    "headline": "The trip before the trip.",
+    "intro": "Planning it alone means becoming your own travel agent, and paying for your own mistakes.",
+    "items": {
+      "tabs": {
+        "title": "Six tabs, no plan",
+        "detail": "Flights on one site, the hotel on another, the visa on a third. Change one and you redo the rest."
+      },
+      "visa": {
+        "title": "The visa you're not sure about",
+        "detail": "Requirements shift, appointments fill, documents come back. A refused application costs the fee and the dates."
+      },
+      "price": {
+        "title": "The price that isn't the price",
+        "detail": "Baggage, seats, resort fees, a card charged in another currency. The total only appears at the end."
+      },
+      "silence": {
+        "title": "No one to call at two in the morning",
+        "detail": "A cancelled flight, a chatbot, and a queue in another timezone."
+      }
+    },
+    "cost": "You wanted a holiday. You got a project.",
+    "imageAlt": "Empty seats at an airport gate at dusk"
+  },
   "Booking": {
     "passTitle": "Boarding pass",
     "passSubtitle": "Tell us where. We handle the rest.",

@@ -330,6 +330,12 @@ export const images = {
     "width": 2400,
     "height": 1600,
     "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACQBACdASoYABAAPu1iqU2ppaQiMAgBMB2JbACdMoRwIsAAszakbjLuVYRw+gAAyoxzgnPoaQW093i82QL5+68b2YwAQGKCWv1bWhvOsapY0Ng1/g2/AgUVVuk6draevAZTKSWI55mm0KsAdtzxrhMoTaMdqYxi9zzn2lzXjBATXLVSEF71fIry6zqHIgfH4d0AAA=="
+  },
+  "extra-airport-wait": {
+    "src": "/images/extra-airport-wait.webp",
+    "width": 2000,
+    "height": 3556,
+    "blurDataURL": "data:image/webp;base64,UklGRmoBAABXRUJQVlA4IF4BAADwBgCdASoYACsAPu1srFCppiQiqqgBMB2JQBe6gUEY3sv11BMet3Ky8ApGP88wtGy7vzdxO2RHG6H+r84lx7sAAP7sEoMzfs3TsYWC0AziWTH99DheSaonqod+XUmgsPGbD6fQKqaIPrYp5dAgX+I8OYnHkxIpug41xOTudHvKl6S3YeuHekSo+C1oS5cRIcnr3PBv91SO9ZSe1FehDxJvSB8m//r4Q11r6GaRXckXWbLw57ZI6732+BKqvgsWt/D3cNIctySFbm5/7NUyvcnCKfthwyHs7OSqWRr5Bt5ohTGGusk8SgD5GcaiJL8AoARw1d+5Citda8OHXuadh6cIG1W3nY99gMUH9upN+BLIpUBupENrAFhEsli3VCOQ6ckpwgq+mmK9BPXQTr/i8yLhem8USLti54SNdR75+ri9/DcLxGNPE1W1NPcAMTzi6cI6NF5mT3zQYLy2gHEAAA=="
   }
 } as const satisfies Record<string, ImageAsset>;
 

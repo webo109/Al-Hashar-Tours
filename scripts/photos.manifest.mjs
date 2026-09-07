@@ -282,4 +282,13 @@ export const photos = [
     platform: "Unsplash",
     maxWidth: 2400,
   },
+  // The waiting that comes before the journey; used muted behind the problem chapter.
+  {
+    key: "extra-airport-wait",
+    url: "https://images.pexels.com/photos/8419929/pexels-photo-8419929.jpeg?auto=compress&cs=tinysrgb&w=2400",
+    page: "https://www.pexels.com/photo/empty-seats-at-an-airport-8419929/",
+    photographer: "André Gustavo de Castro",
+    platform: "Pexels",
+    maxWidth: 2000,
+  },
 ];

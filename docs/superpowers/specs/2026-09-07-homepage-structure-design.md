@@ -68,8 +68,31 @@ Filled in as each section is specified.
 ### 1. Hero
 _Pending._
 
-### 2. Problem Statement
-_Pending._
+### 2. Problem Statement — built 2026-09-07
+
+`components/home/ProblemChapter.tsx`, messages under `Problem`.
+
+The four pains are the exact inverse of the four `Trust` promises, so the problem
+named at the top of the page is answered by the Social Proof chapter further down
+(consultant → counselling, hidden price → competitive pricing, nobody at 2am →
+24/7 assistance). Nothing is invented and no statistics are claimed; the copy only
+describes what booking a trip yourself is like, which keeps the "verifiable claims
+only" rule intact.
+
+The closing line — "You wanted a holiday. You got a project." — hands over to the
+BookingBand at #3, whose existing subtitle is already "Tell us where. We handle the
+rest.", so the relief beat needed no new copy.
+
+Layout: text left, muted photograph right spanning both rows. On mobile the image
+sits between the intro and the list, breaking up an otherwise long text block.
+Motion is `Reveal` (Motion in-view), not GSAP, per the convention in `Reveal.tsx`
+that GSAP is for pinned and scrubbed chapters only.
+
+Photo `extra-airport-wait` (Pexels, André Gustavo de Castro) is deliberately outside
+the page's standard `.grade`: a flat scrim in the surface colour turned it milky in
+light mode, so it instead fades into the surface at its bottom edge only.
+
+Validated at 458px and 1024px, in light and dark, in English and Arabic RTL.
 
 ### 3. BookingBand
 _Pending._
@@ -81,7 +104,15 @@ _Pending._
 _Pending._
 
 ### 8. TrustChapter
-_Pending._
+
+**Correction to the table above.** It says "add review quotes", which conflicts with
+a standing project decision: the reviews chapter was hidden because no verifiable
+third-party reviews exist, and claims must stay verifiable. So no testimonials.
+
+The Social Proof slot is instead carried by facts that can be sourced: trading since
+1984, 12 branches (11 named on their contact page plus the head office), IATA
+accreditation, and the Al-Hashar Group parentage. Physical presence across Oman is
+the strongest honest proof available. Details pending.
 
 ### 9. FAQ
 _Pending._
