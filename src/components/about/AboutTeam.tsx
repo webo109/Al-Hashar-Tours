@@ -5,11 +5,10 @@ import { team } from "@/data/team";
 import { Marquee } from "@/components/motion/Marquee";
 import { Reveal } from "@/components/motion/Reveal";
 
-// The team as a slow marquee of portraits, the reference's idea in the site's
-// own tokens. Portraits sit in grey and take colour under the pointer, and the
-// rail fades at both edges so it reads as passing rather than cut off.
-//
-// Everything in src/data/team.ts is a placeholder — see the note there.
+// The team as a slow marquee of portraits in full colour. Under the pointer a
+// card grows and lifts, its portrait zooms, and the rail holds still; the rail
+// fades at both edges so it reads as passing rather than cut off. The seven
+// are Al-Hashar's published Key Persons — see src/data/team.ts.
 export function AboutTeam() {
   const t = useTranslations("Team");
   const locale = useLocale();
@@ -38,14 +37,16 @@ export function AboutTeam() {
           aria-hidden
           className="pointer-events-none absolute inset-y-0 end-0 z-10 w-24 bg-gradient-to-l from-surface to-transparent rtl:bg-gradient-to-r md:w-40"
         />
-        <Marquee className="[--gap:1.25rem]">
+        {/* Vertical room so a card can grow on hover without the rail clipping it;
+            the rail itself still pauses under the pointer. */}
+        <Marquee className="[--gap:1.25rem] py-6">
           {team.map((member) => {
             const asset = images[member.image];
             const name = arabic ? member.name.ar : member.name.en;
             return (
               <figure
                 key={member.image}
-                className="group relative h-[22rem] w-64 shrink-0 overflow-hidden rounded-panel border border-fg/10 bg-surface-2"
+                className="group relative h-[22rem] w-64 shrink-0 overflow-hidden rounded-panel border border-fg/10 bg-surface-2 transition-[transform,box-shadow] duration-500 ease-out-expo hover:z-10 hover:scale-[1.07] hover:shadow-lift"
               >
                 <Image
                   src={asset.src}
@@ -54,7 +55,7 @@ export function AboutTeam() {
                   sizes="256px"
                   placeholder="blur"
                   blurDataURL={asset.blurDataURL}
-                  className="object-cover object-top grayscale transition-[filter,transform] duration-500 ease-out-expo group-hover:scale-[1.03] group-hover:grayscale-0"
+                  className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.08]"
                 />
                 <figcaption className="absolute inset-x-3 bottom-3 rounded-[14px] bg-surface/88 px-4 py-3 backdrop-blur-sm">
                   <span className="block text-[15px] font-medium text-fg">{name}</span>
