@@ -26,11 +26,13 @@ export default function HomePage({ params }: Props) {
       <PaperPlane />
       <Hero content={content} />
       <ProblemChapter />
+      {/* Proof answers the problem straight away, rather than waiting until the
+          bottom of the page, which is what the framework asks for. */}
+      <TrustChapter />
       <BookingBand />
       <WorldRail />
       <UmrahBand />
       <ServicesChapter />
-      <TrustChapter />
       <LogoMoment />
     </main>
   );

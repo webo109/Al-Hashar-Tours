@@ -42,11 +42,21 @@ needs framing, not movement.
 2. **An early CTA at #3 that the framework does not have.** Visitors who already know
    what they want should not scroll eight sections to book.
 
-## Deferred: the full restructure
+## The restructure, done 2026-09-07
 
-If the framework's literal order is wanted after the tuned version ships: move
-`TrustChapter` to #2 and re-tune four background gradients between the new neighbours.
-That is the entire structural delta. Defer until the tuned page is live and judgeable.
+`TrustChapter` now sits directly after the Problem section, so proof answers the
+problem instead of waiting for the bottom of the page. The running order is:
+
+    hero → problem → trust → plan → world → umrah → services → brand
+
+The gradient re-tuning this was deferred for turned out to be unnecessary. By the
+time it was moved, `TrustChapter` had already lost its mountain plate and the dune
+band above the services chapter had been removed, so every section either side of
+the move is plain `bg-surface`. Nothing had to be re-tuned.
+
+This also retires the first of the two deviations listed above: social proof no
+longer lands late, so the hero's proof strip is no longer load-bearing — though it
+is still worth having.
 
 ## Length
 
