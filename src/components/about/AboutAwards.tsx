@@ -44,12 +44,18 @@ export function AboutAwards() {
 
   return (
     <section id="awards" className="relative bg-surface pt-24 md:pt-32">
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
+      <div className="relative">
+        {/* The panel breaks its container and spans the window, with an
+            elliptical radius so the dark form bows out at the centre and
+            sweeps thin toward both edges — a wing rather than a box. The
+            gold hairline follows that curve and keeps the edge readable in
+            dark mode, where the panel and the page surface are close in tone. */}
+        <div
+          aria-hidden
+          className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 border-y border-gold/25 bg-[linear-gradient(160deg,#16203a_0%,#0b1220_60%,#141a2c_100%)] [border-radius:50%_/_14%]"
+        />
         <Reveal>
-          {/* A deep panel so the medallions read as a trophy case rather than
-              three more cards. The gold hairline keeps its edge in dark mode,
-              where the panel and the page surface are close in tone. */}
-          <div className="overflow-hidden rounded-panel border border-gold/30 bg-[linear-gradient(160deg,#16203a_0%,#0b1220_60%,#141a2c_100%)] px-6 py-12 text-cream md:px-12 md:py-16">
+          <div className="relative mx-auto w-full max-w-[1200px] px-6 py-16 text-cream md:px-10 md:py-24">
             <div className="mx-auto max-w-[46ch] text-center">
               <p className="text-[12px] uppercase tracking-[0.24em] text-gold-300">{t("eyebrow")}</p>
               <h2 className="mt-3 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-cream md:text-5xl">
