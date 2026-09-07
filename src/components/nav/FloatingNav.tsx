@@ -116,10 +116,24 @@ export function FloatingNav() {
                 key={item.key}
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className={`rounded-pill px-3.5 py-2 text-[14px] transition-colors duration-300 hover:bg-fg/8 hover:text-fg ${
-                  isActive(item.href) ? "text-accent-text" : "text-fg/85"
+                className={`relative rounded-pill px-3.5 py-2 text-[14px] transition-colors duration-300 hover:text-fg ${
+                  isActive(item.href) ? "text-accent-text" : "text-fg/85 hover:bg-fg/8"
                 }`}
               >
+                {/* One shared layoutId means the marker glides from the old page's
+                    item to the new one instead of blinking between them. */}
+                {isActive(item.href) ? (
+                  <motion.span
+                    layoutId="nav-active"
+                    aria-hidden
+                    className="absolute inset-0 -z-10 rounded-pill border border-gold/35 bg-gold/12"
+                    transition={
+                      reduce
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 32 }
+                    }
+                  />
+                ) : null}
                 {t(item.key)}
               </Link>
             ))}
