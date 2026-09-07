@@ -67,9 +67,35 @@ Filled in as each section is specified.
 
 ### 1. Hero
 
-**Superseded 2026-09-07: the hero is now a slideshow.** The user rejected the
-carousel-as-picker-payoff below and asked for the reference layout as the first
-screen itself, filling the viewport under the floating header.
+**Current: a full-bleed slider, deliberately close to Al-Hashar's own site.**
+
+Two earlier attempts were rejected for the same underlying reason — they drifted
+away from the site being pitched against. The rule this settled on: *similar to
+their existing homepage, but better.*
+
+Their live hero is one photograph filling the frame, a line centred over it,
+arrows at the edges, dots beneath. This follows that shape. What is better:
+
+- Their slides are decorative and lead nowhere. Every slide here is one of the six
+  `featuredTours()`, so it carries a region, a name, a tagline and a link.
+- A radial scrim under the copy, because the slides range from a pale rock face to
+  a dark sea and white type has to hold on both.
+- A slow drift on the held slide that eases back as it leaves, and a crossfade
+  rather than a hard cut.
+- Auto-advances every 6.5s, pausing on pointer or focus, still under
+  `prefers-reduced-motion`.
+
+Validated at 469px and 1024px, English and Arabic RTL (arrows mirror: previous
+sits right, next sits left).
+
+**From their site, for slot #8:** they display a **World Travel Awards Winner 2025**
+badge. That is real, sourceable social proof and better than anything proposed
+below — it should lead the Social Proof section.
+
+---
+
+**Superseded 2026-09-07: the tall-card slideshow.** The user rejected the
+carousel-as-picker-payoff below, then rejected this too as too far from their site.
 
 `components/hero/Hero.tsx` was rewritten. Six `featuredTours()` supply the slides;
 each gives a photograph, a name (title), a tagline (subtitle) and a region label
