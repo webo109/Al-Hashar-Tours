@@ -47,6 +47,30 @@ export const company = {
   // Their own site states 12 branches; the contact page names 11 plus the head office.
   branchesClaimed: 12,
   iataAccredited: true,
+  // Displayed as a winner's badge in the header of alhashartravels.com.
+  worldTravelAwardsYear: 2025,
+  // The parent house. Founder and the thirteen business lines are listed on
+  // alhashargroup.com (Our Group, and Our Business), September 2026.
+  group: {
+    name: "Al Hashar Group",
+    url: "https://www.alhashargroup.com/",
+    founder: "Sheikh Saeed Bin Nasser Al Hashar",
+    lines: [
+      "luxuryCars",
+      "lightVehicles",
+      "heavyVehicles",
+      "cranes",
+      "tyres",
+      "lubricants",
+      "parts",
+      "autoService",
+      "carRental",
+      "electronics",
+      "hospitality",
+      "construction",
+      "engineering",
+    ],
+  },
   socials: [
     {
       key: "instagram",

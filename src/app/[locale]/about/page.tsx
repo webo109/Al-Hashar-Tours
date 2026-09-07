@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { resolveLocale } from "@/i18n/locale";
 import { PageIntro } from "@/components/layout/PageIntro";
 import { AboutStory } from "@/components/about/AboutStory";
+import { AboutRecognition } from "@/components/about/AboutRecognition";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,6 +23,7 @@ export default async function AboutPage({ params }: Props) {
     <main id="content">
       <PageIntro title={t("headline")} intro={t("intro")} image="hero-muscat-coast" position="50% 48%" compact />
       <AboutStory />
+      <AboutRecognition />
     </main>
   );
 }
