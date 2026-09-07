@@ -264,6 +264,16 @@
       "engineering": "Engineering and projects"
     }
   },
+  "FlightLine": {
+    "eyebrow": "Twelve stops, one route",
+    "plate": "Route chart",
+    "stop": "Stop {n} of {total}",
+    "arrived": "Arrived, {name}",
+    "ledgerLabel": "Branches in route order",
+    "jumpTo": "Go to {name}",
+    "schematic": "Schematic chart. Town positions are approximate and not to scale.",
+    "headOffice": "Head office"
+  },
   "Team": {
     "eyebrow": "The people",
     "headline": "The people who answer.",

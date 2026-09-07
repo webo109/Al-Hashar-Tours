@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "lenis/dist/lenis.css";
 
+/* House rule for scrubbed chapters: layout and JS use the same gate. */
+@custom-variant chapter (@media (min-width: 1024px) and (min-height: 820px) and (prefers-reduced-motion: no-preference));
+
 @theme {
   /* Brand palette (fixed) */
   --color-midnight: #0b1220;
@@ -389,6 +392,39 @@
   }
   .chart-grid > * {
     position: relative;
+  }
+
+  /* Cream chart paper with a fine grid, for the route chart. */
+  .chart-paper {
+    background-color: #f7f2e8;
+    background-image:
+      linear-gradient(rgb(11 18 32 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(11 18 32 / 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color-scheme: light;
+  }
+
+  /* Ledger row highlight: a gold sweep from the inline start. */
+  .ledger-row {
+    position: relative;
+  }
+  .ledger-row::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: rgb(232 158 0 / 0.14);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.45s var(--ease-out-quart);
+  }
+  [dir="rtl"] .ledger-row::before {
+    transform-origin: 100% 50%;
+  }
+  .ledger-row:hover::before,
+  .ledger-row:focus-visible::before,
+  .ledger-row.is-active::before {
+    transform: scaleX(1);
   }
 
   /* The active slide's dot fills as its turn runs down. */

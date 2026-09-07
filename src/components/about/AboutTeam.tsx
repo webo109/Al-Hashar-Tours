@@ -46,20 +46,25 @@ export function AboutTeam() {
             return (
               <figure
                 key={member.image}
-                className="group relative h-[22rem] w-64 shrink-0 overflow-hidden rounded-panel border border-fg/10 bg-surface-2 transition-[transform,box-shadow] duration-500 ease-out-expo hover:z-10 hover:scale-[1.07] hover:shadow-lift"
+                className="group relative h-[26rem] w-[18.5rem] shrink-0 overflow-hidden rounded-[24px] bg-surface-2 shadow-[0_20px_50px_-30px_rgb(11_18_32/0.55)] transition-[transform,box-shadow] duration-500 ease-out-expo hover:z-10 hover:scale-[1.05] hover:shadow-lift"
               >
                 <Image
                   src={asset.src}
                   alt={name}
                   fill
-                  sizes="256px"
+                  sizes="296px"
                   placeholder="blur"
                   blurDataURL={asset.blurDataURL}
-                  className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.08]"
+                  className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.07]"
                 />
-                <figcaption className="absolute inset-x-3 bottom-3 rounded-[14px] bg-surface/88 px-4 py-3 backdrop-blur-sm">
-                  <span className="block text-[15px] font-medium text-fg">{name}</span>
-                  <span className="block text-[13px] text-fg/65">{t(`roles.${member.role}`)}</span>
+                {/* A glass plate floating clear of the card edges, in the site's
+                    own navy rather than a neutral grey, so the portrait reads
+                    through it and the type stays legible over any background. */}
+                <figcaption className="absolute inset-x-4 bottom-4 rounded-[16px] border border-white/20 bg-[rgb(11_18_32/0.55)] px-4 py-3.5 text-cream shadow-[0_10px_30px_-16px_rgb(0_0_0/0.8)] backdrop-blur-md transition-transform duration-500 ease-out-expo group-hover:-translate-y-1">
+                  <span className="block text-[15px] font-semibold leading-tight">{name}</span>
+                  <span className="mt-1 block text-[13px] leading-snug text-cream/75">
+                    {t(`roles.${member.role}`)}
+                  </span>
                 </figcaption>
               </figure>
             );

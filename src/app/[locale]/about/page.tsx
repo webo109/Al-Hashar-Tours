@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { resolveLocale } from "@/i18n/locale";
 import { PageIntro } from "@/components/layout/PageIntro";
+import { FlightLine } from "@/components/about/FlightLine";
 import { AboutAwards } from "@/components/about/AboutAwards";
 import { AboutRecognition } from "@/components/about/AboutRecognition";
 import { AboutTeam } from "@/components/about/AboutTeam";
@@ -24,6 +25,8 @@ export default async function AboutPage({ params }: Props) {
     <main id="content">
       <PageIntro title={t("headline")} intro={t("intro")} image="hero-muscat-coast" position="50% 48%" compact />
       {/* Strongest proof first, then the rest of the credentials. */}
+      {/* The signature chapter: the twelve branches flown as one route. */}
+      <FlightLine />
       <AboutAwards />
       <AboutRecognition />
       <AboutTeam />
