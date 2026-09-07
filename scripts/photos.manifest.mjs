@@ -289,6 +289,15 @@ export const photos = [
   { key: "close-nizwa-tower", url: "https://images.pexels.com/photos/36245709/pexels-photo-36245709.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/historic-nizwa-fort-tower-in-oman-36245709/", photographer: "Adrian Limani", platform: "Pexels", maxWidth: 2400 },
   { key: "close-bimmah-jump", url: "https://images.pexels.com/photos/22227581/pexels-photo-22227581.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/man-jumping-to-bimmah-sinkhole-in-oman-22227581/", photographer: "Inshaf Sala", platform: "Pexels", maxWidth: 2400 },
   { key: "close-shams-road", url: "https://images.pexels.com/photos/19950830/pexels-photo-19950830.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/white-car-leaving-dust-behind-on-dirt-road-in-mountains-19950830/", photographer: "Vincent M.A. Janssen", platform: "Pexels", maxWidth: 2400 },
+  // PLACEHOLDER team portraits. Al-Hashar publishes no staff photographs, so
+  // these stock portraits stand in for the demo and must be replaced with the
+  // client's own people before the section is shown as anything but a layout.
+  { key: "team-portrait-1", url: "https://images.pexels.com/photos/14589344/pexels-photo-14589344.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/portrait-of-a-man-in-a-black-suit-14589344/", photographer: "Amir Saeid Dehghan", platform: "Pexels", maxWidth: 1200 },
+  { key: "team-portrait-2", url: "https://images.pexels.com/photos/37148308/pexels-photo-37148308.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/portrait-of-a-business-professional-in-suit-37148308/", photographer: "Vincent Santamaria", platform: "Pexels", maxWidth: 1200 },
+  { key: "team-portrait-3", url: "https://images.pexels.com/photos/26728094/pexels-photo-26728094.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/smiling-woman-in-a-suit-26728094/", photographer: "Hanuman Photo Studio", platform: "Pexels", maxWidth: 1200 },
+  { key: "team-portrait-4", url: "https://images.pexels.com/photos/31869537/pexels-photo-31869537.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/portrait-of-smiling-woman-in-business-attire-31869537/", photographer: "Finn Gruber", platform: "Pexels", maxWidth: 1200 },
+  { key: "team-portrait-5", url: "https://images.pexels.com/photos/29995581/pexels-photo-29995581.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/professional-businessman-in-a-formal-suit-portrait-29995581/", photographer: "Tran Nhu Tuan", platform: "Pexels", maxWidth: 1200 },
+  { key: "team-portrait-6", url: "https://images.pexels.com/photos/11655430/pexels-photo-11655430.jpeg?auto=compress&cs=tinysrgb&w=1200", page: "https://www.pexels.com/photo/woman-in-formalwear-11655430/", photographer: "Jay Imagery", platform: "Pexels", maxWidth: 1200 },
   // The waiting that comes before the journey; used muted behind the problem chapter.
   {
     key: "extra-airport-wait",

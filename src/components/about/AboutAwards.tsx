@@ -38,24 +38,45 @@ function Medallion({ year, winner }: { year: number; winner: string }) {
   );
 }
 
+// One blade, drawn to stretch: the root spans the panel's middle band at full
+// height, the tip is a third as tall and sits above centre, and both edges bow
+// on the way out. preserveAspectRatio="none" lets the same path fit any window.
+function Wing({ side }: { side: "left" | "right" }) {
+  const left = side === "left";
+  const d = left
+    ? "M100,0 C68,3 34,13 0,27 L0,58 C34,78 68,91 100,100 Z"
+    : "M0,0 C32,3 66,13 100,27 L100,58 C66,78 32,91 0,100 Z";
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      className={`pointer-events-none absolute top-[27%] hidden h-[46%] w-[calc(50vw-560px)] xl:block ${
+        left ? "right-full" : "left-full"
+      }`}
+    >
+      <path d={d} fill="#0f1830" stroke="rgb(232 158 0 / 0.28)" strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
 export function AboutAwards() {
   const t = useTranslations("Awards");
   const years = company.worldTravelAwardsYears;
 
   return (
     <section id="awards" className="relative bg-surface pt-24 md:pt-32">
-      <div className="relative">
-        {/* The panel breaks its container and spans the window, with an
-            elliptical radius so the dark form bows out at the centre and
-            sweeps thin toward both edges — a wing rather than a box. The
-            gold hairline follows that curve and keeps the edge readable in
-            dark mode, where the panel and the page surface are close in tone. */}
-        <div
-          aria-hidden
-          className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 border-y border-gold/25 bg-[linear-gradient(160deg,#16203a_0%,#0b1220_60%,#141a2c_100%)] [border-radius:50%_/_14%]"
-        />
+      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <Reveal>
-          <div className="relative mx-auto w-full max-w-[1200px] px-6 py-16 text-cream md:px-10 md:py-24">
+          {/* A body with two blades. The panel is the fuselage; from the middle
+              of each side a swept blade reaches the edge of the window, thinning
+              toward a tip that sits a little above centre so the whole form
+              reads as lifted. The blades only exist from xl up, where the panel
+              stops at 1120px and there is window either side of it; their width
+              is exactly that remaining half, so each tip lands on the edge. */}
+          <div className="relative rounded-panel border border-gold/30 bg-[linear-gradient(160deg,#16203a_0%,#0b1220_60%,#141a2c_100%)] px-6 py-14 text-cream md:px-12 md:py-20">
+            <Wing side="left" />
+            <Wing side="right" />
             <div className="mx-auto max-w-[46ch] text-center">
               <p className="text-[12px] uppercase tracking-[0.24em] text-gold-300">{t("eyebrow")}</p>
               <h2 className="mt-3 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-cream md:text-5xl">

@@ -4,6 +4,7 @@ import { resolveLocale } from "@/i18n/locale";
 import { PageIntro } from "@/components/layout/PageIntro";
 import { AboutAwards } from "@/components/about/AboutAwards";
 import { AboutRecognition } from "@/components/about/AboutRecognition";
+import { AboutTeam } from "@/components/about/AboutTeam";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -25,6 +26,7 @@ export default async function AboutPage({ params }: Props) {
       {/* Strongest proof first, then the rest of the credentials. */}
       <AboutAwards />
       <AboutRecognition />
+      <AboutTeam />
     </main>
   );
 }

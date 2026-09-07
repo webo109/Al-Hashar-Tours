@@ -360,6 +360,16 @@
     animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   }
 
+  /* A marquee track: two copies of the content, the first carried out of view
+     while the second takes its place. Reversed in RTL so travel follows the
+     writing direction. */
+  .marquee-track {
+    animation: marquee var(--marquee-seconds, 42s) linear infinite;
+  }
+  [dir="rtl"] .marquee-track {
+    animation-direction: reverse;
+  }
+
   /* The active slide's dot fills as its turn runs down. */
   .hero-dot-fill {
     transform-origin: left;
@@ -424,6 +434,15 @@
   100% {
     transform: translateY(11px);
     opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
 

@@ -63,4 +63,10 @@ All photographs are used under the Unsplash or Pexels free licence.
 | close-nizwa-tower.webp | Adrian Limani | [Pexels](https://www.pexels.com/photo/historic-nizwa-fort-tower-in-oman-36245709/) |
 | close-bimmah-jump.webp | Inshaf Sala | [Pexels](https://www.pexels.com/photo/man-jumping-to-bimmah-sinkhole-in-oman-22227581/) |
 | close-shams-road.webp | Vincent M.A. Janssen | [Pexels](https://www.pexels.com/photo/white-car-leaving-dust-behind-on-dirt-road-in-mountains-19950830/) |
+| team-portrait-1.webp | Amir Saeid Dehghan | [Pexels](https://www.pexels.com/photo/portrait-of-a-man-in-a-black-suit-14589344/) |
+| team-portrait-2.webp | Vincent Santamaria | [Pexels](https://www.pexels.com/photo/portrait-of-a-business-professional-in-suit-37148308/) |
+| team-portrait-3.webp | Hanuman Photo Studio | [Pexels](https://www.pexels.com/photo/smiling-woman-in-a-suit-26728094/) |
+| team-portrait-4.webp | Finn Gruber | [Pexels](https://www.pexels.com/photo/portrait-of-smiling-woman-in-business-attire-31869537/) |
+| team-portrait-5.webp | Tran Nhu Tuan | [Pexels](https://www.pexels.com/photo/professional-businessman-in-a-formal-suit-portrait-29995581/) |
+| team-portrait-6.webp | Jay Imagery | [Pexels](https://www.pexels.com/photo/woman-in-formalwear-11655430/) |
 | extra-airport-wait.webp | André Gustavo de Castro | [Pexels](https://www.pexels.com/photo/empty-seats-at-an-airport-8419929/) |

@@ -361,6 +361,42 @@ export const images = {
     "height": 3600,
     "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACQBgCdASoYACQAPu1ur1GppiQipWsxMB2JZwDQkC5z0GJt+ULVprrJIRfFPsXa1CNS9PruoPdX10ipI6Q4AP7qfjDvCUUCPK+czCQ/Cvq/YBPmDx9It6YbsCKH2c5TBb9WbXefNxVvYvZC2i9cplCc6NuvRCQQ5OuqI0/OeMOzrmFdyPNsMd+t7qHPwADBTFYlyKAaammdf1LrYgEs0LAdq5B1Vh0X7IWmNtNmAAA="
   },
+  "team-portrait-1": {
+    "src": "/images/team-portrait-1.webp",
+    "width": 1200,
+    "height": 1803,
+    "blurDataURL": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoYACQAPu1krE8ppSQiMBVaqTAdiUAYDIS7E1iJRXL/R7QCtdHl2Lko5qNrisrLiiAA/QsT67YlCF3+UgEZebenfoMxTUb+aFnBVq2Gm15VoTs1xALRM3SBylSIS+4T8xKvKBR9QKZU4w94WZrQS8atvuhLXR1cWcGeZGMNEVH8h5yHZRorpWDhRQKf/0k3koX6yvsjkWHhdhtJILtFt7ALIAJHpkCNXyRlIumCX39EcLngtREU2Tpg7fYNWAAA"
+  },
+  "team-portrait-2": {
+    "src": "/images/team-portrait-2.webp",
+    "width": 1200,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACQBQCdASoYACQAPu1iqE2ppaOpKq35MB2JQBdgAsqZm+5CRdvhL8mCbdKcuaSeGMw5u8qwYAD+4vVTQSPPp73qpCBCQLtE+MxjQuwQEjuvGdgaUPPjmfph0KFGSr7xYpiqzQvObI/gvQ3hu4N2AoZJaHXnaESiOyFgH+jJhVOqmpDljflKUjfXRlJH8egv0N/hNmtxPG6nEGL8APltd+wqkfckTC3U8pkyVYCRATcwCtTxl16BKjAA"
+  },
+  "team-portrait-3": {
+    "src": "/images/team-portrait-3.webp",
+    "width": 1200,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoYACQAPu10sVOppqSipWgBMB2JZwDIIApWp2G5KPc1eL6bwPlVFi4ooCxuXyMaAAD+cVvZVTy2xVlOngdqxlyMqg01Fmd3cQsnYbAkgo+cP7biq5UgO9ZiLWj3jk0N4zpMx1Uog/fxJx2paHjsur9mwcW5k7CHsqMg+BZlTLCahys49FS2kGhnqKRbkeg669+AAA=="
+  },
+  "team-portrait-4": {
+    "src": "/images/team-portrait-4.webp",
+    "width": 1200,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBQCdASoYACQAPuVmpE2pJiOmNVgIASAciWUAAD6QQMzSupO3uXOq8Ib5reQPJqCAAP70GxXgvjRpyt+eSw/ud2tzfNG1CMOITTCYBh+D+71pIrL3U0U4XohcenKQE5vfHcA5Q6X50JJ2whclqdh03GrZ9L6g+253TLu1pgAAAA=="
+  },
+  "team-portrait-5": {
+    "src": "/images/team-portrait-5.webp",
+    "width": 1200,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAAAQBgCdASoYACQAPu1wrlIppiQipWsxMB2JYwDPoYv1M0R3G8zqUbwHKQLVPQ2pKTm+mMIqc6PFwQAA/vTXERtGh2cEu2Tdqbb6v1Nm2BZYybwEf9ZBbu7aqs7CAt6/fhXaFAYqa5Jdv8E+tKYluLniqo80Y3OZjWDI6hrf8pkCqEiEtAgjcMRQ0Jxzd4FHrfFBAri+c4741w4OxFU9cyjQ/W9vhaPPsp1VXc5ZXxauH7su3KlkvDQlCyWi4tKZiWns3NyZpqvbI11KwfZnhqXlR+AhAYfcF2D5mvsUJOOsrlbgYyTurmle+wej1qCYg4AAAA=="
+  },
+  "team-portrait-6": {
+    "src": "/images/team-portrait-6.webp",
+    "width": 1200,
+    "height": 1800,
+    "blurDataURL": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAADwBgCdASoYACQAPu1sqlAppiOiqrgMATAdiWgAwcwjE/VJYRs5QqfVf59B7GiHt6tH7gz5se/ES7eMaIsCc0bgAP6vmGXxfgRrCtMfIiUW8XsEs/UN1ADVOWszW4zTYI5uK41i8nMnDN3RKya9ivfQGguBk5cvYkbFcqRtttVRGqsTWPfy/Ce/BFAvFOvvbO5YHHRbCCv3KzfJQrUNA0Es728HOMtjQVk0z/erSXH9wdN095v+ocen8Gf4RW69Fsr93T3kx/U9md+QteF/bpdpxepXTkB4z3nYF7Xd+tVG6faH9e3zj5rwNGxJUjl3hS0VbFKnPi74DBYVvDsG/RPHtLbArGtvIogAAA=="
+  },
   "extra-airport-wait": {
     "src": "/images/extra-airport-wait.webp",
     "width": 2000,

@@ -12,6 +12,7 @@ import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
 import { buttonClass } from "@/components/ui/Button";
 import jabalAkhdarHero from "../../../public/images/hero-jabal-akhdar-v2.webp";
+import glimpseOmanHero from "../../../public/images/hero-glimpse-oman-v2.webp";
 
 const SLIDE_MS = 6500;
 
@@ -73,6 +74,8 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
         const asset =
           slide.tour.slug === "jabal-akhdar-day-tour"
             ? jabalAkhdarHero
+            : slide.tour.slug === "glimpse-oman"
+              ? glimpseOmanHero
             : images[slide.art];
         const isActive = i === active;
         return (
