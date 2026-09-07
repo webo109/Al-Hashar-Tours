@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import {
   AirplaneTilt,
@@ -19,35 +18,15 @@ import { Reveal } from "@/components/motion/Reveal";
 
 const icons = { SunHorizon, AirplaneTilt, Bed, Compass, Stamp, Mosque, ShieldCheck, Package } as const;
 
-const duneMask: CSSProperties = {
-  WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 45%, black 100%)",
-  maskImage: "linear-gradient(to bottom, transparent 0%, black 45%, black 100%)",
-};
-
 export function ServicesChapter() {
   const t = useTranslations("Services");
-  const dunes = images["plane-dunes-daylight"];
 
   return (
     <section id="services" className="relative isolate">
-      {/* A soft landscape transition into the light services chapter. */}
-      <div className="relative h-[46vh] min-h-[280px] overflow-hidden bg-[image:var(--services-band)]" aria-hidden>
-        <div className="absolute inset-x-[-6%] bottom-[-8%] h-[80%]" style={duneMask}>
-          <Image
-            src={dunes.src}
-            alt=""
-            fill
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={dunes.blurDataURL}
-            className="object-cover object-[50%_65%] brightness-[1.05] saturate-[0.9]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(232,217,193,0)_0%,rgba(232,217,193,0.35)_60%,var(--color-services)_100%)]" />
-        </div>
-      </div>
-
       <div className="bg-services text-services-fg">
-        <div className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-6 md:px-10 md:pb-36">
+        {/* The dune transition band that used to sit above this was removed; the
+            chapter now opens on its own colour, so it carries its own top space. */}
+        <div className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-24 md:px-10 md:pb-36 md:pt-32">
           <Reveal>
             <h2 className="max-w-[18ch] text-balance text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
               {t("headline")}

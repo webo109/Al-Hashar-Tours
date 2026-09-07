@@ -1,15 +1,7 @@
-import Image from "next/image";
-import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
-import { HandHeart, ChatsCircle, Tag, Headset } from "@phosphor-icons/react/dist/ssr";
-import { images } from "@/data/images.generated";
+import { HandHeart, ChatsCircle, Tag, Headset, SealCheck } from "@phosphor-icons/react/dist/ssr";
 import { company } from "@/data/company";
 import { Reveal } from "@/components/motion/Reveal";
-
-const rangeMask: CSSProperties = {
-  WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-  maskImage: "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-};
 
 const promises = [
   { key: "care", Icon: HandHeart },
@@ -18,69 +10,81 @@ const promises = [
   { key: "assistance", Icon: Headset },
 ] as const;
 
+const box = "rounded-panel border border-fg/10 bg-surface-2 p-6";
+
+// Built from boxes rather than photography: the mountain plate that used to sit
+// behind this ran dark exactly where the figures and the last two promises are,
+// and swallowed them. Type on a plain surface stays legible in both themes.
 export function TrustChapter() {
   const t = useTranslations("Trust");
-  const range = images["plane-hajar-sunset"];
 
   return (
-    <section id="trust" className="relative isolate overflow-hidden">
-      {/* Daylight back to dusk */}
-      <div className="absolute inset-0 -z-10 bg-[image:var(--trust-grad)]" aria-hidden />
-      <div className="absolute inset-x-[-4%] bottom-0 -z-10 h-[70%]" aria-hidden style={rangeMask}>
-        <Image
-          src={range.src}
-          alt=""
-          fill
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL={range.blurDataURL}
-          className="object-cover object-bottom brightness-[0.75] saturate-[0.8]"
-        />
-        <div className="absolute inset-0 bg-surface/45 mix-blend-multiply" />
-        <div className="absolute inset-x-0 bottom-0 h-[35%] bg-[linear-gradient(180deg,transparent,var(--color-surface))]" />
-      </div>
+    <section id="trust" className="relative bg-surface py-24 md:py-32">
+      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
+        <Reveal>
+          <h2 className="max-w-[18ch] text-balance text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-6xl">
+            {t("headline")}
+          </h2>
+        </Reveal>
 
-      <div className="mx-auto w-full max-w-[1200px] px-6 pt-40 pb-32 md:px-10 md:pt-52 md:pb-40">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <Reveal>
-            <h2 className="text-balance text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-6xl">
-              {t("headline")}
-            </h2>
-            <div className="mt-10 flex flex-wrap items-end gap-x-12 gap-y-8">
-              <div>
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
+            <Reveal className="h-full">
+              <div className={`${box} h-full`}>
                 <span className="block text-[13px] text-fg/60">{t("sinceLabel")}</span>
-                <span className="font-latin block text-7xl font-medium leading-none tracking-tight text-fg md:text-8xl" dir="ltr">
+                <span
+                  className="font-latin mt-1 block text-6xl font-medium leading-none tracking-tight text-fg md:text-7xl"
+                  dir="ltr"
+                >
                   {company.established}
                 </span>
               </div>
-              <div>
-                <span className="font-latin block text-5xl font-medium leading-none tracking-tight text-accent-text md:text-6xl" dir="ltr">
+            </Reveal>
+          </li>
+          <li>
+            <Reveal className="h-full" delay={0.07}>
+              <div className={`${box} h-full`}>
+                <span
+                  className="font-latin block text-6xl font-medium leading-none tracking-tight text-accent-text md:text-7xl"
+                  dir="ltr"
+                >
                   {company.branchesClaimed}
                 </span>
                 <span className="mt-2 block text-[15px] text-fg/80">
                   {t("branchesLabel", { count: company.branchesClaimed })}
                 </span>
               </div>
-              {company.iataAccredited ? (
-                <div className="rounded-pill border border-gold/40 px-4 py-2 text-[14px] text-accent-text">
-                  {t("iataLabel")}
+            </Reveal>
+          </li>
+          {company.iataAccredited ? (
+            <li className="sm:col-span-2 lg:col-span-1">
+              <Reveal className="h-full" delay={0.14}>
+                <div className={`${box} flex h-full flex-col justify-center gap-3`}>
+                  <SealCheck size={34} weight="fill" className="text-gold" />
+                  <span className="text-xl font-medium tracking-tight text-fg">{t("iataLabel")}</span>
                 </div>
-              ) : null}
-            </div>
-          </Reveal>
+              </Reveal>
+            </li>
+          ) : null}
+        </ul>
 
-          <ul className="grid gap-x-8 gap-y-9 sm:grid-cols-2 lg:pt-6">
-            {promises.map(({ key, Icon }, i) => (
-              <li key={key}>
-                <Reveal delay={0.08 + i * 0.07}>
+        <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {promises.map(({ key, Icon }, i) => (
+            <li key={key}>
+              <Reveal className="h-full" delay={0.07 * i}>
+                <div className={`${box} h-full`}>
                   <Icon size={30} weight="fill" className="text-accent-text" />
-                  <h3 className="mt-4 text-xl font-medium tracking-tight text-fg">{t(`promises.${key}.title`)}</h3>
-                  <p className="mt-2 max-w-[34ch] text-[15px] leading-relaxed text-fg/75">{t(`promises.${key}.detail`)}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <h3 className="mt-4 text-xl font-medium tracking-tight text-fg">
+                    {t(`promises.${key}.title`)}
+                  </h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-fg/75">
+                    {t(`promises.${key}.detail`)}
+                  </p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
