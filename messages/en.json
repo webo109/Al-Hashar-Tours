@@ -39,7 +39,11 @@
     "pauseVideo": "Pause the background video",
     "playVideo": "Play the background video",
     "location": "Muscat, Sultanate of Oman",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "proofSince": "Since {year}",
+    "proofBranches": "{count} branches",
+    "proofIata": "IATA accredited",
+    "proofAwards": "World Travel Awards {from}–{to}"
   },
   "Problem": {
     "headline": "The trip before the trip.",
@@ -63,7 +67,17 @@
       }
     },
     "cost": "You wanted a holiday. You got a project.",
-    "imageAlt": "Empty seats at an airport gate at dusk"
+    "imageAlt": "Empty seats at an airport gate at dusk",
+    "phoneTime": "02:00",
+    "phoneDate": "Tonight",
+    "phoneLabel": "A phone at two in the morning, with four notifications no one wants.",
+    "notifications": "Notifications",
+    "apps": {
+      "tabs": "Browser",
+      "visa": "Embassy portal",
+      "price": "Bank",
+      "silence": "Airline support"
+    }
   },
   "Safariyati": {
     "eyebrow": "Book online",
@@ -780,6 +794,71 @@
       "assistance": {
         "title": "24/7 assistance",
         "detail": "A real person on the phone when a flight changes at two in the morning."
+      }
+    },
+    "routeLabel": "Milestones",
+    "milestones": {
+      "founded": "Founded in Muscat",
+      "iata": "IATA accredited",
+      "branches": "Branches across Oman",
+      "award": "World Travel Awards winner"
+    }
+  },
+  "HowItWorks": {
+    "eyebrow": "How it works",
+    "headline": "Three stops. One team.",
+    "intro": "The whole journey, arranged the way a good desk has always done it.",
+    "board": {
+      "step": "Step",
+      "stop": "Stop",
+      "status": "Status"
+    },
+    "steps": {
+      "tell": {
+        "title": "Tell us where",
+        "body": "A message on WhatsApp, a call, or a visit to any of twelve branches. Flights, hotels and insurance you can also book yourself on Safariyati.",
+        "status": "Open"
+      },
+      "arrange": {
+        "title": "We arrange it",
+        "body": "One consultant handles the flights, the stay, the visa and the insurance, and tells you the whole price before you commit.",
+        "status": "In hand"
+      },
+      "travel": {
+        "title": "You travel, we stay on call",
+        "body": "A real person answers if a flight moves at two in the morning, and stays with the trip until you are home.",
+        "status": "Boarding"
+      }
+    }
+  },
+  "Faq": {
+    "eyebrow": "Questions",
+    "headline": "Ask before you go.",
+    "intro": "The things travellers ask a consultant first.",
+    "items": {
+      "where": {
+        "q": "Do I book flights here, or on Safariyati?",
+        "a": "Flights, hotels and travel insurance are booked on Safariyati, Al-Hashar's own platform, on the web or in the app. Oman tours, holidays and Umrah are planned with a consultant."
+      },
+      "reach": {
+        "q": "How do I reach a consultant?",
+        "a": "Message +968 9558 7789 on WhatsApp, call +968 2496 5555, or walk into any of the twelve branches, from Sohar to Salalah."
+      },
+      "prices": {
+        "q": "Are the prices on this site the real prices?",
+        "a": "Tour prices are the ones Al-Hashar publishes, in Omani rials. Multi-day packages are quoted per adult on twin share, with three hotel tiers."
+      },
+      "visa": {
+        "q": "Can you arrange the visa and insurance too?",
+        "a": "Yes. Visa assistance and travel insurance are among the eight services, and a consultant handles them alongside the flight and the stay."
+      },
+      "umrah": {
+        "q": "Do you arrange Umrah?",
+        "a": "Yes. Umrah packages cover the visa, the flights and a hotel close to the Haram, handled by one team."
+      },
+      "cargo": {
+        "q": "Is there a cargo service?",
+        "a": "Yes. The cargo division has its own line, +968 2483 6300, and its own address, cargo@alhashartravels.com."
       }
     }
   },
