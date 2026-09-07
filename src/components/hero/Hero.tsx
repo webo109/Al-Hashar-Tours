@@ -11,7 +11,6 @@ import { images } from "@/data/images.generated";
 import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
 import { buttonClass } from "@/components/ui/Button";
-import { company } from "@/data/company";
 import jabalAkhdarHero from "../../../public/images/hero-jabal-akhdar-v2.webp";
 import glimpseOmanHero from "../../../public/images/hero-glimpse-oman-v2.webp";
 
@@ -160,25 +159,6 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
               {tours("view")}
             </Link>
           ) : null}
-          {/* The proof strip: four things a traveller can check, under the fold
-              line, so the first screen carries social proof as the framework
-              asks without the page having to wait for the trust chapter. */}
-          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/70">
-            {[
-              t("proofSince", { year: company.established }),
-              t("proofBranches", { count: company.branchesClaimed }),
-              t("proofIata"),
-              t("proofAwards", {
-                from: company.worldTravelAwardsYears[0],
-                to: company.worldTravelAwardsYears[company.worldTravelAwardsYears.length - 1],
-              }),
-            ].map((item, i) => (
-              <li key={item} className="flex items-center gap-2">
-                {i > 0 ? <span aria-hidden className="h-1 w-1 rounded-pill bg-gold/80" /> : null}
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
         </motion.div>
       </div>
 

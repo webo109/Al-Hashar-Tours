@@ -8,8 +8,6 @@ import { WorldRail } from "@/components/home/WorldRail";
 import { UmrahBand } from "@/components/home/UmrahBand";
 import { ServicesChapter } from "@/components/home/ServicesChapter";
 import { TrustChapter } from "@/components/home/TrustChapter";
-import { HowItWorks } from "@/components/home/HowItWorks";
-import { Faq } from "@/components/home/Faq";
 import { LogoMoment } from "@/components/home/LogoMoment";
 import { PaperPlane } from "@/components/motion/PaperPlane";
 import { tourContent } from "@/data/tours.content";
@@ -35,10 +33,6 @@ export default function HomePage({ params }: Props) {
       <WorldRail />
       <UmrahBand />
       <ServicesChapter />
-      {/* The two framework slots the first cut left empty: the process, then
-          the last objections, before the brand closes the page. */}
-      <HowItWorks />
-      <Faq />
       <LogoMoment />
     </main>
   );
