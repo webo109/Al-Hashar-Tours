@@ -232,7 +232,9 @@
     "resultsTitle": "Three journeys for you",
     "resultsAbroad": "Three holidays to ask about",
     "seeAll": "See all Oman tours",
-    "holidayCta": "Request a holiday"
+    "holidayCta": "Request a holiday",
+    "prevJourney": "Previous journey",
+    "nextJourney": "Next journey"
   },
   "World": {
     "headline": "The world, arranged from Muscat.",

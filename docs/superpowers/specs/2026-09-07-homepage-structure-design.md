@@ -66,7 +66,36 @@ The page goes from 7 beats to 10. If that reads long, the cheapest merge is fold
 Filled in as each section is specified.
 
 ### 1. Hero
-_Pending._
+
+**Journey carousel — built 2026-09-07.** `components/home/JourneyCarousel.tsx`.
+
+From a reference the user supplied: a centre-focused card with its neighbours
+peeking in at both edges, over a heavily blurred copy of the active card's own
+photograph. The story-app styling of the reference was dropped; only the mechanic
+was taken.
+
+It lives on the picker's **results** step rather than the hero's idle state, so the
+video intro and the "picker as first screen" decision both survive. In a live pitch
+the demo always walks through the three taps, so the payoff gets seen.
+
+- `PickerFlow` gained an optional `onActive` reporting the journey on show. The
+  standalone panel variant still renders the old grid; only the glass variant gets
+  the carousel.
+- The hero holds that image and paints it blurred behind the stage, carrying the
+  same bottom fade so the hero still melts into the page.
+- The glass card keeps its class in the results state (its custom properties carry
+  the light-on-dark palette) but has its chrome dissolved inline and widens to
+  1180px, so the carousel floats free of the box.
+- The hero's label, h1 and intro collapse once results show: they are redundant
+  beside "Three journeys for you", and reclaiming that height is what lets the whole
+  results state fit one mobile screen.
+
+Validated at 458px and 1024px, English and Arabic RTL. In RTL the rail mirrors and
+the arrows follow the writing mode; advancing the carousel swaps the backdrop plate.
+
+**Still pending:** the copy tune and the proof strip (see the table above). Note the
+proof strip is load-bearing — it is the stated mitigation for Social Proof landing
+at #8 instead of #2.
 
 ### 2. Problem Statement — built 2026-09-07
 

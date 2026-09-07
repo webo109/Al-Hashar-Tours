@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +14,7 @@ import {
   MapPin,
   WhatsappLogo,
 } from "@phosphor-icons/react";
-import { images } from "@/data/images.generated";
+import { images, type ImageKey } from "@/data/images.generated";
 import { company } from "@/data/company";
 import type { TourContent } from "@/data/tours";
 import { getVideo } from "@/data/videos.generated";
@@ -39,6 +39,11 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
   const picker = useTranslations("Picker");
   const root = useRef<HTMLElement>(null);
   const lenisRef = useLenisRef();
+  // Set once the picker reaches its results: the journey on show takes over the
+  // stage as a blurred plate, and the glass card gets out of its way.
+  const [stage, setStage] = useState<ImageKey | null>(null);
+  const onActive = useCallback((image: ImageKey | null) => setStage(image), []);
+  const stageAsset = stage ? images[stage] : null;
 
   useGSAP(
     () => {
@@ -100,18 +105,68 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
         <div className="absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.6)_30%,rgb(11_18_32/0.88)_50%,var(--color-surface)_100%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10">
-        <div data-glass className="glass hero-glass-copy w-full max-w-[860px] overflow-y-auto p-6 md:max-h-[calc(100dvh-11rem)] md:p-7">
-          <p data-glass-item className="text-[14px] font-medium text-white/75">{t("headline")}</p>
-          <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-5xl lg:text-[3.25rem]">
-            {picker("headline")}
-          </h1>
-          <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75">
-            {picker("intro")}
-          </p>
+      {/* The suggested journey, blurred far past legibility, standing in for the
+          video while the results are on screen. It carries the same bottom fade
+          so the hero still melts into the page underneath it. */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ease-out-expo ${
+          stageAsset ? "opacity-100" : "opacity-0"
+        }`}
+        aria-hidden
+      >
+        {stageAsset ? (
+          <Image
+            key={stageAsset.src}
+            src={stageAsset.src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="scale-[1.15] object-cover blur-[42px]"
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-[rgb(11_18_32/0.52)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.6)_30%,rgb(11_18_32/0.88)_50%,var(--color-surface)_100%)]" />
+      </div>
 
-          <div data-glass-item className="mt-7 md:mt-4">
-            <PickerFlow content={content} variant="glass" />
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 md:px-10">
+        {/* The glass keeps its class in the results state so the copy keeps its
+            palette; only the chrome is dissolved, letting the carousel float. */}
+        <div
+          data-glass
+          className={`glass hero-glass-copy w-full overflow-y-auto p-6 transition-[max-width,background-color,border-color,backdrop-filter] duration-700 ease-out-expo md:p-7 ${
+            stageAsset ? "max-w-[1180px] md:max-h-[calc(100dvh-9rem)]" : "max-w-[860px] md:max-h-[calc(100dvh-11rem)]"
+          }`}
+          style={
+            stageAsset
+              ? {
+                  background: "transparent",
+                  borderColor: "transparent",
+                  boxShadow: "none",
+                  backdropFilter: "none",
+                  WebkitBackdropFilter: "none",
+                }
+              : undefined
+          }
+        >
+          {/* Once the journeys are on screen they carry their own heading, so the
+              invitation to pick recedes and gives the carousel the height. */}
+          <div
+            className={`overflow-hidden transition-all duration-700 ease-out-expo ${
+              stageAsset ? "max-h-0 opacity-0" : "max-h-[420px] opacity-100"
+            }`}
+            aria-hidden={stageAsset ? true : undefined}
+          >
+            <p data-glass-item className="text-[14px] font-medium text-white/75">{t("headline")}</p>
+            <h1 data-glass-item className="mt-2 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-white md:text-5xl lg:text-[3.25rem]">
+              {picker("headline")}
+            </h1>
+            <p data-glass-item className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-white/75">
+              {picker("intro")}
+            </p>
+          </div>
+
+          <div data-glass-item className={stageAsset ? "" : "mt-7 md:mt-4"}>
+            <PickerFlow content={content} variant="glass" onActive={onActive} />
           </div>
 
           <div data-glass-item className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/12 pt-5 md:mt-4 md:pt-3">

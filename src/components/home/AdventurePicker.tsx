@@ -28,9 +28,11 @@ import type { Mood } from "@/data/world";
 import { suggestTours, suggestWorld, type Pace, type Place, type Time } from "@/data/adventure";
 import { formatOmr } from "@/lib/format";
 import { burstFrom } from "@/lib/confetti";
+import { JourneyCarousel, type Journey } from "./JourneyCarousel";
 
 type Step = "place" | "time" | "pace" | "mood" | "results";
 type Variant = "glass" | "panel";
+type Result = Journey;
 
 const placeIcons = { sea: Waves, mountains: Mountains, desert: SunHorizon, heritage: CastleTurret, abroad: AirplaneTilt } as const;
 const timeIcons = { halfDay: SunHorizon, fullDay: SunHorizon, severalDays: Tree } as const;
@@ -42,21 +44,19 @@ const TIMES: Time[] = ["halfDay", "fullDay", "severalDays"];
 const PACES: Pace[] = ["easy", "active"];
 const MOODS: Mood[] = ["beach", "city", "nature", "culture"];
 
-type Result = {
-  key: string;
-  image: ImageKey | null;
-  title: string;
-  line: string;
-  meta: string;
-  price: string;
-  basis: string;
-  href: React.ComponentProps<typeof Link>["href"];
-  cta: string;
-};
-
 // The interactive core: three taps, then three suggestions. Rendered inside
-// the hero's glass card or in a standalone panel.
-export function PickerFlow({ content, variant = "panel" }: { content: Record<string, TourContent>; variant?: Variant }) {
+// the hero's glass card or in a standalone panel. In the glass variant the
+// results become a carousel and `onActive` reports the journey on show, so the
+// hero can put that photograph behind the stage.
+export function PickerFlow({
+  content,
+  variant = "panel",
+  onActive,
+}: {
+  content: Record<string, TourContent>;
+  variant?: Variant;
+  onActive?: (image: ImageKey | null) => void;
+}) {
   const t = useTranslations("Picker");
   const world = useTranslations("World");
   const tours = useTranslations("Tours");
@@ -83,7 +83,9 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
   useEffect(() => {
     if (step === "results") burstFrom(resultsRef.current, 90);
     if (step !== "place") legendRef.current?.focus({ preventScroll: true });
-  }, [step]);
+    // Stepping back or starting over hands the stage back to the video.
+    if (step !== "results") onActive?.(null);
+  }, [step, onActive]);
 
   function go(next: Step, forward = true) {
     setDirection(forward ? 1 : -1);
@@ -233,13 +235,23 @@ export function PickerFlow({ content, variant = "panel" }: { content: Record<str
                 <h3 ref={legendRef} tabIndex={-1} className={`text-2xl font-medium tracking-tight outline-none ${glass ? "text-white" : "text-fg"}`}>
                   {place === "abroad" ? t("resultsAbroad") : t("resultsTitle")}
                 </h3>
-                <ul className="mt-5 grid gap-4 md:mt-3 md:grid-cols-3 md:gap-3">
-                  {results.map((r) => (
-                    <li key={r.key} className="flex">
-                      <ResultCard result={r} variant={variant} />
-                    </li>
-                  ))}
-                </ul>
+                {glass ? (
+                  <div className="mt-6 md:mt-5">
+                    <JourneyCarousel
+                      journeys={results}
+                      labels={{ prev: t("prevJourney"), next: t("nextJourney") }}
+                      onActive={onActive}
+                    />
+                  </div>
+                ) : (
+                  <ul className="mt-5 grid gap-4 md:mt-3 md:grid-cols-3 md:gap-3">
+                    {results.map((r) => (
+                      <li key={r.key} className="flex">
+                        <ResultCard result={r} variant={variant} />
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-4">
                   {place === "abroad" ? (
                     <Link href={{ pathname: "/services/holidays", query: results[0] ? { region: results[0].key } : undefined }} className={buttonClass("primary")}>

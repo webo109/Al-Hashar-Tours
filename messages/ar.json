@@ -232,7 +232,9 @@
     "resultsTitle": "ثلاث رحلات لك",
     "resultsAbroad": "ثلاث عطلات تسأل عنها",
     "seeAll": "جميع جولات عُمان",
-    "holidayCta": "اطلب عطلة"
+    "holidayCta": "اطلب عطلة",
+    "prevJourney": "الرحلة السابقة",
+    "nextJourney": "الرحلة التالية"
   },
   "World": {
     "headline": "العالم، مرتّب من مسقط.",
