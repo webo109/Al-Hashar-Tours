@@ -23,18 +23,21 @@ export default async function ContactPage({ params }: Props) {
   const branches = await getTranslations({ locale, namespace: "Branches" });
   const nav = await getTranslations({ locale, namespace: "Nav" });
 
-  const channel = "flex items-center gap-3 rounded-panel border border-fg/10 bg-surface-2 px-5 py-4 text-fg hover:border-gold/45";
+  // h-full lets each card fill its grid row, and the rows are made equal by
+  // auto-rows-fr below, so every channel box is the same size whatever it holds.
+  const channel =
+    "flex h-full items-center gap-3 rounded-panel border border-fg/10 bg-surface-2 px-5 py-4 text-fg hover:border-gold/45";
 
   return (
     <main id="content">
       <PageIntro title={t("headline")} intro={t("body")} image="dest-muscat-mutrah" position="50% 70%" compact />
       <section className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 pb-28 md:px-10 lg:grid-cols-[minmax(0,1fr)_460px] lg:gap-16">
         <div className="flex flex-col gap-12">
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="grid auto-rows-fr gap-3 sm:grid-cols-2">
             <li>
               <a href={`tel:${company.phone.tel}`} className={channel}>
                 <Phone size={22} weight="fill" className="shrink-0 text-gold" />
-                <span className="flex flex-col">
+                <span className="flex min-w-0 flex-col">
                   <span className="text-[12px] text-fg/55">{t("phone")}</span>
                   <span dir="ltr" className="text-[16px]">{company.phone.display}</span>
                 </span>
@@ -43,7 +46,7 @@ export default async function ContactPage({ params }: Props) {
             <li>
               <a href={whatsappUrl(company.whatsapp.digits, "")} target="_blank" rel="noopener noreferrer" className={channel}>
                 <WhatsappLogo size={22} weight="fill" className="shrink-0 text-gold" />
-                <span className="flex flex-col">
+                <span className="flex min-w-0 flex-col">
                   <span className="text-[12px] text-fg/55">{t("whatsapp")}</span>
                   <span dir="ltr" className="text-[16px]">{company.whatsapp.display}</span>
                 </span>
@@ -52,7 +55,7 @@ export default async function ContactPage({ params }: Props) {
             <li>
               <a href={`mailto:${company.email}`} className={channel}>
                 <EnvelopeSimple size={22} weight="fill" className="shrink-0 text-gold" />
-                <span className="flex flex-col">
+                <span className="flex min-w-0 flex-col">
                   <span className="text-[12px] text-fg/55">{t("email")}</span>
                   <span className="text-[16px]">{company.email}</span>
                 </span>
@@ -61,7 +64,7 @@ export default async function ContactPage({ params }: Props) {
             <li>
               <div className={channel}>
                 <MapPin size={22} weight="fill" className="shrink-0 text-gold" />
-                <span className="flex flex-col">
+                <span className="flex min-w-0 flex-col">
                   <span className="text-[12px] text-fg/55">{t("headOffice")}</span>
                   <span className="text-[15px]">
                     {branches(company.headOffice.areaKey)}, {company.headOffice.postal}
@@ -71,13 +74,13 @@ export default async function ContactPage({ params }: Props) {
             </li>
           </ul>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-panel border border-fg/10 p-5">
+          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2">
+            <div className="h-full rounded-panel border border-fg/10 p-5">
               <h2 className="text-[13px] font-medium text-fg/60">{t("holidaysDivision")}</h2>
               <a href={`tel:${company.divisions.holidays.phone.tel}`} dir="ltr" className="mt-2 block text-fg hover:text-accent-text">{company.divisions.holidays.phone.display}</a>
               <a href={`mailto:${company.divisions.holidays.email}`} className="block text-fg/80 hover:text-accent-text">{company.divisions.holidays.email}</a>
             </div>
-            <div className="rounded-panel border border-fg/10 p-5">
+            <div className="h-full rounded-panel border border-fg/10 p-5">
               <h2 className="text-[13px] font-medium text-fg/60">{t("cargoDivision")}</h2>
               <a href={`tel:${company.divisions.cargo.phone.tel}`} dir="ltr" className="mt-2 block text-fg hover:text-accent-text">{company.divisions.cargo.phone.display}</a>
               <a href={`mailto:${company.divisions.cargo.email}`} className="block text-fg/80 hover:text-accent-text">{company.divisions.cargo.email}</a>
