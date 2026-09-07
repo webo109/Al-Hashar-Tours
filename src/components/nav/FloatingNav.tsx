@@ -30,6 +30,55 @@ export function requestBookingTab(tab: BookingTab) {
   window.dispatchEvent(new CustomEvent("booking:tab", { detail: tab }));
 }
 
+// The house mascot: the same paper plane that flies the page, hanging under the
+// open page's nav item with its nose pointing up at it. There is no room above
+// the header — it sits 12px from the top of the window — so it perches below.
+// It pops in once the page has been scrolled, and glides between items on the
+// shared layoutId rather than jumping.
+function NavPlane({ scrolled, reduce }: { scrolled: boolean; reduce: boolean }) {
+  return (
+    <motion.span
+      layoutId="nav-plane"
+      aria-hidden
+      // Centred by the flex parent, not a transform: Motion drives transforms on
+      // a layout-animated element, and a CSS translate here would fight it.
+      className="pointer-events-none absolute inset-x-0 -bottom-8 flex justify-center"
+      transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
+    >
+      <motion.span
+        className="text-gold drop-shadow-[0_4px_8px_rgb(0_0_0/0.35)]"
+        initial={false}
+        animate={
+          reduce
+            ? { opacity: scrolled ? 1 : 0 }
+            : {
+                opacity: scrolled ? 1 : 0,
+                scale: scrolled ? 1 : 0.4,
+                y: scrolled ? [0, -2.5, 0] : -8,
+              }
+        }
+        transition={
+          reduce
+            ? { duration: 0 }
+            : {
+                opacity: { type: "spring", stiffness: 500, damping: 24 },
+                scale: { type: "spring", stiffness: 500, damping: 18 },
+                y: scrolled
+                  ? { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
+                  : { type: "spring", stiffness: 500, damping: 24 },
+              }
+        }
+      >
+        {/* Rotated so the nose points up at the item it marks. */}
+        <svg viewBox="0 0 24 24" className="h-4 w-4 -rotate-45" fill="currentColor">
+          <path d="M2.2 12.2 21.5 3.4c.5-.2 1 .3.8.8l-6.6 17.4c-.2.5-.9.6-1.2.1l-3.1-5.2-5.2-3.1c-.5-.3-.4-1 .0-1.2Z" />
+          <path d="M11.4 16.5 21 4.3" stroke="rgb(11 18 32 / 0.35)" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      </motion.span>
+    </motion.span>
+  );
+}
+
 export function FloatingNav() {
   const t = useTranslations("Nav");
   const locale = useLocale();
@@ -134,6 +183,7 @@ export function FloatingNav() {
                     }
                   />
                 ) : null}
+                {isActive(item.href) ? <NavPlane scrolled={scrolled} reduce={!!reduce} /> : null}
                 {t(item.key)}
               </Link>
             ))}
