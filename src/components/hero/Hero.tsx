@@ -141,7 +141,9 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
           {current ? (
             <Link
               href={`/tours/${current.tour.slug}`}
-              className={buttonClass("primary", "glow-breathe mt-9")}
+              // The primary variant already sets a text colour, and two utilities of
+              // equal specificity would tie. Tailwind v4 takes the bang as a suffix.
+              className={buttonClass("primary", "glow-breathe mt-9 text-white!")}
             >
               {tours("view")}
             </Link>
