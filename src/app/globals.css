@@ -345,6 +345,26 @@
   .story-mark.is-active {
     color: var(--accent-text);
   }
+
+  /* The hero's call to action breathes a gold halo, so the eye keeps coming
+     back to it while the slides change behind. */
+  .glow-breathe {
+    animation: glow-breathe 3.4s ease-in-out infinite;
+  }
+
+  /* A dot falls through the scroll cue, hinting at the page below the fold. */
+  .scroll-cue-dot {
+    animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  /* The active slide's dot fills as its turn runs down. */
+  .hero-dot-fill {
+    transform-origin: left;
+    animation: dot-fill linear forwards;
+  }
+  [dir="rtl"] .hero-dot-fill {
+    transform-origin: right;
+  }
 }
 
 @keyframes twinkle {
@@ -374,6 +394,42 @@
   to {
     clip-path: inset(0 0 0 0);
     transform: translateY(0);
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 12px 0 rgb(232 158 0 / 0.22);
+  }
+  50% {
+    box-shadow: 0 0 30px 7px rgb(232 158 0 / 0.5);
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(11px);
+    opacity: 0;
+  }
+}
+
+@keyframes dot-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 

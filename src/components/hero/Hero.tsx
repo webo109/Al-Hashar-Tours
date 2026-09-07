@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "motion/react";
 import { CaretLeft, CaretRight, MapPin } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
+import { scrollToTarget, useLenisRef } from "@/components/motion/SmoothScroll";
 import { images } from "@/data/images.generated";
 import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
@@ -23,8 +24,17 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
   const picker = useTranslations("Picker");
   const regions = useTranslations("Regions");
   const reduce = useReducedMotion();
+  const root = useRef<HTMLElement>(null);
+  const lenisRef = useLenisRef();
   const [active, setActive] = useState(0);
   const [held, setHeld] = useState(false);
+
+  // Whatever section follows the hero, rather than a hard-coded id, so the cue
+  // keeps working if the running order changes.
+  function scrollOn() {
+    const next = root.current?.nextElementSibling;
+    if (next instanceof HTMLElement) scrollToTarget(lenisRef?.current, next, -80);
+  }
 
   const slides = featuredTours()
     .map((tour) => ({ tour, copy: content[tour.slug] }))
@@ -48,6 +58,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
 
   return (
     <section
+      ref={root}
       id="hero"
       className="relative isolate z-[4] min-h-[100dvh] overflow-hidden bg-surface"
       onPointerEnter={() => setHeld(true)}
@@ -126,7 +137,10 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
             {current ? current.copy.tagline : t("subtext")}
           </p>
           {current ? (
-            <Link href={`/tours/${current.tour.slug}`} className={buttonClass("primary", "mt-9")}>
+            <Link
+              href={`/tours/${current.tour.slug}`}
+              className={buttonClass("primary", "glow-breathe mt-9")}
+            >
               {tours("view")}
             </Link>
           ) : null}
@@ -152,7 +166,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
             <CaretRight size={26} weight="light" className="rtl:-scale-x-100" />
           </button>
 
-          <div className="absolute inset-x-0 bottom-12 z-20 flex justify-center gap-2">
+          <div className="absolute inset-x-0 bottom-20 z-20 flex items-center justify-center gap-2">
             {slides.map((slide, i) => (
               <button
                 key={slide.tour.slug}
@@ -160,12 +174,43 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
                 onClick={() => setActive(i)}
                 aria-label={slide.copy.name}
                 aria-current={i === active}
-                className={`h-1.5 rounded-pill transition-all duration-500 ${
-                  i === active ? "w-7 bg-gold" : "w-1.5 bg-white/45 hover:bg-white/70"
-                }`}
-              />
+                className="group py-2"
+              >
+                {i === active ? (
+                  // The fill runs down with the slide's turn, and holds while the
+                  // slideshow is paused under a pointer.
+                  <span className="block h-1.5 w-7 overflow-hidden rounded-pill bg-white/30">
+                    <span
+                      key={active}
+                      className="hero-dot-fill block h-full w-full rounded-pill bg-gold"
+                      style={{
+                        animationDuration: `${SLIDE_MS}ms`,
+                        animationPlayState: held ? "paused" : "running",
+                      }}
+                    />
+                  </span>
+                ) : (
+                  <span className="block h-1.5 w-1.5 rounded-pill bg-white/45 transition-colors group-hover:bg-white/80" />
+                )}
+              </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={scrollOn}
+            className="group absolute inset-x-0 bottom-6 z-20 mx-auto flex w-fit flex-col items-center gap-2"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/55 transition-colors group-hover:text-white/90">
+              {t("scroll")}
+            </span>
+            <span
+              className="flex h-7 w-[18px] justify-center rounded-pill border border-white/35 pt-1.5 transition-colors group-hover:border-white/70"
+              aria-hidden
+            >
+              <span className="scroll-cue-dot h-1.5 w-1.5 rounded-full bg-gold" />
+            </span>
+          </button>
         </>
       ) : null}
     </section>

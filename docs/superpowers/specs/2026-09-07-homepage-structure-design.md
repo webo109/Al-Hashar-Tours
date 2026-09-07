@@ -88,6 +88,18 @@ arrows at the edges, dots beneath. This follows that shape. What is better:
 Validated at 469px and 1024px, English and Arabic RTL (arrows mirror: previous
 sits right, next sits left).
 
+**Three touches added on top** (`glow-breathe`, `scroll-cue`, `dot-fill` in
+`globals.css`; the file's existing `prefers-reduced-motion` guard disables all
+three, so no per-class guard is needed):
+
+1. The call to action breathes a gold halo, so the eye returns to it while the
+   slides change behind.
+2. A scroll cue under the dots — a dot falling through a capsule — which also
+   *works*: it scrolls to whatever section follows the hero, read from the DOM
+   rather than a hard-coded id.
+3. The active dot fills as the slide's turn runs down, and holds while a pointer
+   pauses the slideshow. In RTL the fill's origin flips to the right.
+
 **From their site, for slot #8:** they display a **World Travel Awards Winner 2025**
 badge. That is real, sourceable social proof and better than anything proposed
 below — it should lead the Social Proof section.
