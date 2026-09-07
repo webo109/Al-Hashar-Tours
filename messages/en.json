@@ -65,6 +65,22 @@
     "cost": "You wanted a holiday. You got a project.",
     "imageAlt": "Empty seats at an airport gate at dusk"
   },
+  "Safariyati": {
+    "eyebrow": "Book online",
+    "intro": "Al-Hashar's own booking platform. Compare fares, pick your seat and pay, in minutes.",
+    "items": {
+      "flights": "Flights",
+      "hotels": "Hotels",
+      "insurance": "Travel insurance"
+    },
+    "cta": "Book on Safariyati",
+    "appsLabel": "Book faster in the app",
+    "appStore": "Download on the App Store",
+    "googlePlay": "Get it on Google Play",
+    "consultant": "Oman tours, holidays and Umrah are planned with a consultant.",
+    "consultantCta": "Message a consultant",
+    "consultantMessage": "Hello Al-Hashar, I would like help planning a trip."
+  },
   "Booking": {
     "passTitle": "Boarding pass",
     "passSubtitle": "Tell us where. We handle the rest.",

@@ -22,6 +22,15 @@ export const company = {
     areaKey: "shattiAlQurum",
     postal: "P.O. Box 276, P.C. 134, Muscat, Sultanate of Oman",
   },
+  // Al-Hashar's own online booking platform, linked from their site header.
+  // It sells flights, hotels and travel insurance; tours, holidays and Umrah
+  // stay with a consultant. Store links read off safariyati.com, September 2026.
+  safariyati: {
+    url: "https://safariyati.com/",
+    email: "support@safariyati.com",
+    ios: "https://apps.apple.com/au/app/safariyati/id6747825741",
+    android: "https://play.google.com/store/apps/details?id=com.safari.safariyatri",
+  },
   branchKeys: [
     "ruwi",
     "muttrah",
