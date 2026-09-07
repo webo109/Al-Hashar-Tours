@@ -58,4 +58,9 @@ All photographs are used under the Unsplash or Pexels free licence.
 | people-holiday-abroad.webp | Alexander Shabanov | [Pexels](https://www.pexels.com/photo/family-posing-with-atlantis-the-palm-in-dubai-background-39157989/) |
 | people-umrah.webp | hussam eldeen | [Pexels](https://www.pexels.com/photo/family-visiting-masjid-al-haram-in-makkah-34303915/) |
 | extra-al-alam-palace.webp | Daan Oosters | [Unsplash](https://unsplash.com/photos/grand-palace-facade-with-ornate-details-and-flag-wyw4v7t9fsI) |
+| close-akhdar-vendor.webp | Eslam Mohammed Abdelmaksoud | [Pexels](https://www.pexels.com/photo/young-omani-vendor-in-jebel-akhdar-market-38404322/) |
+| close-wahiba-ripples.webp | Stephen Leonardi | [Pexels](https://www.pexels.com/photo/rippling-desert-sand-texture-at-sunset-35962893/) |
+| close-nizwa-tower.webp | Adrian Limani | [Pexels](https://www.pexels.com/photo/historic-nizwa-fort-tower-in-oman-36245709/) |
+| close-bimmah-jump.webp | Inshaf Sala | [Pexels](https://www.pexels.com/photo/man-jumping-to-bimmah-sinkhole-in-oman-22227581/) |
+| close-shams-road.webp | Vincent M.A. Janssen | [Pexels](https://www.pexels.com/photo/white-car-leaving-dust-behind-on-dirt-road-in-mountains-19950830/) |
 | extra-airport-wait.webp | André Gustavo de Castro | [Pexels](https://www.pexels.com/photo/empty-seats-at-an-airport-8419929/) |

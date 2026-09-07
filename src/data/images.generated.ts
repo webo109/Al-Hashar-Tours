@@ -331,6 +331,36 @@ export const images = {
     "height": 1600,
     "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACQBACdASoYABAAPu1iqU2ppaQiMAgBMB2JbACdMoRwIsAAszakbjLuVYRw+gAAyoxzgnPoaQW093i82QL5+68b2YwAQGKCWv1bWhvOsapY0Ng1/g2/AgUVVuk6draevAZTKSWI55mm0KsAdtzxrhMoTaMdqYxi9zzn2lzXjBATXLVSEF71fIry6zqHIgfH4d0AAA=="
   },
+  "close-akhdar-vendor": {
+    "src": "/images/close-akhdar-vendor.webp",
+    "width": 2400,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdABn7G4POZRGIRA/i6zAA/Zw4WRHQO6ETIEwjVGntE+U7pOImGbOHbsPXTXYa/N1i0sn+69tl4iD3EPgJEvDKoeqVj3rtqJTA+3jVe7Ha+x/p7cg0UlFoJQslFmJd1/QACBXBKxIs/eFKpg5jIvQt9PCNHsLs/lbm5hI0cNVogDfpd2gzCWaD5PhyhGIuAA=="
+  },
+  "close-wahiba-ripples": {
+    "src": "/images/close-wahiba-ripples.webp",
+    "width": 2400,
+    "height": 998,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoYAAoAPu1iqk4ppaQiMAgBMB2JYwCsAau4IA/Ydnle5Q4AAP6oIeDYWi8aDG6E1YY+IoPi1cqfnjXMapW5G5pkzd3nqodtj6luGV+AAAA="
+  },
+  "close-nizwa-tower": {
+    "src": "/images/close-nizwa-tower.webp",
+    "width": 2400,
+    "height": 3200,
+    "blurDataURL": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAADwBQCdASoYACAAPu1srVEppaQiqAqpMB2JZgCsL6/s/wXggenl5+tZ9jtSyMM379l0tDlqCMTKoAD+7VfNu2W+XQGWHwoR1PGwHZ0lOAYTQnoV6ZYc4/1y74paLgVEw3CvuQooV9QbRaTXyX2FuL6dhfnPNLp47ZM/A84+yOCc+9VrdOtynodZqyMNJ/YYRiKvfAMzeL+PkfWhNO/jQH1MMxdU9KlH6PkcXG5N52CNjntAbunEBApd3ei5FdXKpJYuFqFAfIDt+KYFjgAAAA=="
+  },
+  "close-bimmah-jump": {
+    "src": "/images/close-bimmah-jump.webp",
+    "width": 2400,
+    "height": 3200,
+    "blurDataURL": "data:image/webp;base64,UklGRjgBAABXRUJQVlA4ICwBAACQBgCdASoYACAAPu1gqE2ppaOiMAgBMB2JbACdMoPKS4AdGY19fBizntlJbrJarCgXmxMU7+Ib0ccNVVygAPb8g85t47t4rEfYQngPWB6M36cLKYrBMG+G9OQXipUlMC12TCKR/BNnrOZ5HLIUtBz/7yolDR+duMCjqn8RCnudfdQg20Wr4ZX/ORz0N/fwgND4oBCiiewnlKGBPfHF2zvLQHNatfhDnA1IjJNePylGP73gJJGfiPc0camy1BmGcbLfnKAGwWCAM02IryruZwUbdSk4qJQuTUWp143CFB5brAhVPrwpJYYJ7lp4T2w/o1TlblzQPZvdiSu+KF3a76cKuvO19yp/WNYnobuND3ncrTWtO2JWfc55ljQXrunTtYyAOb7i6l4PfeTjqAA="
+  },
+  "close-shams-road": {
+    "src": "/images/close-shams-road.webp",
+    "width": 2400,
+    "height": 3600,
+    "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACQBgCdASoYACQAPu1ur1GppiQipWsxMB2JZwDQkC5z0GJt+ULVprrJIRfFPsXa1CNS9PruoPdX10ipI6Q4AP7qfjDvCUUCPK+czCQ/Cvq/YBPmDx9It6YbsCKH2c5TBb9WbXefNxVvYvZC2i9cplCc6NuvRCQQ5OuqI0/OeMOzrmFdyPNsMd+t7qHPwADBTFYlyKAaammdf1LrYgEs0LAdq5B1Vh0X7IWmNtNmAAA="
+  },
   "extra-airport-wait": {
     "src": "/images/extra-airport-wait.webp",
     "width": 2000,

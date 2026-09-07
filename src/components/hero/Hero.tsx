@@ -36,9 +36,11 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
     if (next instanceof HTMLElement) scrollToTarget(lenisRef?.current, next, -80);
   }
 
+  // The hero prefers the close-framed shot where a tour has one, so the first
+  // screen shows a place rather than a vista; cards keep the wider photograph.
   const slides = featuredTours()
-    .map((tour) => ({ tour, copy: content[tour.slug] }))
-    .filter((slide) => slide.copy && images[slide.tour.image]);
+    .map((tour) => ({ tour, copy: content[tour.slug], art: tour.heroImage ?? tour.image }))
+    .filter((slide) => slide.copy && images[slide.art]);
 
   const count = slides.length;
   const step = useCallback(
@@ -67,7 +69,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
       onBlurCapture={() => setHeld(false)}
     >
       {slides.map((slide, i) => {
-        const asset = images[slide.tour.image];
+        const asset = images[slide.art];
         const isActive = i === active;
         return (
           <div

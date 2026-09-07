@@ -282,6 +282,13 @@ export const photos = [
     platform: "Unsplash",
     maxWidth: 2400,
   },
+  // Close framing for the hero slideshow: the subject fills the frame instead of
+  // sitting in a vista, so the first screen reads as a place rather than a postcard.
+  { key: "close-akhdar-vendor", url: "https://images.pexels.com/photos/38404322/pexels-photo-38404322.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/young-omani-vendor-in-jebel-akhdar-market-38404322/", photographer: "Eslam Mohammed Abdelmaksoud", platform: "Pexels", maxWidth: 2400 },
+  { key: "close-wahiba-ripples", url: "https://images.pexels.com/photos/35962893/pexels-photo-35962893.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/rippling-desert-sand-texture-at-sunset-35962893/", photographer: "Stephen Leonardi", platform: "Pexels", maxWidth: 2400 },
+  { key: "close-nizwa-tower", url: "https://images.pexels.com/photos/36245709/pexels-photo-36245709.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/historic-nizwa-fort-tower-in-oman-36245709/", photographer: "Adrian Limani", platform: "Pexels", maxWidth: 2400 },
+  { key: "close-bimmah-jump", url: "https://images.pexels.com/photos/22227581/pexels-photo-22227581.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/man-jumping-to-bimmah-sinkhole-in-oman-22227581/", photographer: "Inshaf Sala", platform: "Pexels", maxWidth: 2400 },
+  { key: "close-shams-road", url: "https://images.pexels.com/photos/19950830/pexels-photo-19950830.jpeg?auto=compress&cs=tinysrgb&w=2400", page: "https://www.pexels.com/photo/white-car-leaving-dust-behind-on-dirt-road-in-mountains-19950830/", photographer: "Vincent M.A. Janssen", platform: "Pexels", maxWidth: 2400 },
   // The waiting that comes before the journey; used muted behind the problem chapter.
   {
     key: "extra-airport-wait",

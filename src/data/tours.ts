@@ -18,6 +18,9 @@ export type TourBase = {
   kind: TourKind;
   regions: RegionKey[];
   image: ImageKey;
+  // Close-framed alternative used only by the hero slideshow, where the subject
+  // has to fill the screen. Cards and tour pages keep `image`.
+  heroImage?: ImageKey;
   gallery: ImageKey[];
   nights: number | null;
   days: number | null;
@@ -61,6 +64,7 @@ export const tours: TourBase[] = [
     kind: "package",
     regions: ["muscat", "sharqiyah"],
     image: "dest-wahiba-dunes",
+    heroImage: "close-wahiba-ripples",
     gallery: ["dest-wahiba-dunes", "grand-mosque-chandelier", "dest-muscat-mutrah"],
     nights: 3,
     days: 4,
@@ -193,6 +197,7 @@ export const tours: TourBase[] = [
     kind: "day",
     regions: ["sharqiyah"],
     image: "dest-wadi-shab-pool",
+    heroImage: "close-bimmah-jump",
     gallery: ["dest-wadi-shab-pool", "bimmah-sinkhole", "dest-wadi-shab-canyon"],
     nights: null,
     days: 1,
@@ -247,6 +252,7 @@ export const tours: TourBase[] = [
     kind: "day",
     regions: ["dakhiliyah"],
     image: "dest-nizwa-fort-palms",
+    heroImage: "close-nizwa-tower",
     gallery: ["dest-nizwa-fort-palms", "dest-nizwa-fort-sunset"],
     nights: null,
     days: 1,
@@ -265,6 +271,7 @@ export const tours: TourBase[] = [
     kind: "day",
     regions: ["muscat"],
     image: "extra-grand-mosque-corridor",
+    heroImage: "grand-mosque-chandelier",
     gallery: ["extra-grand-mosque-corridor", "grand-mosque-chandelier", "extra-al-alam-palace", "dest-muscat-mutrah"],
     nights: null,
     days: 1,
@@ -283,6 +290,7 @@ export const tours: TourBase[] = [
     kind: "day",
     regions: ["dakhiliyah"],
     image: "dest-jabal-akhdar-village",
+    heroImage: "close-akhdar-vendor",
     gallery: ["dest-jabal-akhdar-village", "dest-jabal-akhdar-terraces", "dest-nizwa-fort-palms"],
     nights: null,
     days: 1,
@@ -301,6 +309,7 @@ export const tours: TourBase[] = [
     kind: "day",
     regions: ["dakhiliyah"],
     image: "jebel-shams-rim",
+    heroImage: "close-shams-road",
     gallery: ["jebel-shams-rim", "plane-hajar-sunset", "dest-nizwa-fort-palms"],
     nights: null,
     days: 1,
