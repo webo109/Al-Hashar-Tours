@@ -168,7 +168,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
               // equal specificity would tie — Tailwind v4 takes the bang.
               className={buttonClass(
                 "primary",
-                "glow-breathe mt-9 h-13 ps-7 pe-2 text-[16px] md:h-14 md:ps-8 md:pe-2.5 md:text-[17px] [&_.cta-badge]:size-9 text-white!",
+                "mt-9 h-13 ps-7 pe-2 text-[16px] md:h-14 md:ps-8 md:pe-2.5 md:text-[17px] [&_.cta-badge]:size-9 text-white!",
               )}
             >
               {tours("view")}
