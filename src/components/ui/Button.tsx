@@ -10,14 +10,20 @@ const base =
 // Each variant also states the two colours its badge wears — the disc and the
 // glyph inside it — so changing a call-to-action colour is a one-line edit here
 // rather than a hunt through fifteen call sites.
+//
+// Ink on the brand orange, not white: white measures 3.16:1 against it, under
+// WCAG AA's 4.5:1 for text this size, where ink reaches 6.0:1 and still clears
+// 4.5:1 against the darker hover. The badge glyph takes brand-600 rather than
+// brand for the same reason — 3.7:1 on cream, over the 3:1 that non-text parts
+// of a control are held to, where the lighter orange fell just under.
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand text-white hover:bg-brand-600 [&_.cta-badge]:bg-cream [&_.cta-badge]:text-brand",
+    "bg-brand text-panel-fg hover:bg-brand-600 [&_.cta-badge]:bg-cream [&_.cta-badge]:text-brand-600",
   secondary:
-    "border border-fg/25 bg-transparent text-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand [&_.cta-badge]:text-cream",
+    "border border-fg/25 bg-transparent text-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand-600 [&_.cta-badge]:text-cream",
   onCream:
-    "border border-panel-fg/20 bg-transparent text-panel-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand [&_.cta-badge]:text-cream",
-  ghost: "h-auto gap-2 px-0 text-brand hover:text-brand-600 [&_.cta-badge]:hidden",
+    "border border-panel-fg/20 bg-transparent text-panel-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand-600 [&_.cta-badge]:text-cream",
+  ghost: "h-auto gap-2 px-0 text-brand-600 hover:text-brand [&_.cta-badge]:hidden",
 };
 
 /**
