@@ -70,7 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${outfit.variable} ${plexArabic.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="relative min-h-[100dvh]">
+      <body className="relative min-h-[100dvh]" suppressHydrationWarning>
         {/* Light is the default; an explicit visitor choice is restored before the page paints. */}
         <script
           dangerouslySetInnerHTML={{
