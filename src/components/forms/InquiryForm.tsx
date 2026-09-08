@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { WhatsappLogo, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
-import { Button, buttonClass } from "@/components/ui/Button";
+import { Button, buttonClass, CtaArrow } from "@/components/ui/Button";
 import { DatePicker } from "@/components/ui/DatePicker";
 import { company } from "@/data/company";
 import { mailtoUrl, requestReference, whatsappUrl } from "@/lib/whatsapp";
@@ -102,13 +102,15 @@ export function InquiryForm({
             {ready.text}
           </pre>
           <div className="mt-4 flex flex-wrap gap-2">
-            <a href={whatsappUrl(company.whatsapp.digits, ready.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary", "h-11 px-5 text-[14px]")}>
+            <a href={whatsappUrl(company.whatsapp.digits, ready.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary", "h-11 ps-5 pe-1.5 text-[14px] [&_.cta-badge]:size-7")}>
               <WhatsappLogo size={18} weight="fill" />
               {t("form.whatsapp")}
+              <CtaArrow />
             </a>
-            <a href={mailtoUrl(email ?? company.email, `${context} ${ready.reference}`, ready.text)} className={buttonClass("onCream", "h-11 px-5 text-[14px]")}>
+            <a href={mailtoUrl(email ?? company.email, `${context} ${ready.reference}`, ready.text)} className={buttonClass("onCream", "h-11 ps-5 pe-1.5 text-[14px] [&_.cta-badge]:size-7")}>
               <EnvelopeSimple size={18} weight="fill" />
               {t("form.email")}
+              <CtaArrow />
             </a>
             <button type="button" onClick={() => setReady(null)} className="ms-auto text-[13px] text-panel-muted underline-offset-4 hover:underline">
               {booking("printed.edit")}

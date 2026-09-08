@@ -10,7 +10,7 @@ import { scrollToTarget, useLenisRef } from "@/components/motion/SmoothScroll";
 import { images } from "@/data/images.generated";
 import { featuredTours } from "@/data/tours";
 import type { TourContent } from "@/data/tours";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import muscatMomentsHero from "../../../public/images/hero-muscat-moments-v2.webp";
 import jabalAkhdarHero from "../../../public/images/hero-jabal-akhdar-v2.webp";
 import glimpseOmanHero from "../../../public/images/hero-glimpse-oman-v2.webp";
@@ -98,7 +98,9 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
               placeholder="blur"
               blurDataURL={asset.blurDataURL}
               className={`object-cover ${
-                slide.tour.slug === "jabal-akhdar-day-tour"
+                slide.tour.slug === "muscat-moments"
+                  ? "object-[8%_center] lg:object-center"
+                  : slide.tour.slug === "jabal-akhdar-day-tour"
                   ? "object-[72%_center] lg:object-center"
                   : "object-center"
               }`}
@@ -155,11 +157,16 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
           {current ? (
             <Link
               href={`/tours/${current.tour.slug}`}
-              // The primary variant already sets a text colour, and two utilities of
-              // equal specificity would tie. Tailwind v4 takes the bang as a suffix.
-              className={buttonClass("primary", "glow-breathe mt-9 text-white!")}
+              // A size up from the site's other buttons: it is the only thing
+              // asking to be pressed on a full-bleed photograph, so it carries
+              // the extra height rather than competing with the headline.
+              className={buttonClass(
+                "primary",
+                "mt-9 h-13 ps-7 pe-2 text-[16px] md:h-14 md:ps-8 md:pe-2.5 md:text-[17px] [&_.cta-badge]:size-9",
+              )}
             >
               {tours("view")}
+              <CtaArrow />
             </Link>
           ) : null}
         </motion.div>

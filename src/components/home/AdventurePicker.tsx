@@ -20,7 +20,7 @@ import {
   Waves,
 } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import { durationLabel } from "@/components/tours/TourCard";
 import { images, type ImageKey } from "@/data/images.generated";
 import type { TourContent } from "@/data/tours";
@@ -256,12 +256,12 @@ export function PickerFlow({
                   {place === "abroad" ? (
                     <Link href={{ pathname: "/services/holidays", query: results[0] ? { region: results[0].key } : undefined }} className={buttonClass("primary")}>
                       {t("holidayCta")}
-                      <ArrowRight size={16} weight="bold" className="rtl:rotate-180" />
+                      <CtaArrow />
                     </Link>
                   ) : (
                     <Link href="/tours" className={buttonClass("primary")}>
                       {t("seeAll")}
-                      <ArrowRight size={16} weight="bold" className="rtl:rotate-180" />
+                      <CtaArrow />
                     </Link>
                   )}
                   <button type="button" onClick={reset} className={`inline-flex items-center gap-2 text-[14px] font-medium ${glass ? "text-white/75 hover:text-white" : "text-fg/70 hover:text-fg"}`}>

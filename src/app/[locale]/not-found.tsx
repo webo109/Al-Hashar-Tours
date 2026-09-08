@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 
 export default function NotFound() {
   const t = useTranslations("Common");
@@ -10,6 +10,7 @@ export default function NotFound() {
         <h1 className="text-4xl font-medium tracking-tight text-fg md:text-5xl">{t("notFound")}</h1>
         <Link href="/" className={buttonClass("secondary", "mt-8")}>
           {t("goHome")}
+          <CtaArrow />
         </Link>
       </div>
     </main>

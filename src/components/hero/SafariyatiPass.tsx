@@ -1,13 +1,12 @@
 import { useLocale, useTranslations } from "next-intl";
 import {
   AirplaneTilt,
-  ArrowUpRight,
   Bed,
   ShieldCheck,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import { LogoMark } from "@/components/brand/Logo";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import { company } from "@/data/company";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { HeritageStamp, PassBarcode } from "./PassMarks";
@@ -76,7 +75,7 @@ export function SafariyatiPass() {
           className={buttonClass("primary", "mt-6 w-full")}
         >
           {t("cta")}
-          <ArrowUpRight size={17} weight="bold" className="rtl:-scale-x-100" />
+          <CtaArrow />
         </a>
 
         <div className="mt-5 border-t border-panel-fg/10 pt-4">
@@ -86,17 +85,19 @@ export function SafariyatiPass() {
               href={company.safariyati.ios}
               target="_blank"
               rel="noopener noreferrer"
-              className={buttonClass("onCream", "h-10 px-4 text-[13px]")}
+              className={buttonClass("onCream", "h-10 ps-4 pe-1.5 text-[13px] [&_.cta-badge]:size-6 [&_.cta-badge]:[&_svg]:size-3")}
             >
               {t("appStore")}
+              <CtaArrow />
             </a>
             <a
               href={company.safariyati.android}
               target="_blank"
               rel="noopener noreferrer"
-              className={buttonClass("onCream", "h-10 px-4 text-[13px]")}
+              className={buttonClass("onCream", "h-10 ps-4 pe-1.5 text-[13px] [&_.cta-badge]:size-6 [&_.cta-badge]:[&_svg]:size-3")}
             >
               {t("googlePlay")}
+              <CtaArrow />
             </a>
           </div>
         </div>

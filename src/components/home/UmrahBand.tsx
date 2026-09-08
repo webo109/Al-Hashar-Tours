@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { Check } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { images } from "@/data/images.generated";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -79,6 +79,7 @@ export function UmrahBand() {
           <div data-reveal>
             <Link href="/umrah" className={buttonClass("primary", "mt-9")}>
               {t("cta")}
+              <CtaArrow />
             </Link>
           </div>
         </div>

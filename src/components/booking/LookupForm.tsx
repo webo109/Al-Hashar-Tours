@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { Button, buttonClass } from "@/components/ui/Button";
+import { Button, buttonClass, CtaArrow } from "@/components/ui/Button";
 import { company } from "@/data/company";
 import { findRequest, type StoredRequest } from "@/lib/bookings";
 import { formatDate, formatOmr } from "@/lib/format";
@@ -72,6 +72,7 @@ export function LookupForm() {
           >
             <WhatsappLogo size={18} weight="fill" />
             {t("resend")}
+            <CtaArrow />
           </a>
         </article>
       ) : null}

@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { SealCheck, Compass, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import { company } from "@/data/company";
 import type { TourBase, TourContent } from "@/data/tours";
 import { formatOmr } from "@/lib/format";
@@ -64,6 +64,7 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
         {tour.priceFrom !== null ? (
           <Link href={`/book/${tour.slug}`} className={buttonClass("primary", "w-full")}>
             {t("cta")}
+            <CtaArrow />
           </Link>
         ) : (
           <a
@@ -74,6 +75,7 @@ export function PriceCard({ tour, content }: { tour: TourBase; content: TourCont
           >
             <WhatsappLogo size={18} weight="fill" />
             {t("quoteCta")}
+            <CtaArrow />
           </a>
         )}
       </div>

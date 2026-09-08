@@ -15,7 +15,7 @@ import {
   ArrowLeft,
 } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { Button, buttonClass } from "@/components/ui/Button";
+import { Button, buttonClass, CtaArrow } from "@/components/ui/Button";
 import { company } from "@/data/company";
 import { images } from "@/data/images.generated";
 import type { TourBase, TourContent } from "@/data/tours";
@@ -233,10 +233,12 @@ export function BookingWizard({ tour, content }: { tour: TourBase; content: Tour
             <a href={whatsappUrl(company.whatsapp.digits, done.text)} target="_blank" rel="noopener noreferrer" className={buttonClass("primary")}>
               <WhatsappLogo size={18} weight="fill" />
               {t("done.whatsapp")}
+              <CtaArrow />
             </a>
             <a href={mailtoUrl(company.email, `${t("title")} ${done.reference}`, done.text)} className={buttonClass("onCream")}>
               <EnvelopeSimple size={18} weight="fill" />
               {t("done.email")}
+              <CtaArrow />
             </a>
           </div>
           <pre className="mt-6 whitespace-pre-wrap rounded-input border border-panel-fg/10 bg-white/60 p-4 font-display text-[14px] leading-relaxed text-panel-muted">

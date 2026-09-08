@@ -6,11 +6,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useTranslations } from "next-intl";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { images } from "@/data/images.generated";
 import type { TourBase, TourContent } from "@/data/tours";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import { PriceFrom } from "@/components/tours/PriceText";
 import { durationLabel } from "@/components/tours/TourCard";
 import { useLenisRef } from "@/components/motion/SmoothScroll";
@@ -199,7 +198,7 @@ export function StoryStack({ items }: { items: StoryItem[] }) {
                     </dl>
                     <Link href={`/tours/${tour.slug}`} className={buttonClass("primary", "mt-7")}>
                       {t("cta")}
-                      <ArrowRight size={16} className="rtl:rotate-180" />
+                      <CtaArrow />
                     </Link>
                   </article>
                 ))}
@@ -280,6 +279,7 @@ export function StoryStack({ items }: { items: StoryItem[] }) {
                   <PriceFrom tour={tour} />
                   <Link href={`/tours/${tour.slug}`} className={buttonClass("secondary")}>
                     {t("cta")}
+                    <CtaArrow />
                   </Link>
                 </div>
                 </div>

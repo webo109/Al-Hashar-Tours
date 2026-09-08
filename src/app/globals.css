@@ -11,6 +11,12 @@
   --color-midnight-700: #182338;
   --color-midnight-600: #22304a;
   --color-gold: #e89e00;
+  /* Call-to-action orange, lifted from the orange petal of the logo mark. Kept
+     apart from --color-gold, which still carries the small accents: pins,
+     ticks, rules, focus rings. Only buttons wear the brand. */
+  --color-brand: #e66f0b;
+  --color-brand-600: #c85e08;
+  --color-brand-300: #f79345;
   --color-gold-300: #f7c65a;
   --color-gold-700: #b57a00;
   --color-sunset: #fe7c1a;
@@ -470,10 +476,10 @@
 @keyframes glow-breathe {
   0%,
   100% {
-    box-shadow: 0 0 12px 0 rgb(232 158 0 / 0.22);
+    box-shadow: 0 0 12px 0 rgb(230 111 11 / 0.22);
   }
   50% {
-    box-shadow: 0 0 30px 7px rgb(232 158 0 / 0.5);
+    box-shadow: 0 0 30px 7px rgb(230 111 11 / 0.5);
   }
 }
 

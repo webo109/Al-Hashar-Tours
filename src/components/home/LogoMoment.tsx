@@ -6,10 +6,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { LogoMark } from "@/components/brand/Logo";
-import { buttonClass } from "@/components/ui/Button";
+import { buttonClass, CtaArrow } from "@/components/ui/Button";
 import { contours } from "./contours";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -126,7 +125,7 @@ export function LogoMoment() {
           <div data-line className="mt-9">
             <Link href="/tours" className={buttonClass("primary")}>
               {stories("allTours")}
-              <ArrowRight size={16} weight="bold" className="rtl:rotate-180" />
+              <CtaArrow />
             </Link>
           </div>
         </div>
