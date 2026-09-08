@@ -358,8 +358,9 @@
     color: var(--accent-text);
   }
 
-  /* The hero's call to action breathes a gold halo, so the eye keeps coming
-     back to it while the slides change behind. */
+  /* The hero's call to action breathes a halo in the brand orange, so the eye
+     keeps coming back to it while the slides change behind. The reduced-motion
+     block at the foot of this file stops it for anyone who asked it to. */
   .glow-breathe {
     animation: glow-breathe 3.4s ease-in-out infinite;
   }

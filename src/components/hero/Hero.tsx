@@ -160,9 +160,15 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
               // A size up from the site's other buttons: it is the only thing
               // asking to be pressed on a full-bleed photograph, so it carries
               // the extra height rather than competing with the headline.
+              //
+              // White here alone, against the ink the variant gives every other
+              // call to action: this button sits on a photograph among white
+              // type, and matching the headline matters more than the 4.5:1 it
+              // gives up. The variant already sets a colour and two utilities of
+              // equal specificity would tie — Tailwind v4 takes the bang.
               className={buttonClass(
                 "primary",
-                "mt-9 h-13 ps-7 pe-2 text-[16px] md:h-14 md:ps-8 md:pe-2.5 md:text-[17px] [&_.cta-badge]:size-9",
+                "glow-breathe mt-9 h-13 ps-7 pe-2 text-[16px] md:h-14 md:ps-8 md:pe-2.5 md:text-[17px] [&_.cta-badge]:size-9 text-white!",
               )}
             >
               {tours("view")}
