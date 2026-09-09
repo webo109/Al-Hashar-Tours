@@ -31,7 +31,6 @@ export function LogoMoment() {
           .from("[data-backdrop]", { opacity: 0, scale: 1.08, duration: 1.2 }, 0)
           .from("[data-contours]", { opacity: 0, scale: 0.94, duration: 1 }, 0.08)
           .from("[data-era]", { opacity: 0, y: 42, duration: 1 }, 0.1)
-          .from("[data-arch]", { opacity: 0, y: 34, duration: 1 }, 0.15)
           .from("[data-mark]", { opacity: 0, scale: 0.82, y: 28, duration: 1 }, 0.24)
           .from("[data-line]", { opacity: 0, y: 18, duration: 0.65, stagger: 0.14 }, 0.58);
       });
@@ -63,7 +62,7 @@ export function LogoMoment() {
           aria-hidden
         >
           {contours.map((d, i) => (
-            <path key={i} d={d} fill="none" stroke="currentColor" strokeWidth="1.15" opacity={0.13 - i * 0.008} />
+            <path key={i} d={d} fill="none" stroke="currentColor" strokeWidth="1.15" opacity={0.1 - i * 0.008} />
           ))}
         </svg>
 
@@ -75,14 +74,6 @@ export function LogoMoment() {
           <span className="font-latin text-[clamp(9rem,24vw,22rem)] font-semibold leading-none tracking-[-0.09em] text-fg">
             1984
           </span>
-        </div>
-
-        <div
-          data-arch
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[74%] w-[min(84vw,680px)] -translate-x-1/2 -translate-y-1/2 rounded-t-[48%] border border-gold/45 border-b-0 shadow-[0_0_70px_-46px_rgb(181_122_0/0.7)]"
-          aria-hidden
-        >
-          <div className="absolute inset-3 rounded-t-[48%] border border-fg/14 border-b-0 md:inset-5" />
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent,var(--color-surface)_82%)]" aria-hidden />

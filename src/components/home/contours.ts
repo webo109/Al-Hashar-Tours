@@ -12,6 +12,8 @@ function ring(cx: number, cy: number, r: number, stretch: number, seed: number) 
   return `M${pts.join(" L")} Z`;
 }
 
-export const contours = Array.from({ length: 9 }, (_, i) =>
-  ring(800, 430, 110 + i * 62, 1.75, i * 0.9),
+// Five rings, spread wide. There were nine packed close together, which read as
+// a field of texture behind the mark rather than a halo around it.
+export const contours = Array.from({ length: 5 }, (_, i) =>
+  ring(800, 430, 150 + i * 108, 1.75, i * 0.9),
 );
