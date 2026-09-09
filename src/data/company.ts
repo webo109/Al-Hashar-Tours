@@ -56,8 +56,16 @@ export const company = {
     { region: "dhofar", keys: ["salalah"] },
   ],
   iataAccredited: true,
-  // Winner's badges supplied by the client: three consecutive years.
-  worldTravelAwardsYears: [2023, 2024, 2025],
+  // Winner's badges supplied by the client: three consecutive years, each
+  // linking to its citation on the awards body's own site. The slug follows one
+  // pattern today, but it is written out per year rather than built from a
+  // template — the category name is theirs to change, and a wrong link on a
+  // credential is worse than a missing one.
+  worldTravelAwards: [
+    { year: 2023, url: "https://www.worldtravelawards.com/award-omans-leading-travel-agency-2023" },
+    { year: 2024, url: "https://www.worldtravelawards.com/award-omans-leading-travel-agency-2024" },
+    { year: 2025, url: "https://www.worldtravelawards.com/award-omans-leading-travel-agency-2025" },
+  ],
   // The parent house. Founder and the thirteen business lines are listed on
   // alhashargroup.com (Our Group, and Our Business), September 2026.
   group: {

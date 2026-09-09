@@ -2,69 +2,32 @@ import { useTranslations } from "next-intl";
 import { company } from "@/data/company";
 import { Reveal } from "@/components/motion/Reveal";
 
-// Three consecutive wins, shown as our own laurel rather than a row of the
-// awards body's supplied badge artwork: a wreath around a star, with the year
-// held in the middle of it. Swap in the official badge files if the client
-// provides them.
-//
-// Seven leaves to a branch, set along an arc and turned to follow it. The right
-// branch is the left one mirrored about the centre line, so the wreath stays
-// symmetrical without a second set of numbers to keep in step.
-const LEAF_ANGLES = [100, 120, 140, 160, 180, 200, 220];
-const CENTRE_X = 60;
-const CENTRE_Y = 64;
-const LEAF_RADIUS = 45;
-
-function Branch() {
-  return (
-    <g>
-      {/* The stem, drawn just inside the leaves it carries. */}
-      <path
-        d="M54 98 A 34 34 0 0 1 34 42"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        opacity="0.75"
-      />
-      {LEAF_ANGLES.map((deg) => {
-        const rad = (deg * Math.PI) / 180;
-        const x = CENTRE_X + LEAF_RADIUS * Math.cos(rad);
-        const y = CENTRE_Y + LEAF_RADIUS * Math.sin(rad);
-        return (
-          <ellipse
-            key={deg}
-            cx={x}
-            cy={y}
-            rx="9"
-            ry="4.3"
-            fill="currentColor"
-            transform={`rotate(${deg + 118} ${x} ${y})`}
-          />
-        );
-      })}
-    </g>
-  );
-}
-
-function Medallion({ year }: { year: number }) {
+// Three consecutive wins, shown as our own medallions rather than a row of the
+// awards body's supplied badge artwork: the ring-and-year shape echoes the
+// heritage stamp on the boarding pass, so the page states the fact in its own
+// voice. Swap in the official badge files if the client provides them.
+function Medallion({ year, winner }: { year: number; winner: string }) {
   return (
     <svg viewBox="0 0 120 120" className="h-28 w-28 md:h-32 md:w-32" aria-hidden>
-      <Branch />
-      <g transform="translate(120 0) scale(-1 1)">
-        <Branch />
-      </g>
-      {/* A star in the opening of the wreath, the year beneath it. */}
-      <path
-        d="M60 20 L63.5 28.7 L72.9 29.4 L65.7 35.4 L67.9 44.5 L60 39.5 L52.1 44.5 L54.3 35.4 L47.1 29.4 L56.5 28.7 Z"
+      <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
+      <circle cx="60" cy="60" r="47" fill="none" stroke="currentColor" strokeWidth="0.9" opacity="0.3" />
+      <text
+        x="60"
+        y="48"
+        textAnchor="middle"
+        fontSize="9"
+        letterSpacing="3"
         fill="currentColor"
-      />
+        opacity="0.8"
+      >
+        {winner.toUpperCase()}
+      </text>
       <text
         className="font-latin"
         x="60"
-        y="82"
+        y="79"
         textAnchor="middle"
-        fontSize="27"
+        fontSize="30"
         fontWeight="600"
         letterSpacing="-0.5"
         fill="currentColor"
@@ -77,7 +40,7 @@ function Medallion({ year }: { year: number }) {
 
 export function AboutAwards() {
   const t = useTranslations("Awards");
-  const years = company.worldTravelAwardsYears;
+  const awards = company.worldTravelAwards;
 
   return (
     <section id="awards" className="relative bg-surface pt-24 md:pt-32">
@@ -93,13 +56,20 @@ export function AboutAwards() {
             </div>
 
             <ul className="mt-12 flex flex-wrap items-center justify-center gap-8 md:gap-14">
-              {years.map((year, i) => (
+              {awards.map(({ year, url }, i) => (
                 <li key={year}>
                   <Reveal delay={0.08 * i}>
-                    <span className="flex flex-col items-center text-gold-300">
-                      <Medallion year={year} />
+                    {/* The citation on the awards body's own site: a credential
+                        is worth more when the visitor can go and check it. */}
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center rounded-panel text-gold-300 transition-[transform,color] duration-300 ease-out-expo hover:-translate-y-1 hover:text-gold-300/80"
+                    >
+                      <Medallion year={year} winner={t("winner")} />
                       <span className="sr-only">{t("badgeLabel", { year })}</span>
-                    </span>
+                    </a>
                   </Reveal>
                 </li>
               ))}
