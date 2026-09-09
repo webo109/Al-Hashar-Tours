@@ -151,7 +151,7 @@ export function FloatingNav() {
           className={`pointer-events-auto flex h-16 w-full max-w-[1200px] items-center justify-between rounded-pill border ps-4 pe-2 transition-[background-color,border-color,box-shadow] duration-500 ease-out-expo ${
             scrolled
               ? "border-fg/10 bg-surface/75 shadow-lift backdrop-blur-[8px]"
-              : "border-transparent bg-surface/30 backdrop-blur-[6px]"
+              : "border-fg/5 bg-surface/65 backdrop-blur-[12px]"
           }`}
         >
           <Link href="/" aria-label={t("home")} className="shrink-0 rounded-pill">

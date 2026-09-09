@@ -41,7 +41,7 @@ export function ServicesChapter() {
                 "group relative flex h-full min-h-[190px] flex-col overflow-hidden rounded-panel transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_var(--color-gold),0_22px_48px_-28px_rgb(var(--surface-rgb)/0.45)]";
               const tone =
                 s.tone === "photo"
-                  ? "text-fg"
+                  ? "text-white"
                   : s.tone === "sand"
                     ? "border border-[var(--service-card-border)] bg-[var(--service-card-sand)] text-panel-fg shadow-[var(--service-card-shadow)]"
                     : "border border-[var(--service-card-border)] bg-[var(--service-card-neutral)] text-panel-fg shadow-[var(--service-card-shadow)]";
@@ -62,27 +62,27 @@ export function ServicesChapter() {
                               className="object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
                             />
                           </div>
-                          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--surface-rgb)/0.05)_30%,rgb(var(--surface-rgb)/0.82)_100%)]" />
+                          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_18_32/0.05)_30%,rgb(11_18_32/0.82)_100%)]" />
                         </>
                       ) : null}
                       <div className="relative mt-auto flex flex-col p-6">
                         <Icon
                           size={28}
                           weight="fill"
-                          className={s.tone === "photo" ? "text-accent-text" : "text-gold-700"}
+                          className={s.tone === "photo" ? "text-gold-300" : "text-gold-700"}
                         />
                         <span className="mt-4 flex items-center justify-between gap-3">
                           <span className="text-xl font-medium tracking-tight">{t(`items.${s.id}.title`)}</span>
                           <ArrowUpRight
                             size={18}
                             className={`shrink-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rtl:-scale-x-100 ${
-                              s.tone === "photo" ? "text-accent-text" : "text-gold-700"
+                              s.tone === "photo" ? "text-gold-300" : "text-gold-700"
                             }`}
                           />
                         </span>
                         <span
                           className={`mt-1.5 text-[14px] leading-relaxed transition-opacity duration-500 ${
-                            s.tone === "photo" ? "text-fg/85" : "text-panel-muted lg:opacity-0 lg:group-hover:opacity-100"
+                            s.tone === "photo" ? "text-white/85" : "text-panel-muted lg:opacity-0 lg:group-hover:opacity-100"
                           }`}
                         >
                           {t(`items.${s.id}.detail`)}

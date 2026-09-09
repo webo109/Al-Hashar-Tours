@@ -136,7 +136,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
           near-black this ramp was invisible, and against cream the same ramp
           read as a lamp shining up into the picture. */}
       <div
-        className="absolute inset-x-0 bottom-0 h-[10%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.22)_38%,rgb(var(--surface-rgb)/0.45)_72%,var(--color-surface)_100%)]"
+        className="absolute inset-x-0 bottom-0 h-[5%] bg-[linear-gradient(180deg,transparent_0%,rgb(var(--surface-rgb)/0.18)_55%,rgb(var(--surface-rgb)/0.6)_82%,var(--color-surface)_100%)]"
         aria-hidden
       />
 
