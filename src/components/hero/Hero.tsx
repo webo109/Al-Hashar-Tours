@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "motion/react";
-import { CaretLeft, CaretRight, MapPin } from "@phosphor-icons/react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { scrollToTarget, useLenisRef } from "@/components/motion/SmoothScroll";
 import { images } from "@/data/images.generated";
@@ -25,7 +25,6 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
   const t = useTranslations("Hero");
   const tours = useTranslations("Tours");
   const picker = useTranslations("Picker");
-  const regions = useTranslations("Regions");
   const reduce = useReducedMotion();
   const root = useRef<HTMLElement>(null);
   const lenisRef = useLenisRef();
@@ -144,11 +143,7 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          <span className="inline-flex items-center gap-1.5 text-[13px] font-medium uppercase tracking-[0.18em] text-white/80">
-            <MapPin size={14} weight="fill" className="text-gold" />
-            {current ? regions(current.tour.regions[0]) : t("location")}
-          </span>
-          <h1 className="mt-4 max-w-[16ch] text-balance text-4xl font-medium leading-[1.03] tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="max-w-[16ch] text-balance text-4xl font-medium leading-[1.03] tracking-tight text-white md:text-6xl lg:text-7xl">
             {current ? current.copy.name : t("headline")}
           </h1>
           <p className="mt-4 max-w-[52ch] text-balance text-[16px] leading-relaxed text-white/80 md:text-xl">

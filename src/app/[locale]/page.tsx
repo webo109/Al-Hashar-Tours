@@ -9,7 +9,7 @@ import { UmrahBand } from "@/components/home/UmrahBand";
 import { ServicesChapter } from "@/components/home/ServicesChapter";
 import { TrustChapter } from "@/components/home/TrustChapter";
 import { LogoMoment } from "@/components/home/LogoMoment";
-import { PaperPlane } from "@/components/motion/PaperPlane";
+import { RouteTrail } from "@/components/motion/RouteTrail";
 import { tourContent } from "@/data/tours.content";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -23,7 +23,7 @@ export default function HomePage({ params }: Props) {
   // which would break the pinned story chapters.
   return (
     <main id="content" className="relative isolate overflow-clip">
-      <PaperPlane />
+      <RouteTrail />
       <Hero content={content} />
       <ProblemChapter />
       {/* Proof answers the problem straight away, rather than waiting until the

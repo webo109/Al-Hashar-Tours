@@ -56,7 +56,9 @@
   --breakpoint-xs: 30rem;
 }
 
-/* Dark theme is the base; light overrides follow. */
+/* One theme, the light one. There was a dark palette here and a toggle in the
+   nav to reach it; the site now has a single look, so these are the only values
+   and nothing overrides them. */
 :root {
   --z-scene: 0;
   --z-content: 10;
@@ -64,68 +66,6 @@
   --z-sheet: 60;
   --z-grain: 70;
 
-  --surface: #0b1220;
-  --surface-2: #111a2c;
-  --surface-3: #182338;
-  --surface-rgb: 11 18 32;
-  --fg: #f7f2e8;
-  --fg-muted: #b9b3a6;
-  --accent-text: #f7c65a;
-  --panel: #f7f2e8;
-  --services: #f7f2e8;
-  --service-card-sand: rgb(232 217 193 / 0.7);
-  --service-card-neutral: rgb(255 255 255 / 0.5);
-  --service-card-border: rgb(11 18 32 / 0.1);
-  --service-card-shadow: 0 14px 34px -28px rgb(11 18 32 / 0.35);
-  --shadow-ink: rgb(11 18 32 / 0.75);
-  --shadow-ink-soft: rgb(11 18 32 / 0.55);
-
-  --sky: linear-gradient(180deg, #0b1220 0%, #0e1730 26%, #1c1d3a 42%, #3a2742 54%, #6d3a34 63%, #c2632a 71%, #e89e00 77%, #f3c47c 82%, #8a4a30 88%, #1a1826 95%, #0b1220 100%);
-  --sun-glow: radial-gradient(42% 26% at 66% 76%, rgb(254 124 26 / 0.42), transparent 70%);
-  --stars-display: block;
-  --mist-color: rgb(247 198 122 / 0.22);
-  --plane-fg-filter: brightness(0.3) saturate(0.7);
-  --plane-rim: linear-gradient(180deg, rgb(232 158 0 / 0.3) 0%, rgb(232 158 0 / 0.08) 24%, transparent 48%);
-  --services-band: linear-gradient(180deg, #0b1220 0%, #3b2f3a 35%, #c9955a 70%, #e8d9c1 100%);
-  --trust-grad: linear-gradient(180deg, #f7f2e8 0%, #d9c3a3 12%, #6d3a34 34%, #1c1d3a 58%, #0b1220 100%);
-  --grain-opacity: 0.055;
-
-  color-scheme: dark;
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --surface: #efe8d8;
-    --surface-2: #f8f3e6;
-    --surface-3: #e6dac0;
-    --surface-rgb: 239 232 216;
-    --fg: #0b1220;
-    --fg-muted: #4a5368;
-    --accent-text: #b57a00;
-    --panel: #ffffff;
-    --services: #e8d9c1;
-    --service-card-sand: #d5bd98;
-    --service-card-neutral: #f7f1e2;
-    --service-card-border: rgb(11 18 32 / 0.14);
-    --service-card-shadow: 0 18px 38px -25px rgb(66 44 17 / 0.32);
-    --shadow-ink: rgb(11 18 32 / 0.28);
-    --shadow-ink-soft: rgb(11 18 32 / 0.18);
-
-    --sky: linear-gradient(180deg, #88bdd3 0%, #add4e1 28%, #dce8e5 47%, #f2d6aa 65%, #efb86f 76%, #f7e2bd 87%, #f7f2e8 100%);
-    --sun-glow: radial-gradient(38% 24% at 66% 72%, rgb(254 124 26 / 0.34), transparent 68%);
-    --stars-display: none;
-    --mist-color: rgb(255 255 255 / 0.6);
-    --plane-fg-filter: brightness(1.05) saturate(0.85);
-    --plane-rim: linear-gradient(180deg, rgb(255 255 255 / 0.45) 0%, rgb(255 255 255 / 0.12) 24%, transparent 48%);
-    --services-band: linear-gradient(180deg, #f7f2e8 0%, #f2e7d4 45%, #e8d9c1 100%);
-    --trust-grad: linear-gradient(180deg, #e8d9c1 0%, #f2e8d8 22%, #f7f2e8 55%, #f7f2e8 100%);
-    --grain-opacity: 0.035;
-
-    color-scheme: light;
-  }
-}
-
-:root[data-theme="light"] {
   --surface: #efe8d8;
   --surface-2: #f8f3e6;
   --surface-3: #e6dac0;
@@ -135,8 +75,8 @@
   --accent-text: #b57a00;
   --panel: #ffffff;
   --services: #e8d9c1;
-  --service-card-sand: #d5bd98;
-  --service-card-neutral: #f7f1e2;
+  --service-card-sand: #ffffff;
+  --service-card-neutral: #ffffff;
   --service-card-border: rgb(11 18 32 / 0.14);
   --service-card-shadow: 0 18px 38px -25px rgb(66 44 17 / 0.32);
   --shadow-ink: rgb(11 18 32 / 0.28);

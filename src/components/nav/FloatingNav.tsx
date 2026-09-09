@@ -7,7 +7,6 @@ import { CaretDown, List, X } from "@phosphor-icons/react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/brand/Logo";
 import { useLenisRef } from "@/components/motion/SmoothScroll";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export type BookingTab = "flights" | "hotels" | "omanTours" | "holidays";
 
@@ -234,7 +233,6 @@ export function FloatingNav() {
           </nav>
 
           <div className="flex items-center gap-1">
-            <ThemeToggle />
             <Link
               href={pathname}
               locale={otherLocale}
