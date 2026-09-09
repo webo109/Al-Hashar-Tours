@@ -9,8 +9,10 @@ import { Reveal } from "@/components/motion/Reveal";
 function Medallion({ year, winner }: { year: number; winner: string }) {
   return (
     <svg viewBox="0 0 120 120" className="h-28 w-28 md:h-32 md:w-32" aria-hidden>
-      <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
-      <circle cx="60" cy="60" r="47" fill="none" stroke="currentColor" strokeWidth="0.9" opacity="0.3" />
+      {/* The outer ring sits at r=55 in a 120 box, so it can only grow inward —
+          the weight goes into the stroke rather than the radius. */}
+      <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" strokeWidth="2.6" opacity="0.6" />
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" strokeWidth="1.6" opacity="0.35" />
       <text
         x="60"
         y="48"
