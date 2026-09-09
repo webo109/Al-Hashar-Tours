@@ -130,8 +130,13 @@ export function Hero({ content }: { content: Record<string, TourContent> }) {
         className="absolute inset-0 bg-[radial-gradient(58%_44%_at_50%_48%,rgb(11_18_32/0.5)_0%,transparent_72%)]"
         aria-hidden
       />
+      {/* The hem that hands the photograph over to the page below. It ends on
+          the surface colour exactly, so there is no seam at the boundary, but
+          the cream is held back until the last third — when the surface was
+          near-black this ramp was invisible, and against cream the same ramp
+          read as a lamp shining up into the picture. */}
       <div
-        className="absolute inset-x-0 bottom-0 h-[14%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.4)_45%,var(--color-surface)_100%)]"
+        className="absolute inset-x-0 bottom-0 h-[10%] bg-[linear-gradient(180deg,transparent_0%,rgb(11_18_32/0.22)_38%,rgb(var(--surface-rgb)/0.45)_72%,var(--color-surface)_100%)]"
         aria-hidden
       />
 
