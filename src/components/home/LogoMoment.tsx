@@ -42,11 +42,16 @@ export function LogoMoment() {
     <section ref={root} id="brand" className="relative isolate overflow-hidden bg-surface">
       <div data-backdrop className="absolute inset-0" aria-hidden>
         <Image
-          src="/images/dest-nizwa-fort-sunset.webp"
+          src="/images/dest-wahiba-dunes.webp"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[50%_42%] opacity-80 saturate-[0.9] contrast-[1.08]"
+          // Dunes rather than the fort that was here: the fort's windows,
+          // crenellations and palms put fine detail behind the mark and the
+          // headline, and a backdrop washed to a fifth of its strength cannot
+          // afford any. Sand gives long smooth curves and an open sky, which is
+          // what the middle of this frame needs.
+          className="object-cover object-[50%_46%] opacity-80 saturate-[0.9] contrast-[1.08]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(var(--surface-rgb)/0.82)_0%,rgb(var(--surface-rgb)/0.42)_50%,rgb(var(--surface-rgb)/0.7)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--surface-rgb)/0.58)_0%,transparent_36%,rgb(var(--surface-rgb)/0.9)_100%)]" />
