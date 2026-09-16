@@ -51,8 +51,8 @@ const routes = [
   ...videoRoutes,
   { path: "/en/does-not-exist", cls: "404 page", expect: [404] },
   { path: "/en/tours/not-a-tour", cls: "404 page", expect: [404] },
-  { path: "/test-report", cls: "Internal", expect: [200] },
-  { path: "/admin-preview", cls: "Internal", expect: [200] },
+  { path: "/test-report", cls: "Internal (disabled)", expect: [404] },
+  { path: "/admin-preview", cls: "Internal (disabled)", expect: [404] },
 ];
 
 const results = [];

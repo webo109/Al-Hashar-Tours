@@ -12,8 +12,8 @@ A bilingual (English / Arabic, true RTL) marketing and booking site built as an 
 | `/book/[slug]` | Request-to-book wizard: date, travellers and hotel tier, details, review, WhatsApp / email handoff. Items without a published price redirect to the detail page |
 | `/bookings/lookup` | Find a request by reference (stored in the browser for the demo) |
 | `/umrah`, `/services/[slug]`, `/contact` | Umrah packages, six service pages, branches and contact channels, each with an inquiry form |
-| `/test-report` | Internal QA report: smoke-test results, feature inventory, fixes, roadmap, decisions, pricing, meeting prep. English only, noindex |
-| `/admin-preview` | Operator dashboard preview with sample data: triage, week, requests, business, customer-story drawer. English only, noindex |
+| `/test-report` | Internal QA report: smoke-test results, feature inventory, fixes, roadmap, decisions, pricing, meeting prep. Disabled unless `ENABLE_INTERNAL_PREVIEWS=true` |
+| `/admin-preview` | Operator dashboard preview with sample data: triage, week, requests, business, customer-story drawer. Disabled unless `ENABLE_INTERNAL_PREVIEWS=true` |
 
 ## Stack
 
