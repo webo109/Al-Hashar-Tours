@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { notFound } from "next/navigation";
 import { LogoMark } from "@/components/brand/Logo";
 import { report, type DecisionStatus, type FeatureStatus, type SmokeReport } from "@/data/report";
 import { tours } from "@/data/tours";
@@ -75,6 +76,10 @@ function Card({ children, className = "" }: { children: ReactNode; className?: s
 }
 
 export default function TestReportPage() {
+  if (process.env.ENABLE_INTERNAL_PREVIEWS !== "true") {
+    notFound();
+  }
+
   const packages = tours.filter((t) => t.kind === "package").length;
   const dayTours = tours.filter((t) => t.kind === "day").length;
   const seaTours = tours.filter((t) => t.kind === "sea").length;

@@ -52,7 +52,8 @@ const routes = [
   { path: "/en/does-not-exist", cls: "404 page", expect: [404] },
   { path: "/en/tours/not-a-tour", cls: "404 page", expect: [404] },
   { path: "/test-report", cls: "Internal (disabled)", expect: [404] },
-  { path: "/admin", cls: "Internal (disabled)", expect: [404] },
+  { path: "/en/admin", cls: "Admin preview", expect: [200] },
+  { path: "/admin", cls: "Admin redirect", expect: [307, 308] },
   { path: "/admin-preview", cls: "Removed route", expect: [404] },
 ];
 

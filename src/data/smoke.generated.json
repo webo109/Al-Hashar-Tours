@@ -1,14 +1,14 @@
 {
   "base": "http://localhost:3001",
-  "generatedAt": "2026-09-16T15:23:01.128Z",
-  "total": 93,
-  "passed": 93,
+  "generatedAt": "2026-09-16T15:35:41.135Z",
+  "total": 94,
+  "passed": 94,
   "results": [
     {
       "path": "/",
       "cls": "Root redirect",
       "status": 307,
-      "ms": 240,
+      "ms": 204,
       "pass": true,
       "location": "/en"
     },
@@ -16,7 +16,7 @@
       "path": "/en",
       "cls": "Home",
       "status": 200,
-      "ms": 92,
+      "ms": 67,
       "pass": true,
       "location": null
     },
@@ -24,7 +24,7 @@
       "path": "/ar",
       "cls": "Home",
       "status": 200,
-      "ms": 62,
+      "ms": 39,
       "pass": true,
       "location": null
     },
@@ -32,7 +32,7 @@
       "path": "/en/tours",
       "cls": "Catalog",
       "status": 200,
-      "ms": 38,
+      "ms": 32,
       "pass": true,
       "location": null
     },
@@ -40,7 +40,7 @@
       "path": "/ar/tours",
       "cls": "Catalog",
       "status": 200,
-      "ms": 33,
+      "ms": 26,
       "pass": true,
       "location": null
     },
@@ -48,7 +48,7 @@
       "path": "/en/tours/quickie-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 34,
+      "ms": 31,
       "pass": true,
       "location": null
     },
@@ -56,7 +56,7 @@
       "path": "/ar/tours/quickie-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 29,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -64,7 +64,7 @@
       "path": "/en/tours/glimpse-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 30,
+      "ms": 31,
       "pass": true,
       "location": null
     },
@@ -72,7 +72,7 @@
       "path": "/ar/tours/glimpse-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 34,
+      "ms": 33,
       "pass": true,
       "location": null
     },
@@ -80,7 +80,7 @@
       "path": "/en/tours/authentic-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 29,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -88,7 +88,7 @@
       "path": "/ar/tours/authentic-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 30,
+      "ms": 28,
       "pass": true,
       "location": null
     },
@@ -104,7 +104,7 @@
       "path": "/ar/tours/magnificent-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 34,
+      "ms": 32,
       "pass": true,
       "location": null
     },
@@ -112,7 +112,7 @@
       "path": "/en/tours/historical-treasures-of-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 28,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -120,7 +120,7 @@
       "path": "/ar/tours/historical-treasures-of-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 35,
+      "ms": 32,
       "pass": true,
       "location": null
     },
@@ -128,7 +128,7 @@
       "path": "/en/tours/awesome-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 24,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -136,7 +136,7 @@
       "path": "/ar/tours/awesome-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 35,
+      "ms": 31,
       "pass": true,
       "location": null
     },
@@ -144,7 +144,7 @@
       "path": "/en/tours/enchanting-oman",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 31,
+      "ms": 32,
       "pass": true,
       "location": null
     },
@@ -160,7 +160,7 @@
       "path": "/en/tours/coastal-road-tour",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 32,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -176,7 +176,7 @@
       "path": "/en/tours/daymaniyat-islands",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 18,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -184,7 +184,7 @@
       "path": "/ar/tours/daymaniyat-islands",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 28,
+      "ms": 20,
       "pass": true,
       "location": null
     },
@@ -192,7 +192,7 @@
       "path": "/en/tours/dolphins-and-snorkelling",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 31,
+      "ms": 29,
       "pass": true,
       "location": null
     },
@@ -200,7 +200,7 @@
       "path": "/ar/tours/dolphins-and-snorkelling",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 33,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -208,7 +208,7 @@
       "path": "/en/tours/great-fort-tour",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 32,
+      "ms": 31,
       "pass": true,
       "location": null
     },
@@ -216,7 +216,7 @@
       "path": "/ar/tours/great-fort-tour",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 35,
+      "ms": 18,
       "pass": true,
       "location": null
     },
@@ -224,7 +224,7 @@
       "path": "/en/tours/muscat-moments",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 18,
+      "ms": 27,
       "pass": true,
       "location": null
     },
@@ -232,7 +232,7 @@
       "path": "/ar/tours/muscat-moments",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 25,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -240,7 +240,7 @@
       "path": "/en/tours/jabal-akhdar-day-tour",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 19,
+      "ms": 28,
       "pass": true,
       "location": null
     },
@@ -248,7 +248,7 @@
       "path": "/ar/tours/jabal-akhdar-day-tour",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 24,
+      "ms": 20,
       "pass": true,
       "location": null
     },
@@ -256,7 +256,7 @@
       "path": "/en/tours/jebel-shams-grand-canyon",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 34,
+      "ms": 27,
       "pass": true,
       "location": null
     },
@@ -264,7 +264,7 @@
       "path": "/ar/tours/jebel-shams-grand-canyon",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 30,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -272,7 +272,7 @@
       "path": "/en/tours/nakhal-and-rustaq",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 29,
+      "ms": 30,
       "pass": true,
       "location": null
     },
@@ -280,7 +280,7 @@
       "path": "/ar/tours/nakhal-and-rustaq",
       "cls": "Tour pages",
       "status": 200,
-      "ms": 32,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -288,7 +288,7 @@
       "path": "/en/book/quickie-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 31,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -296,7 +296,7 @@
       "path": "/ar/book/quickie-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 30,
+      "ms": 32,
       "pass": true,
       "location": null
     },
@@ -304,7 +304,7 @@
       "path": "/en/book/glimpse-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 30,
+      "ms": 28,
       "pass": true,
       "location": null
     },
@@ -312,7 +312,7 @@
       "path": "/ar/book/glimpse-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 31,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -320,7 +320,7 @@
       "path": "/en/book/authentic-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 31,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -328,7 +328,7 @@
       "path": "/ar/book/authentic-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 19,
+      "ms": 31,
       "pass": true,
       "location": null
     },
@@ -344,7 +344,7 @@
       "path": "/ar/book/magnificent-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 37,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -352,7 +352,7 @@
       "path": "/en/book/historical-treasures-of-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 16,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -360,7 +360,7 @@
       "path": "/ar/book/historical-treasures-of-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 28,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -368,7 +368,7 @@
       "path": "/en/book/awesome-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 30,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -376,7 +376,7 @@
       "path": "/ar/book/awesome-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 32,
+      "ms": 19,
       "pass": true,
       "location": null
     },
@@ -384,7 +384,7 @@
       "path": "/en/book/enchanting-oman",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 31,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -400,7 +400,7 @@
       "path": "/en/book/coastal-road-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 15,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -408,7 +408,7 @@
       "path": "/ar/book/coastal-road-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 17,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -416,7 +416,7 @@
       "path": "/en/book/daymaniyat-islands",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 14,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -424,7 +424,7 @@
       "path": "/ar/book/daymaniyat-islands",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 18,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -432,7 +432,7 @@
       "path": "/en/book/dolphins-and-snorkelling",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 33,
+      "ms": 11,
       "pass": true,
       "location": null
     },
@@ -440,7 +440,7 @@
       "path": "/ar/book/dolphins-and-snorkelling",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 17,
+      "ms": 18,
       "pass": true,
       "location": null
     },
@@ -448,7 +448,7 @@
       "path": "/en/book/great-fort-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 27,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -456,7 +456,7 @@
       "path": "/ar/book/great-fort-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 33,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -464,7 +464,7 @@
       "path": "/en/book/muscat-moments",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 28,
+      "ms": 13,
       "pass": true,
       "location": null
     },
@@ -472,7 +472,7 @@
       "path": "/ar/book/muscat-moments",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 18,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -480,7 +480,7 @@
       "path": "/en/book/jabal-akhdar-day-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 30,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -488,7 +488,7 @@
       "path": "/ar/book/jabal-akhdar-day-tour",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 32,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -496,7 +496,7 @@
       "path": "/en/book/jebel-shams-grand-canyon",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 32,
+      "ms": 15,
       "pass": true,
       "location": null
     },
@@ -504,7 +504,7 @@
       "path": "/ar/book/jebel-shams-grand-canyon",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 32,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -512,7 +512,7 @@
       "path": "/en/book/nakhal-and-rustaq",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 30,
+      "ms": 18,
       "pass": true,
       "location": null
     },
@@ -520,7 +520,7 @@
       "path": "/ar/book/nakhal-and-rustaq",
       "cls": "Booking wizard",
       "status": 200,
-      "ms": 17,
+      "ms": 29,
       "pass": true,
       "location": null
     },
@@ -528,7 +528,7 @@
       "path": "/en/bookings/lookup",
       "cls": "Lookup",
       "status": 200,
-      "ms": 31,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -536,7 +536,7 @@
       "path": "/ar/bookings/lookup",
       "cls": "Lookup",
       "status": 200,
-      "ms": 26,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -544,7 +544,7 @@
       "path": "/en/umrah",
       "cls": "Umrah",
       "status": 200,
-      "ms": 19,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -552,7 +552,7 @@
       "path": "/ar/umrah",
       "cls": "Umrah",
       "status": 200,
-      "ms": 29,
+      "ms": 20,
       "pass": true,
       "location": null
     },
@@ -560,7 +560,7 @@
       "path": "/en/services/flights",
       "cls": "Service pages",
       "status": 200,
-      "ms": 33,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -568,7 +568,7 @@
       "path": "/ar/services/flights",
       "cls": "Service pages",
       "status": 200,
-      "ms": 30,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -576,7 +576,7 @@
       "path": "/en/services/hotels",
       "cls": "Service pages",
       "status": 200,
-      "ms": 31,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -584,7 +584,7 @@
       "path": "/ar/services/hotels",
       "cls": "Service pages",
       "status": 200,
-      "ms": 29,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -592,7 +592,7 @@
       "path": "/en/services/holidays",
       "cls": "Service pages",
       "status": 200,
-      "ms": 15,
+      "ms": 17,
       "pass": true,
       "location": null
     },
@@ -600,7 +600,7 @@
       "path": "/ar/services/holidays",
       "cls": "Service pages",
       "status": 200,
-      "ms": 18,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -608,7 +608,7 @@
       "path": "/en/services/visa",
       "cls": "Service pages",
       "status": 200,
-      "ms": 31,
+      "ms": 13,
       "pass": true,
       "location": null
     },
@@ -616,7 +616,7 @@
       "path": "/ar/services/visa",
       "cls": "Service pages",
       "status": 200,
-      "ms": 34,
+      "ms": 12,
       "pass": true,
       "location": null
     },
@@ -624,7 +624,7 @@
       "path": "/en/services/insurance",
       "cls": "Service pages",
       "status": 200,
-      "ms": 27,
+      "ms": 13,
       "pass": true,
       "location": null
     },
@@ -632,7 +632,7 @@
       "path": "/ar/services/insurance",
       "cls": "Service pages",
       "status": 200,
-      "ms": 32,
+      "ms": 22,
       "pass": true,
       "location": null
     },
@@ -640,7 +640,7 @@
       "path": "/en/services/cargo",
       "cls": "Service pages",
       "status": 200,
-      "ms": 28,
+      "ms": 16,
       "pass": true,
       "location": null
     },
@@ -648,7 +648,7 @@
       "path": "/ar/services/cargo",
       "cls": "Service pages",
       "status": 200,
-      "ms": 18,
+      "ms": 14,
       "pass": true,
       "location": null
     },
@@ -656,7 +656,7 @@
       "path": "/en/contact",
       "cls": "Contact",
       "status": 200,
-      "ms": 19,
+      "ms": 22,
       "pass": true,
       "location": null
     },
@@ -664,7 +664,7 @@
       "path": "/ar/contact",
       "cls": "Contact",
       "status": 200,
-      "ms": 31,
+      "ms": 26,
       "pass": true,
       "location": null
     },
@@ -672,7 +672,7 @@
       "path": "/en/services/holidays?region=dubai",
       "cls": "Holidays prefill",
       "status": 200,
-      "ms": 28,
+      "ms": 11,
       "pass": true,
       "location": null
     },
@@ -680,7 +680,7 @@
       "path": "/ar/services/holidays?region=georgia",
       "cls": "Holidays prefill",
       "status": 200,
-      "ms": 17,
+      "ms": 18,
       "pass": true,
       "location": null
     },
@@ -688,7 +688,7 @@
       "path": "/videos/hero-oman-drone.mp4",
       "cls": "Video clips",
       "status": 200,
-      "ms": 67,
+      "ms": 59,
       "pass": true,
       "location": null
     },
@@ -704,7 +704,7 @@
       "path": "/videos/clip-wadi-shab.mp4",
       "cls": "Video clips",
       "status": 200,
-      "ms": 6,
+      "ms": 9,
       "pass": true,
       "location": null
     },
@@ -712,7 +712,7 @@
       "path": "/en/does-not-exist",
       "cls": "404 page",
       "status": 404,
-      "ms": 16,
+      "ms": 19,
       "pass": true,
       "location": null
     },
@@ -720,7 +720,7 @@
       "path": "/en/tours/not-a-tour",
       "cls": "404 page",
       "status": 404,
-      "ms": 329,
+      "ms": 236,
       "pass": true,
       "location": null
     },
@@ -728,17 +728,25 @@
       "path": "/test-report",
       "cls": "Internal (disabled)",
       "status": 404,
-      "ms": 34,
+      "ms": 12,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/en/admin",
+      "cls": "Admin preview",
+      "status": 200,
+      "ms": 9,
       "pass": true,
       "location": null
     },
     {
       "path": "/admin",
-      "cls": "Internal (disabled)",
-      "status": 404,
-      "ms": 24,
+      "cls": "Admin redirect",
+      "status": 307,
+      "ms": 21,
       "pass": true,
-      "location": null
+      "location": "/en/admin"
     },
     {
       "path": "/admin-preview",

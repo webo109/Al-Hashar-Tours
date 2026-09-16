@@ -131,6 +131,9 @@ export function AdminPreview() {
       </aside>
 
       <div className="min-w-0">
+        <div className="border-b border-gold/35 bg-gold/15 px-5 py-2.5 text-center text-[13px] font-medium text-ink lg:px-8">
+          Client preview · Sample data only · Changes are not saved
+        </div>
         <header className="flex flex-wrap items-center justify-between gap-3 border-b border-ink/10 bg-cream/90 px-5 py-4 backdrop-blur-[6px] lg:sticky lg:top-0 lg:z-10 lg:px-8">
           <div>
             <h1 className="text-xl font-semibold tracking-tight">{today.label}</h1>

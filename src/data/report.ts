@@ -237,9 +237,9 @@ export const report = {
   meeting: [
     { title: "Schedule the meeting", when: "First", detail: "Thursday afternoon or Sunday morning, binary choice." },
     { title: "Run the demo on the actual laptop", when: "Day before", detail: "Home, a tour page, the wizard to the WhatsApp step, the dashboard." },
-    { title: "Pre-load the dashboard", when: "Day before", detail: "Open /admin once so images are cached." },
+    { title: "Pre-load the dashboard", when: "Day before", detail: "Open /en/admin once so images are cached." },
     { title: "Print this report's smoke table", when: "Day before", detail: "One page. Numbers beat adjectives." },
-    { title: "Open three tabs in advance", when: "Just before", detail: "/en, /ar/tours, /admin." },
+    { title: "Open three tabs in advance", when: "Just before", detail: "/en, /ar/tours, /en/admin." },
     { title: "Hard reload everything", when: "Just before", detail: "Ctrl+Shift+R on each tab." },
     { title: "Phone with WhatsApp ready", when: "Just before", detail: "Send one request live from the site to your own number." },
     { title: "Do not say AI-built", when: "During", detail: "Talk about their data, their prices, their branches." },
