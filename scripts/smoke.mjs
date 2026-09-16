@@ -26,6 +26,8 @@ const routes = [
   { path: "/", cls: "Root redirect", expect: [307, 308] },
   { path: "/en", cls: "Home", expect: [200] },
   { path: "/ar", cls: "Home", expect: [200] },
+  { path: "/en/about", cls: "About", expect: [200] },
+  { path: "/ar/about", cls: "About", expect: [200] },
   { path: "/en/tours", cls: "Catalog", expect: [200] },
   { path: "/ar/tours", cls: "Catalog", expect: [200] },
   ...slugs.flatMap((s) => [
