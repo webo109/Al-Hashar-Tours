@@ -97,7 +97,7 @@ export function AdminPreview() {
           <LogoMark className="h-9 w-9" />
           <div className="leading-tight">
             <div className="font-latin text-[13px] font-semibold uppercase tracking-[0.18em]">Al-Hashar</div>
-            <div className="text-[11px] text-cream/55">Operations preview</div>
+            <div className="text-[11px] text-cream/55">Admin</div>
           </div>
         </div>
         <nav className="flex gap-1 lg:mt-8 lg:flex-col" aria-label="Dashboard">
