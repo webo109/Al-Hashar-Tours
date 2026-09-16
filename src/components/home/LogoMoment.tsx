@@ -1,129 +1,64 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LogoMark } from "@/components/brand/Logo";
 import { buttonClass, CtaArrow } from "@/components/ui/Button";
-import { contours } from "./contours";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function LogoMoment() {
   const t = useTranslations("LogoMoment");
   const stories = useTranslations("Stories");
   const locale = useLocale();
-  const root = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Controlled entrance scrubbed by the scroll, then a hold before the footer.
-        gsap
-          .timeline({
-            scrollTrigger: { trigger: root.current, start: "top 70%", end: "top 5%", scrub: 0.6 },
-          })
-          .from("[data-backdrop]", { opacity: 0, scale: 1.08, duration: 1.2 }, 0)
-          .from("[data-contours]", { opacity: 0, scale: 0.94, duration: 1 }, 0.08)
-          .from("[data-era]", { opacity: 0, y: 42, duration: 1 }, 0.1)
-          .from("[data-mark]", { opacity: 0, scale: 0.82, y: 28, duration: 1 }, 0.24)
-          .from("[data-line]", { opacity: 0, y: 18, duration: 0.65, stagger: 0.14 }, 0.58);
-      });
-    },
-    { scope: root },
-  );
 
   return (
-    <section ref={root} id="brand" className="relative isolate overflow-hidden bg-surface">
-      <div data-backdrop className="absolute inset-0" aria-hidden>
-        <Image
-          src="/images/dest-wahiba-dunes.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          // Dunes rather than the fort that was here: the fort's windows,
-          // crenellations and palms put fine detail behind the mark and the
-          // headline, and a backdrop washed to a fifth of its strength cannot
-          // afford any. Sand gives long smooth curves and an open sky, which is
-          // what the middle of this frame needs.
-          className="object-cover object-[50%_46%] opacity-80 saturate-[0.9] contrast-[1.08]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(var(--surface-rgb)/0.82)_0%,rgb(var(--surface-rgb)/0.42)_50%,rgb(var(--surface-rgb)/0.7)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--surface-rgb)/0.58)_0%,transparent_36%,rgb(var(--surface-rgb)/0.9)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_42%_48%_at_50%_48%,rgb(var(--surface-rgb)/0.94)_0%,rgb(var(--surface-rgb)/0.72)_48%,transparent_76%)]" />
-      </div>
-
-      <div className="relative flex min-h-[100dvh] items-center justify-center px-6 py-32 md:min-h-[920px]">
-        <svg
-          data-contours
-          className="pointer-events-none absolute inset-0 h-full w-full text-fg"
-          viewBox="0 0 1600 860"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden
-        >
-          {contours.map((d, i) => (
-            <path key={i} d={d} fill="none" stroke="currentColor" strokeWidth="1.15" opacity={0.1 - i * 0.008} />
-          ))}
-        </svg>
-
-        <div
-          data-era
-          className="pointer-events-none absolute inset-x-0 top-[13%] flex justify-center overflow-hidden opacity-[0.09]"
-          aria-hidden
-        >
-          <span className="font-latin text-[clamp(9rem,24vw,22rem)] font-semibold leading-none tracking-[-0.09em] text-fg">
-            1984
+    <section id="brand" className="relative isolate scroll-mt-24 overflow-hidden bg-cream px-5 py-16 text-ink md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="grid grid-cols-[1fr_auto] items-end gap-5 border-b border-ink/20 pb-4 md:pb-5">
+          <span className="font-latin text-[10px] font-medium uppercase tracking-[0.2em] md:text-[11px] md:tracking-[0.22em]">
+            Al-Hashar · Muscat, Oman
+          </span>
+          <span className="max-w-[12ch] text-end text-[11px] leading-tight text-ink/60 md:max-w-none md:text-[12px]">
+            {t("since")}
           </span>
         </div>
-
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[24%] bg-[linear-gradient(180deg,transparent,var(--color-surface)_82%)]" aria-hidden />
-        <svg
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[22%] w-full text-surface-3"
-          viewBox="0 0 1600 220"
-          preserveAspectRatio="none"
-          aria-hidden
-        >
-          <path
-            d="M0 185L0 142L110 131L190 145L300 111L405 129L520 93L615 118L735 77L820 98L940 57L1040 93L1165 50L1270 82L1395 42L1490 69L1600 52L1600 220L0 220Z"
-            fill="currentColor"
-          />
-        </svg>
-
-        <p className="absolute bottom-16 left-8 hidden font-latin text-[11px] font-medium uppercase tracking-[0.34em] text-fg/70 lg:block">
-          Muscat · Sultanate of Oman
-        </p>
-
-        <div className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
-          <div data-mark>
-            <LogoMark className="h-48 w-48 drop-shadow-[0_16px_32px_rgba(0,0,0,0.42)] md:h-72 md:w-72" />
-          </div>
-          <p
-            data-line
-            className={`mt-5 max-w-4xl text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.04em] text-fg drop-shadow-[0_2px_12px_rgb(var(--surface-rgb)/0.9)] sm:text-5xl md:mt-2 md:text-7xl ${
-              locale === "ar" ? "font-arabic" : "font-latin"
-            }`}
-          >
-            {t("tagline")}
-          </p>
-          <p
-            data-line
-            className={`mt-5 text-xl font-medium text-fg/75 md:text-2xl ${locale === "ar" ? "font-latin" : "font-arabic"}`}
-            lang={locale === "ar" ? "en" : "ar"}
-            dir={locale === "ar" ? "ltr" : "rtl"}
-          >
-            {t("taglineSecondary")}
-          </p>
-          <div data-line className="mt-9">
-            <Link href="/tours" className={buttonClass("primary")}>
+        <div className="grid items-center gap-11 pt-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pt-16">
+          <div className="relative z-10">
+            <span className="mb-5 block h-1 w-10 bg-brand md:mb-6 md:w-12" aria-hidden />
+            <h2 className={`max-w-[10ch] text-[clamp(3.25rem,13.5vw,7.5rem)] font-semibold leading-[0.94] tracking-[-0.055em] lg:text-[clamp(3.5rem,8vw,7.5rem)] ${locale === "ar" ? "font-arabic leading-[1.2] tracking-normal" : "font-latin"}`}>
+              {t("tagline")}
+            </h2>
+            <p className={`mt-5 max-w-[28ch] text-lg leading-relaxed text-ink/65 md:mt-7 md:text-2xl ${locale === "ar" ? "font-latin" : "font-arabic"}`}
+              lang={locale === "ar" ? "en" : "ar"} dir={locale === "ar" ? "ltr" : "rtl"}>
+              {t("taglineSecondary")}
+            </p>
+            <Link href="/tours" className={buttonClass("primary", "mt-7 h-13 text-ink! md:mt-9 md:h-14")}>
               {stories("allTours")}
               <CtaArrow />
             </Link>
           </div>
+          <div className="relative mx-auto w-full max-w-[520px] pb-4 pt-4 sm:w-[92%] lg:w-full lg:rotate-3 lg:pb-8 lg:pt-5">
+            <div className="relative overflow-hidden rounded-t-[44%] border-[7px] border-white bg-sand shadow-[0_24px_55px_-32px_rgba(11,18,32,0.48)] md:border-[10px]">
+              <div className="relative aspect-[5/6] sm:aspect-[4/5]">
+                <Image src="/images/dest-wahiba-dunes.webp" alt={locale === "ar" ? "كثبان رمال الشرقية في عُمان" : "The sweeping dunes of Sharqiyah Sands, Oman"} fill sizes="(min-width: 1024px) 480px, 90vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/65 via-transparent to-transparent" aria-hidden />
+                <span className="absolute bottom-5 start-5 font-latin text-[10px] uppercase tracking-[0.24em] text-white md:bottom-6 md:start-6 md:text-[11px]">{locale === "ar" ? "من عُمان، بكل حب." : "Oman, with love."}</span>
+              </div>
+              <div className="flex items-center justify-between bg-white px-4 py-3 font-latin text-[9px] uppercase tracking-[0.17em] text-ink/65 md:px-5 md:py-4 md:text-[10px] md:tracking-[0.2em]">
+                <span>Al-Hashar · Oman</span>
+                <span>Est. 1984</span>
+              </div>
+            </div>
+            <div className="absolute -end-2 top-0 flex size-24 -rotate-12 flex-col items-center justify-center rounded-full border border-dashed border-ink/40 bg-cream p-3 text-center shadow-sm md:-end-5 md:size-32">
+              <LogoMark className="size-10 md:size-14" />
+              <span className="mt-1 font-latin text-[9px] font-semibold uppercase tracking-[0.18em] md:text-[10px] md:tracking-[0.2em]">Since 1984</span>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 flex items-center gap-4 md:mt-10" aria-hidden>
+          <span className="size-2 rounded-full bg-brand" />
+          <span className="h-px flex-1 bg-ink/20" />
+          <svg viewBox="0 0 24 24" className="size-6 text-brand" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m3 10 18-7-7 18-3-8-8-3Z M11 13 21 3" /></svg>
         </div>
       </div>
     </section>

@@ -181,7 +181,7 @@
 
   /* Pointer tilt and a warm glow that follows the cursor across photo cards */
   .tilt {
-    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform: none;
     transition: transform 0.35s var(--ease-out-quart);
     transform-style: preserve-3d;
   }
@@ -199,8 +199,13 @@
     );
     transition: opacity 0.3s;
   }
-  .tilt:hover .grade::before {
-    opacity: 1;
+  @media (hover: hover) and (pointer: fine) {
+    .tilt {
+      transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    }
+    .tilt:hover .grade::before {
+      opacity: 1;
+    }
   }
 
   /* Frosted glass over a photograph: dark and cream in both themes, because

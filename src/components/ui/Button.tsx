@@ -20,9 +20,9 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-brand text-panel-fg hover:bg-brand-600 [&_.cta-badge]:bg-cream [&_.cta-badge]:text-brand-600",
   secondary:
-    "border border-fg/25 bg-transparent text-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand-600 [&_.cta-badge]:text-cream",
+    "bg-brand text-ink hover:bg-brand-600 [&_.cta-badge]:bg-cream [&_.cta-badge]:text-brand-600",
   onCream:
-    "border border-panel-fg/20 bg-transparent text-panel-fg hover:border-brand hover:text-brand [&_.cta-badge]:bg-brand-600 [&_.cta-badge]:text-cream",
+    "bg-brand text-ink hover:bg-brand-600 [&_.cta-badge]:bg-cream [&_.cta-badge]:text-brand-600",
   ghost: "h-auto gap-2 px-0 text-brand-600 hover:text-brand [&_.cta-badge]:hidden",
 };
 

@@ -215,13 +215,15 @@ export function TourCatalog({ items }: { items: Item[] }) {
       {results.length === 0 ? (
         <p className="rounded-panel border border-fg/10 px-6 py-14 text-center text-fg/75">{t("empty")}</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {results.map(({ tour, content }, i) => (
-            <li key={tour.slug} className="flex">
-              {/* Only the top two cards are featured; every card shares one size. */}
-              <TourCard tour={tour} content={content} featured={i < 2 && tour.featured !== null} />
-            </li>
-          ))}
+        <ul className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-12">
+          {results.map(({ tour, content }, i) => {
+            const featured = i < 2 && tour.featured !== null;
+            return (
+              <li key={tour.slug} className={`flex ${featured ? "xl:col-span-6" : "xl:col-span-4"}`}>
+                <TourCard tour={tour} content={content} featured={featured} />
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

@@ -28,13 +28,13 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-fg/10 bg-surface text-fg">
-      <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] md:px-10 md:py-20">
-        <div>
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] md:gap-12 md:px-10 md:py-20">
+        <div className="col-span-2 border-b border-fg/10 pb-9 md:col-span-1 md:border-0 md:pb-0">
           <Logo size="footer" />
-          <p className="mt-6 max-w-[34ch] text-[15px] leading-relaxed text-fg/70">
+          <p className="mt-5 max-w-[34ch] text-[15px] leading-relaxed text-fg/70 md:mt-6">
             {t("established")}
           </p>
-          <ul className="mt-6 flex gap-2">
+          <ul className="mt-5 flex gap-2 md:mt-6">
             {company.socials.map((s) => {
               const Icon = socialIcon[s.key as keyof typeof socialIcon];
               return (
@@ -65,9 +65,9 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-[13px] font-medium text-fg/55">{t("explore")}</h2>
-          <ul className="mt-4 flex flex-col gap-2.5 text-[15px]">
+        <div className="min-w-0">
+          <h2 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-fg/50 md:text-[13px] md:normal-case md:tracking-normal">{t("explore")}</h2>
+          <ul className="mt-4 flex flex-col gap-3 text-[15px]">
             <li><Link className="hover:text-accent-text" href="/about">{nav("about")}</Link></li>
             <li><Link className="hover:text-accent-text" href="/tours">{nav("omanTours")}</Link></li>
             <li><Link className="hover:text-accent-text" href="/umrah">{nav("umrah")}</Link></li>
@@ -76,9 +76,9 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-[13px] font-medium text-fg/55">{t("services")}</h2>
-          <ul className="mt-4 flex flex-col gap-2.5 text-[15px]">
+        <div className="min-w-0">
+          <h2 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-fg/50 md:text-[13px] md:normal-case md:tracking-normal">{t("services")}</h2>
+          <ul className="mt-4 flex flex-col gap-3 text-[15px]">
             {serviceSlugs.map((slug) => (
               <li key={slug}>
                 <Link className="hover:text-accent-text" href={`/services/${slug}`}>
@@ -89,9 +89,9 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-[13px] font-medium text-fg/55">{t("company")}</h2>
-          <address className="mt-4 flex flex-col gap-2.5 text-[15px] not-italic text-fg/85">
+        <div className="col-span-2 border-t border-fg/10 pt-9 md:col-span-1 md:border-0 md:pt-0">
+          <h2 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-fg/50 md:text-[13px] md:normal-case md:tracking-normal">{t("company")}</h2>
+          <address className="mt-4 grid gap-3 text-[15px] not-italic text-fg/85 sm:grid-cols-2 md:flex md:flex-col md:gap-2.5">
             <span>
               {branches(company.headOffice.areaKey)}, {company.headOffice.postal}
             </span>
@@ -106,8 +106,8 @@ export function Footer() {
       </div>
 
       <div className="border-t border-fg/10">
-        <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-3 px-6 py-6 text-[13px] text-fg/55 md:flex-row md:items-center md:justify-between md:px-10">
-          <p>
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-2 gap-x-5 gap-y-3 px-5 py-6 text-[12px] leading-relaxed text-fg/55 md:flex md:items-center md:justify-between md:px-10 md:text-[13px]">
+          <p className="col-span-2">
             <span lang="en" dir="ltr" className="font-latin">
               {t("companyName")}
             </span>
@@ -116,7 +116,7 @@ export function Footer() {
           <a className="hover:text-accent-text" href="/videos/CREDITS.md">
             {t("videoCredits")}
           </a>
-          <a className="hover:text-accent-text" href="/images/CREDITS.md">
+          <a className="text-end hover:text-accent-text md:text-start" href="/images/CREDITS.md">
             {t("credits")}
           </a>
         </div>
