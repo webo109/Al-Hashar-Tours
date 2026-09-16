@@ -51,6 +51,7 @@ const routes = [
   { path: "/en/services/holidays?region=dubai", cls: "Holidays prefill", expect: [200] },
   { path: "/ar/services/holidays?region=georgia", cls: "Holidays prefill", expect: [200] },
   ...videoRoutes,
+  { path: "/robots.txt", cls: "SEO guard", expect: [200] },
   { path: "/en/does-not-exist", cls: "404 page", expect: [404] },
   { path: "/en/tours/not-a-tour", cls: "404 page", expect: [404] },
   { path: "/test-report", cls: "Internal (disabled)", expect: [404] },
@@ -64,18 +65,26 @@ for (const route of routes) {
   const started = performance.now();
   let status = 0;
   let location = null;
+  let xRobotsTag = null;
+  let robotsBlocked = true;
   try {
     const res = await fetch(base + route.path, { redirect: "manual" });
     status = res.status;
     location = res.headers.get("location");
-    await res.arrayBuffer();
+    xRobotsTag = res.headers.get("x-robots-tag");
+    if (route.path === "/robots.txt") {
+      robotsBlocked = (await res.text()).includes("Disallow: /");
+    } else {
+      await res.arrayBuffer();
+    }
   } catch (err) {
     status = -1;
     location = err.message;
   }
   const ms = Math.round(performance.now() - started);
-  const pass = route.expect.includes(status);
-  results.push({ path: route.path, cls: route.cls, status, ms, pass, location });
+  const indexingBlocked = xRobotsTag?.includes("noindex") ?? false;
+  const pass = route.expect.includes(status) && indexingBlocked && robotsBlocked;
+  results.push({ path: route.path, cls: route.cls, status, ms, pass, location, xRobotsTag, robotsBlocked });
   console.log(`${pass ? "ok  " : "FAIL"} ${status} ${String(ms).padStart(5)}ms ${route.path}`);
 }
 

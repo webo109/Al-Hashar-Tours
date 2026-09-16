@@ -45,6 +45,13 @@ export async function generateMetadata({
     ),
     title: t("title"),
     description: t("description"),
+    robots: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
+    },
     alternates: {
       canonical: `/${locale}`,
       languages: { en: "/en", ar: "/ar" },
